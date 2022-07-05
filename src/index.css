@@ -1,0 +1,28 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Pragmatica";
+    src: url(./fonts/Pragmatica-ExtraLight.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Nimbus";
+    src: url(./fonts/Nimbus-Sans-D-OT-Light_32752.ttf) format('truetype');
+}
+
+:root {
+    --font-family: "Nimbus";
+    --text-color: #103a3a
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}

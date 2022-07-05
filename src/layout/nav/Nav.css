@@ -1,0 +1,7 @@
+#nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(232, 223, 223);
+    height: 80px;
+}

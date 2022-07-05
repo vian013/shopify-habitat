@@ -1,0 +1,8 @@
+.menu-tab {
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+.menu-tab-wrapper {
+    padding: 0 15px;
+}

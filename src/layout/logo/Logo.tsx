@@ -1,8 +1,12 @@
-import React from 'react'
+import "./Logo.css"
 
-function Logo() {
+function Logo({link, url, alt}: {link: string, url: string, alt: string}) {
   return (
-    <div>Logo</div>
+    <div data-testid="test-logo" className='logo'>
+        <a href={link}>
+            <img src={url} alt={alt} className="logo-img"/>
+        </a>
+    </div>
   )
 }
 
