@@ -5,9 +5,11 @@ import "./NavIcons.css"
 function NavIcons({iconList} : {iconList: {svgContent: string, name: string}[]}) {
   return (
     <div data-testid="test-nav-icons">
+      <ul className='nav-icons-wrapper'>
         {iconList.map(icon => (
-            <NavIcon key={icon.name} svgContent={icon.svgContent} name={icon.name}/>
+            <NavIcon key={icon.name} {...icon}/>
         ))}
+      </ul>
     </div>
   )
 }
