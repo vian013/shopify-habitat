@@ -2,8 +2,26 @@ html, body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: var(--font-family);
 }
 
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
 @font-face {
     font-family: "Pragmatica";
     src: url(./fonts/Pragmatica-ExtraLight.ttf) format('truetype');
@@ -16,13 +34,8 @@ html, body {
 
 :root {
     --font-family: "Nimbus";
-    --text-color: #103a3a
+    --text-color: #103a3a;
+    --text-color--1: #fff;
+    --background-color--1: #103a3a;
 }
 
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}

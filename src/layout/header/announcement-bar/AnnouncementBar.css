@@ -1,0 +1,15 @@
+#announcement-bar {
+    display: flex;
+    background: var(--background-color--1);
+    color: var(--text-color--1);
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    position: relative;
+}
+
+#announcement-bar .announcement-title {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 10px;
+}

@@ -2,6 +2,11 @@ interface IState {
     openSearch: boolean
 }
 
-const reducer = (initialState: IState, action: {type: string, payload: any}) => {
+interface IAction <T>{
+    type: string,
+    payload: T
+}
+
+const reducer = (action: IAction<any>, initialState: IState) => {
 
 }

@@ -1,0 +1,1 @@
+export const announcementTitle = "free shipping on all orders over $40"
