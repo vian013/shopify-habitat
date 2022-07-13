@@ -1,24 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../../../App'
 import searchIcon from '../../icons/search-icon'
 import NavIcon from '../nav-icon/NavIcon'
 
-function Search() {
-  const {setState} = useContext(AppContext)
-
-  const handleClick = () => {
-    setState((prev: IState)=> {
-      return {
-        ...prev,
-        openSearch: !prev.openSearch
-      }
-    })
-  }
+function Search({toggleSearch}: {toggleSearch: ()=>void}) {
+  
   
   return (
-    <>
-      <NavIcon {...searchIcon} handleClick={handleClick}/>
-    </>
+    <li>
+      <NavIcon {...searchIcon} handleClick={toggleSearch}/>
+    </li>
   )
 }
 

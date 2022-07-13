@@ -1,17 +1,17 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useContext, useEffect, useMemo } from 'react'
 import { AppContext } from '../../../App'
 import currencies from '../../../settings-options/currencies'
 import GeneralSetting from './general-setting/GeneralSetting'
 
 function CurrencySetting() {
-  const {setState} = useContext(AppContext)
+  const {dispatch} = useContext(AppContext)
+  
+  
   
   const handleSetting = (val: string) => {
-    setState((prev: IState) => {
-      return {
-        ...prev,
-        currency: val
-      }
+    dispatch({
+      type: "SET_CURRENCY",
+      payload: val
     })
   }
   

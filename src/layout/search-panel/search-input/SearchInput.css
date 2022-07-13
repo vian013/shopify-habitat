@@ -1,0 +1,25 @@
+.search-form {
+    height: 93px;
+    border: solid var(--border-color--1);
+    border-width: 0.5px 0 0.5px 0;
+    padding: 25px 43px;
+    position: relative;
+}
+
+.search-input {
+    border: none;
+    width: 100%;
+    font-size: 34px;
+    color: var(--text-color);
+}
+
+.search-input::placeholder {
+    color: rgba(16, 58, 58, .3);
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    font-family: var(--font-family);
+}
+
+.search-input:focus {
+    outline: none;
+}

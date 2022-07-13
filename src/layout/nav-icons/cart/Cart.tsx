@@ -4,9 +4,9 @@ import NavIcon from '../nav-icon/NavIcon'
 
 function Cart() {
   return (
-    <>
+    <li>
         <NavIcon {...cartIcon} handleClick={()=>{}}/>
-    </>
+    </li>
   )
 }
 

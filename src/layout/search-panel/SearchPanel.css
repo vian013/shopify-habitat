@@ -1,0 +1,12 @@
+#search-panel {
+    position: relative;
+    transition: top .5s;
+}
+
+#search-panel.open {
+    top: 0;
+}
+
+#search-panel.close {
+    top: -93px;
+}

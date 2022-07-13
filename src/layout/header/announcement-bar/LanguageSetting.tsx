@@ -1,17 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../../../App'
 import languages from '../../../settings-options/languages'
 import GeneralSetting from './general-setting/GeneralSetting'
 
 function LanguageSetting() {
-  const {setState} = useContext(AppContext)
-  
+  const {dispatch} = useContext(AppContext)
+ 
+
   const handleSetting = (val: string) => {
-    setState((prev: IState) => {
-      return {
-        ...prev,
-        language: val
-      }
+    dispatch({
+      type: "SET_LANGUAGE",
+      payload: val
     })
   }
     

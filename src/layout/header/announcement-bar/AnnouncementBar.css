@@ -6,6 +6,7 @@
     justify-content: center;
     height: 30px;
     position: relative;
+    z-index: 1;
 }
 
 #announcement-bar .announcement-title {

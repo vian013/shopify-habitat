@@ -3,7 +3,7 @@ import Nav from "../Nav"
 
 describe("nav tests", () => {
     test("renders nav", () => {
-        render(<Nav/>)
+        render(<Nav toggleSearch={()=>{}}/>)
         const nav = screen.getByTestId("test-nav")
         expect(nav).toBeInTheDocument()
     })

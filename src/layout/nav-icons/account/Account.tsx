@@ -4,9 +4,9 @@ import NavIcon from '../nav-icon/NavIcon'
 
 function Account() {
   return (
-    <>
+    <li>
         <NavIcon {...accountIcon} handleClick={()=>{}}/>
-    </>
+    </li>
   )
 }
 

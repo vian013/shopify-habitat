@@ -3,9 +3,14 @@ import Header from "./layout/header/Header";
 import currencies from "./settings-options/currencies";
 import languages from "./settings-options/languages";
 
+interface IAction {
+  type: string, 
+  payload: any
+}
+
 interface IValues {
   state: IState,
-  setState: React.Dispatch<any>
+  dispatch: ({}: IAction) => void
 }
 
 interface IState {
@@ -23,22 +28,50 @@ const initState: IState = {
 
 const initValues: IValues = {
   state: initState,
-  setState: ()=>{}
+  dispatch: ()=>{}
 }
 
 export const AppContext = createContext(initValues)
 const AppProvider = AppContext.Provider
 
-
 function App() {
   const [state, setState] = useState(initState)
 
-  useEffect(()=>{
-    console.log(state);
-  }, [state])
+  const reducer = ({type, payload}: IAction) => {
+    switch (type) {
+      case "TOGGLE_SEARCH":
+        setState((prev: IState)=> {
+          return {
+            ...prev,
+            openSearch: !prev.openSearch
+          }
+        })
+        break;
+      case "SET_LANGUAGE":
+        setState((prev: IState) => {
+          return {
+            ...prev,
+            language: payload
+          }
+        })
+      case "SET_CURRENCY":
+        setState((prev: IState) => {
+          return {
+            ...prev,
+            currency: payload
+          }
+        })
+      default:
+        return state
+    }
+  }
+
+  const dispatch = (action: IAction) => {
+    reducer(action)
+  }
 
   return (
-    <AppProvider value={{state, setState}}>
+    <AppProvider value={{state, dispatch}}>
       <div className="App">
         <Header />
       </div>
