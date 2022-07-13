@@ -11,15 +11,13 @@ function GeneralSetting({options, handleSetting, languageWidth}: {options: strin
   }
   
   return (
-    <>
-      <li className='general-setting-wrapper'>
-        <select className={`general-setting ${languageWidth&&".general-setting--language"}`} defaultValue={value} onChange={handleChange}>
-            {options.map((option, index) => (
-                <option key={index} value={option}>{option}</option>
-            ))}
-        </select>
-      </li>
-    </>
+    <li className='general-setting-wrapper'>
+      <select className={`general-setting ${languageWidth&&".general-setting--language"}`} defaultValue={value} onChange={handleChange}>
+          {options.map((option, index) => (
+              <option key={index} value={option}>{option}</option>
+          ))}
+      </select>
+    </li>
   )
 }
 

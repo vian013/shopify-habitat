@@ -3,7 +3,7 @@ import NavIcons from "../NavIcons"
 
 describe("nav icons tests", () => {
     test("renders nav icons", () => {
-        render(<NavIcons toggleSearch={()=>{}}/>) 
+        render(<NavIcons toggleSearch={()=>{}} openCart={()=>{}}/>) 
         const navIcons = screen.getByTestId("test-nav-icons")
         expect(navIcons).toBeInTheDocument()
     })

@@ -5,13 +5,13 @@ import NavIcon from './nav-icon/NavIcon'
 import "./NavIcons.css"
 import Search from './search/Search'
 
-function NavIcons({toggleSearch} : {toggleSearch: ()=>void}) {
+function NavIcons({toggleSearch, openCart} : {toggleSearch: ()=>void, openCart: ()=>void}) {
   return (
     <div data-testid="test-nav-icons">
       <ul className='nav-icons-wrapper'>
         <Search toggleSearch={toggleSearch}/>
         <Account />
-        <Cart />
+        <Cart openCart={openCart}/>
       </ul>
     </div>
   )

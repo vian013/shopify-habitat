@@ -1,0 +1,31 @@
+.popular-search {
+    padding: 20px 43px 30px;
+    border-bottom: 1px solid var(--border-color--1);
+}
+
+.popular-search .title {
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 11px;
+}
+
+.tags-container {
+    display: flex;
+}
+
+.tag-wrapper {
+    border: 1px solid;
+    padding: 5px 20px;
+    border-radius: 35px;
+    font-size: 14px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background .5s;
+}
+
+.tag-wrapper:hover {
+    color: var(--text-color--1);
+    background: var(--background-color--1);
+}

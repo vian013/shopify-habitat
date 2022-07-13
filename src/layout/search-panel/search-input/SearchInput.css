@@ -1,7 +1,6 @@
 .search-form {
     height: 93px;
-    border: solid var(--border-color--1);
-    border-width: 0.5px 0 0.5px 0;
+    border-bottom: 1px solid var(--border-color--1);
     padding: 25px 43px;
     position: relative;
 }

@@ -1,0 +1,8 @@
+.search-tag {
+    color: var(--text-color);
+}
+
+
+.tag-wrapper:hover .search-tag{
+    color: var(--text-color--1);
+}
