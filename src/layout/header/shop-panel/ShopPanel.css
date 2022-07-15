@@ -1,0 +1,42 @@
+.shop-panel {
+    position: absolute;
+    transition: all .5s;
+    width: 100%;
+    padding: 65px;
+    background: var(--color-white);
+}
+
+.shop-list-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.shop-panel .list-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color--1);
+    padding-bottom: 15px;
+}
+
+.shop-panel .list-column {
+    width: 295px;
+    margin-right: 30px;
+}
+
+.shop-panel .list-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.shop-panel .link-wrapper {
+    padding-top: 16px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.shop-panel .link-wrapper:hover, .shop-panel .list-title:hover {
+    color: var(--color-text-hover);
+} 

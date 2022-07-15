@@ -2,42 +2,7 @@ import Logo from '../logo/Logo'
 import Menu from '../menu/Menu'
 import NavIcons from '../nav-icons/NavIcons'
 import './Nav.css'
-import searchIcon from "../icons/search-icon"
-import cartIcon from '../icons/cart-icon'
-import accountIcon from '../icons/account-icon'
-
-const tabList: {link: string, title: string}[] = [
-    {
-        link: "",
-        title: "Home"
-    },
-    {
-        link: "",
-        title: "Shop"
-    },
-    {
-        link: "",
-        title: "Blog"
-    },
-    {
-        link: "",
-        title: "About"
-    },
-    {
-        link: "",
-        title: "Contact"
-    },
-    {
-        link: "",
-        title: "FAQ"
-    }
-]
-
-const iconList: {svgContent: string, name: string}[] = [
-    searchIcon,
-    accountIcon,
-    cartIcon
-]
+import tabList from '../../messages/tab-list'
 
 function Nav({toggleSearch, openCart}: {toggleSearch: ()=>void, openCart: ()=>void}) {
   return (

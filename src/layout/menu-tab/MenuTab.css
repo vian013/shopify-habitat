@@ -4,5 +4,33 @@
 }
 
 .menu-tab-wrapper {
-    padding: 0 15px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.menu-tab-wrapper.shop-tab {
+    position: relative;
+    padding-right: 20px;
+}
+
+.menu-tab-wrapper.shop-tab::after {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid var(--background-color--1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+.menu-tab-wrapper.shop-tab::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 5px;
 }

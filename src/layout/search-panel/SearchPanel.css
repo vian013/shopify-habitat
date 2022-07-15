@@ -1,4 +1,6 @@
 #search-panel {
-    position: relative;
+    position: absolute;
+    width: 100%;
     transition: top .5s;
+    background: var(--color-white);
 }

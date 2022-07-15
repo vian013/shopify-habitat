@@ -37,6 +37,11 @@ a {
     src: url(./fonts/Nimbus-Sans-D-OT-Light_32752.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: "ITC NB";
+    src: url(./fonts/ITC\ New\ Baskerville.ttf) format('truetype');
+}
+
 /* color */
 :root {
     --font-family: "Nimbus";
@@ -45,6 +50,8 @@ a {
     --text-color: #103a3a;
     --text-color--1: #ffffff;
     --background-color--1: #103a3a;
+    --background-color--2: #c25b41;
     --border-color--1: #eeeeee;
+    --color-text-hover: #c25b41;
 }
 

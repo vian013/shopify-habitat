@@ -1,27 +1,39 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { createContext, useEffect, useRef, useState } from 'react'
 import Nav from '../nav/Nav'
 import SearchPanel from '../search-panel/SearchPanel'
 import AnnouncementBar from './announcement-bar/AnnouncementBar'
 import { announcementTitle } from './announcement-bar/announment'
 import "./Header.css"
 import MiniCart from './minicart/MiniCart'
+import ShopPanel from './shop-panel/ShopPanel'
+
+type Shop = {
+  isShopOpen: boolean,
+  openShopPanel: ()=>void,
+  closeShopPanel: ()=>void,
+}
+export const shopContext = createContext<Shop|undefined>(undefined)
+const ShopProvider = shopContext.Provider
 
 function Header() {
   const [openSearch, setOpenSearch] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isShopOpen, setIsShopOpen] = useState(false)
   const panelRef1 = useRef<HTMLDivElement>(null)
+  const shopRef = useRef<HTMLDivElement>(null)
+  const cartRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     openSearch ? doOpenSearch() : doCloseSearch()
 
     return () => {
-      console.log("clear");
     }
   }, [openSearch])
 
   useEffect(() => {
-    console.log("cart");
-  }, [isCartOpen])
+    isShopOpen ? doOpenShopPanel() : doCloseShopPanel()
+    
+  }, [isShopOpen])
 
   const toggleSearch = () => {
     setOpenSearch(prev => !prev)
@@ -31,6 +43,7 @@ function Header() {
     const panel = panelRef1.current 
     if (panel) {
       panel.style.top = `0px`
+      panel.style.zIndex = "11"
     }
   }
 
@@ -38,8 +51,8 @@ function Header() {
     const panel = panelRef1.current 
     if (panel) {
       const panelHeight = panel.clientHeight + 3
-      
       panel.style.top = `-${panelHeight}px`
+      panel.style.zIndex = "10"
     }
   }
 
@@ -55,15 +68,43 @@ function Header() {
     setIsCartOpen(false)
   }
 
+  const openShopPanel = () => {
+    setIsShopOpen(true)
+  }
+
+  const closeShopPanel = () => {
+    setIsShopOpen(false)
+  }
+
+  const doOpenShopPanel = () => {
+    const shopPanel = shopRef.current
+    if (shopPanel) {
+      shopPanel.style.top = `0px`
+      shopPanel.style.zIndex = "11"
+    }
+    
+  }
+
+  const doCloseShopPanel = () => {
+    const shopPanel = shopRef.current 
+    if (shopPanel) {
+      const panelHeight = shopPanel.clientHeight + 3
+      shopPanel.style.top = `-${panelHeight}px`
+      shopPanel.style.zIndex = "10"
+    }
+  }
+
   return (
     <header id='header'>
-      <AnnouncementBar title={announcementTitle}/>
-      <Nav toggleSearch={toggleSearch} openCart={openCart}/>
-      <SearchPanel ref={panelRef1} openSearch={openSearch} closeSearch={closeSearch}/>
-      <MiniCart isCartOpen={isCartOpen} closeCart={closeCart}/>
+      <ShopProvider value={{isShopOpen, openShopPanel, closeShopPanel}}>
+        <AnnouncementBar title={announcementTitle}/>
+        <Nav toggleSearch={toggleSearch} openCart={openCart} />
+        <SearchPanel ref={panelRef1} closeSearch={closeSearch}/>
+        <ShopPanel ref={shopRef}/>
+        <MiniCart ref={cartRef} isCartOpen={isCartOpen} closeCart={closeCart}/>
+      </ShopProvider>
     </header>
   )
 }
 
-export default React.memo(Header)
-// export default Header
+export default Header

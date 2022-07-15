@@ -5,16 +5,17 @@ import SearchInput from './search-input/SearchInput'
 import "./SearchPanel.css"
 
 interface IProps {
-  openSearch: boolean, 
   closeSearch: () => void
 }
 
-const SearchPanel = forwardRef<HTMLDivElement, IProps>(({openSearch, closeSearch}, ref) => {
+const SearchPanel = forwardRef<HTMLDivElement, IProps>(({closeSearch}, ref) => {
   
   return (
-    <div id='search-panel' ref={ref}>
-      <SearchInput placeholder={placeholders.search} handleClose={closeSearch}/>
-      <PopularSearches />
+    <div style={{position: "relative"}}>
+      <div id='search-panel' ref={ref}>
+        <SearchInput placeholder={placeholders.search} handleClose={closeSearch}/>
+        <PopularSearches />
+      </div>
     </div>
   )
 })
