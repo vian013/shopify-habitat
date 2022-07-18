@@ -1,8 +1,10 @@
 import { useState, createContext, useEffect} from "react";
-import Slider from "./layout/components/slide-show/SlideShow";
+import Products from "./pages/products/Products";
 import Header from "./layout/header/Header";
 import currencies from "./settings-options/currencies";
 import languages from "./settings-options/languages";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
+import Home from "./pages/home/Home";
 
 interface IAction {
   type: string, 
@@ -93,13 +95,22 @@ function App() {
   }
 
   return (
-    <AppProvider value={{state, dispatch}}>
-      <div className="App">
-        <Header />
-        <Slider />
-        <div className={`blurred-bg ${state.isBackgroundBlurred?"open":""}`}></div>
-      </div>
-    </AppProvider>
+    <Router>
+      <AppProvider value={{state, dispatch}}>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route path={"/"} exact>
+              <Home />
+            </Route>
+            <Route path={"/products"}>
+              <Products />
+            </Route>
+          </Switch>
+          <div className={`blurred-bg ${state.isBackgroundBlurred?"open":""}`}></div>
+        </div>
+      </AppProvider>
+    </Router>
   );
 }
 

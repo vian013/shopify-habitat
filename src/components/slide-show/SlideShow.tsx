@@ -4,6 +4,7 @@ import "swiper/css"
 import "swiper/css/pagination"
 import Slide from './slide/Slide'
 import { Pagination } from 'swiper'
+import "./SlideShow.css"
 
 function SlideShow() {
     
