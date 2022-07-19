@@ -4,7 +4,7 @@ export default [
         title: "Home"
     },
     {
-        link: "",
+        link: "/products",
         title: "Shop"
     },
     {

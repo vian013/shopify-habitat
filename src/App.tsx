@@ -1,10 +1,9 @@
 import { useState, createContext, useEffect} from "react";
-import Products from "./pages/products/Products";
 import Header from "./layout/header/Header";
 import currencies from "./settings-options/currencies";
 import languages from "./settings-options/languages";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
-import Home from "./pages/home/Home";
+import Routes from "./routes/Routes";
 
 interface IAction {
   type: string, 
@@ -43,7 +42,6 @@ function App() {
   const [state, setState] = useState(initState)
 
   useEffect(()=> {
-    console.log(state);
   }, [state])
 
   const reducer = ({type, payload}: IAction) => {
@@ -99,14 +97,7 @@ function App() {
       <AppProvider value={{state, dispatch}}>
         <div className="App">
           <Header />
-          <Switch>
-            <Route path={"/"} exact>
-              <Home />
-            </Route>
-            <Route path={"/products"}>
-              <Products />
-            </Route>
-          </Switch>
+          <Routes />
           <div className={`blurred-bg ${state.isBackgroundBlurred?"open":""}`}></div>
         </div>
       </AppProvider>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Product from '../../components/product/Product'
 import {ProductType} from "../../type/product"
+import "./Products.css"
 
 function Products() {
     const [products, setProducts] = useState<ProductType[]>([])
@@ -20,7 +21,7 @@ function Products() {
     }, [])
     
     useEffect(() => {
-        console.log("products:", products);
+        // console.log("products:", products);
         
     }, [products])
 

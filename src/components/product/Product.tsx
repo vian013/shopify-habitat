@@ -1,21 +1,33 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {ProductType} from "../../type/product"
+import styles from "./Product.module.css"
 
 function Product({product} : {product: ProductType}) {
     const {
-        description,
         featuredImage,
         handle,
         title,
-        variants
+        variants,
+        vendor
     } = product
     
   return (
-    <div className='product-wrapper'>
-        <div className="img-wrapper">
-            <img src={featuredImage} alt={handle} />
+    <div className={styles['product-wrapper']}>
+        <div className={styles["img-wrapper"]}>
+            <Link to={`/products/${handle}`}>
+              <img src={featuredImage} alt={handle} />
+            </Link>
         </div>
-        <p>{title}</p>
+        <div className={styles["content-wrapper"]}>
+          <p className={styles['vendor']}>{vendor}</p>
+          <Link className={styles['title']} to={`/products/${handle}`}>
+            {title}
+          </Link>
+          <p className={styles['price']}>${variants[0].price}.00</p>
+          <div className={styles["colors"]}></div>
+          <div className={styles["review"]}></div>
+        </div>
 
     </div>
   )

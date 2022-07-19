@@ -4,12 +4,14 @@ type ProductType = {
     handle: string,
     id: string,
     title: string,
-    variants: Variant[]
+    variants: Variant[],
+    vendor: string
 }
 
 type Variant = {
     id: string,
     title: string,
+    price: number
 }
 
 export {ProductType, Variant}
