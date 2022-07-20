@@ -6,7 +6,7 @@ function Product() {
   const [product, setProduct] = useState<ProductType|null>(null)
   const params = useParams<{handle: string}>()
   const productHandle = params.handle
-  
+
   useEffect(()=> {
     const fetchData = async () => {
         const res = await fetch(`http://localhost:4000/products/${productHandle}`)
