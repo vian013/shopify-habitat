@@ -1,5 +1,6 @@
 import React from 'react'
 import {Switch, Route} from "react-router-dom"
+import BlogPosts from '../layout/blog-posts/BlogPosts'
 import Account from '../pages/account/Account'
 import CreateAccount from '../pages/create-account/CreateAccount'
 import Home from '../pages/home/Home'
@@ -28,6 +29,9 @@ function Routes() {
             </Route>
             <Route path={"/create-account"}>
                 <CreateAccount />
+            </Route>
+            <Route path={"/blog-posts"}>
+                <BlogPosts />
             </Route>
             <Route path={"*"}>
                 <NotFound />

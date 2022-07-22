@@ -8,7 +8,7 @@ export default [
         title: "Shop"
     },
     {
-        link: "",
+        link: "/blog-posts",
         title: "Blog"
     },
     {

@@ -1,0 +1,22 @@
+.item-post-wrapper{
+    width: calc(100%/3)
+}
+
+.item-post-wrapper img {
+    width: 100%;
+}
+
+.image-wrapper-1 {
+    border-radius: 50% 0 0 50%;
+    overflow: hidden;
+}
+
+.image-wrapper-2 {
+    border-radius: 50% 0;
+    overflow: hidden;
+}
+
+.image-wrapper-3 {
+    border-radius: 50% 50% 0 0;
+    overflow: hidden;
+}

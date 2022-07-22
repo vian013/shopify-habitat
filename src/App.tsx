@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { useState, createContext, useEffect} from "react";
-import BlogPosts from "./layout/blog-posts/BlogPosts";
-import Slider from "./layout/components/slide-show/SlideShow";
-=======
+
 import { useState, createContext, useEffect, useReducer} from "react";
->>>>>>> 3d8ab3ee6d9425a53deae7f55e65c79e4dacc04f
 import Header from "./layout/header/Header";
 import currencies from "./settings-options/currencies";
 import languages from "./settings-options/languages";
