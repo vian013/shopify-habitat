@@ -1,0 +1,15 @@
+.header-wrapper {
+    display: block;
+    position: absolute;
+    
+    display: flex;
+}
+
+.header-wrapper > li{
+    margin: 2px
+}
+
+.title-wrapper{
+
+}
+

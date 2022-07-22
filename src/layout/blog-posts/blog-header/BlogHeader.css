@@ -1,0 +1,49 @@
+.blog-header-inner {
+  padding: 50px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #eeeeee;
+  border-top: 1px solid #eeeeee;
+  text-align: center;
+}
+
+.blog-header-inner > h1 {
+  display: block;
+  margin-bottom: 0;
+  line-height: 1;
+  font-style: normal;
+  font-weight: 700;
+  font-family: "ITC New Baskerville";
+  color: #103a3a;
+}
+
+.blog-header-date {
+  display: block;
+  margin: 10px 0 0;
+  opacity: 0.6;
+  font-weight: 400;
+  font-family: "ITC New Baskerville";
+}
+
+.blog-header-tag{
+    display: block;
+    margin-bottom: 40px;
+    font-size: 24px;
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-family: "Swiss 721";
+}
+
+.blog-header-tag select{
+   
+    border: 0;
+    font-size: inherit;
+    line-height: inherit;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    color: #c25b41;
+    font-weight: 500;
+    height: auto;
+    width: auto;
+}

@@ -1,4 +1,5 @@
 import { useState, createContext, useEffect} from "react";
+import BlogPosts from "./layout/blog-posts/BlogPosts";
 import Slider from "./layout/components/slide-show/SlideShow";
 import Header from "./layout/header/Header";
 import currencies from "./settings-options/currencies";
@@ -95,9 +96,10 @@ function App() {
   return (
     <AppProvider value={{state, dispatch}}>
       <div className="App">
-        <Header />
+        {/* <Header />
         <Slider />
-        <div className={`blurred-bg ${state.isBackgroundBlurred?"open":""}`}></div>
+        <div className={`blurred-bg ${state.isBackgroundBlurred?"open":""}`}></div> */}
+        <BlogPosts />
       </div>
     </AppProvider>
   );
