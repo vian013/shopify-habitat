@@ -1,12 +1,13 @@
 import React, { forwardRef, useContext } from 'react'
 import { AppContext } from '../../../App'
+import { AppActions } from '../../../store/actions'
 import "./MiniCart.css"
 
 const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: () => void }>(({ isCartOpen, closeCart }, ref) => {
-  const {dispatch} = useContext(AppContext)
+  const {dispatch} = useContext(AppContext)!
 
   const handleCloseCart = () => {
-    dispatch({type: "SET_UNBLURRED"})
+    dispatch({type: AppActions.SET_UNBLURRED})
     closeCart()
   }
   

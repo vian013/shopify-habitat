@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useMemo } from 'react'
 import { AppContext } from '../../../App'
 import currencies from '../../../settings-options/currencies'
+import { AppActions } from '../../../store/actions'
 import GeneralSetting from './general-setting/GeneralSetting'
 
 function CurrencySetting() {
-  const {dispatch} = useContext(AppContext)
-  
-  
+  const {dispatch} = useContext(AppContext)!
   
   const handleSetting = (val: string) => {
     dispatch({
-      type: "SET_CURRENCY",
+      type: AppActions.SET_CURRENCY,
       payload: val
     })
   }

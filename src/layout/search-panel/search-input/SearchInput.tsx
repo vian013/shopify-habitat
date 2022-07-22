@@ -7,7 +7,6 @@ function SearchInput({placeholder, handleClose}: {placeholder: string, handleClo
 
   useEffect(() => {
     const handleSearch = () => {
-        console.log("search");
     }
 
     handleSearch()

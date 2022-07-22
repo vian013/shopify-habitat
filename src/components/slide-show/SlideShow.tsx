@@ -4,6 +4,7 @@ import "swiper/css"
 import "swiper/css/pagination"
 import Slide from './slide/Slide'
 import { Pagination } from 'swiper'
+import "./SlideShow.css"
 
 function SlideShow() {
     
@@ -14,8 +15,9 @@ function SlideShow() {
           pagination={{clickable: true}}
           spaceBetween={50}
           slidesPerView={1}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}>
+          // onSlideChange={() => console.log('slide change')}
+          // onSwiper={(swiper) => console.log(swiper)}
+          >
           <SwiperSlide>
             <Slide 
               imgSrc='https://cdn.shopify.com/s/files/1/0605/2616/6208/files/slide-01_2560x867_crop_center.webp?v=1652267956'

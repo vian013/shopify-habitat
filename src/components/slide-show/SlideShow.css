@@ -1,0 +1,10 @@
+.slider .swiper-pagination-bullet {
+    background: transparent;
+    height: 12px;
+    width: 12px;
+    border: 2px solid var(--color-white);
+}
+
+.slider .swiper-pagination-bullet-active {
+    background: var(--color-white);
+}

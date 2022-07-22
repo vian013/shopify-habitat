@@ -8,12 +8,24 @@
     cursor: pointer;
 }
 
+.menu-tab {
+    padding: 10px 0;
+}
+
+.menu-tab-wrapper:hover .menu-tab {
+    color: var(--color-text-hover);
+}
+
+.menu-tab-wrapper.shop-tab .menu-tab:hover::after {
+    border-top-color: var(--background-color--2);
+}
+
 .menu-tab-wrapper.shop-tab {
     position: relative;
     padding-right: 20px;
 }
 
-.menu-tab-wrapper.shop-tab::after {
+.menu-tab-wrapper.shop-tab .menu-tab::after {
     content: "";
     width: 0;
     height: 0;
@@ -27,7 +39,7 @@
     right: 0;
 }
 
-.menu-tab-wrapper.shop-tab::before {
+.menu-tab-wrapper.shop-tab .menu-tab::before {
     content: "";
     width: 50px;
     height: 50px;
