@@ -1,7 +1,7 @@
 import React, { FormEvent, useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { AppContext } from '../../App'
-import { AppActions } from '../../store/actions'
+import { AppActions } from '../../store/actions/actions'
 import style from "./CreateAccount.module.css"
 
 function CreateAccount() {

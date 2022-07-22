@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext } from 'react'
 import { AppContext } from '../../../App'
-import { AppActions } from '../../../store/actions'
+import { AppActions } from '../../../store/actions/actions'
 import "./MiniCart.css"
 
 const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: () => void }>(({ isCartOpen, closeCart }, ref) => {

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../../App'
-import { AppActions } from '../../../store/actions'
+import { AppActions } from '../../../store/actions/actions'
 import cartIcon from '../../icons/cart-icon'
 import NavIcon from '../nav-icon/NavIcon'
 

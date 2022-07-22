@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../../../App'
 import languages from '../../../settings-options/languages'
-import { AppActions } from '../../../store/actions'
+import { AppActions } from '../../../store/actions/actions'
 import GeneralSetting from './general-setting/GeneralSetting'
 
 function LanguageSetting() {
