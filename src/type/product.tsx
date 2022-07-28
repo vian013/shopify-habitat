@@ -5,7 +5,21 @@ type ProductType = {
     id: string,
     title: string,
     variants: Variant[],
-    vendor: string
+    vendor: string,
+    images: Image[],
+    options: Option[]
+}
+
+type Option = {
+    id: string,
+    name: string,
+    values: string[]
+}
+
+
+type Image = {
+    id: string,
+    url: string
 }
 
 type Variant = {

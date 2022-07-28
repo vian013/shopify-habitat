@@ -1,0 +1,25 @@
+.product-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-top: 55px;
+}
+
+.product-container {
+    display: flex;
+}
+
+.detail-pictures {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.detail-pictures .img-wrapper {
+    width: 80px;
+    height: 95px;
+}
+
+.detail-pictures .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

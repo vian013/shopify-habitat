@@ -32,7 +32,7 @@ function Account() {
   },[])
 
   const handleLogout = () => {
-    fetch("http://localhost:4000/delete-sid", {
+    fetch("http://localhost:4000/logout", {
       method: "GET",
       credentials: "include"
     })
