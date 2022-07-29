@@ -1,0 +1,32 @@
+.size-panel {
+    display: flex;
+}
+
+.size-option {
+    margin-right: 5px;
+}
+
+.size-value {
+    text-transform: uppercase;
+}
+
+.input-label {
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
+    border: 1px solid var(--border-color--2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + .input-label {
+    background: var(--background-color--1);
+    color: var(--text-color--1);
+}

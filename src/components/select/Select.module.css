@@ -1,0 +1,13 @@
+.select {
+    margin-top: 25px;
+}
+
+.title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.current-value {
+    font-weight: 400;
+    text-transform: capitalize;
+}

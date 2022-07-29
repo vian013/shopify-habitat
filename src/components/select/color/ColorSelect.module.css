@@ -1,0 +1,38 @@
+.color-panel {
+    display: flex;
+}
+
+.color-option {
+    margin-right: 5px;
+}
+
+.input-label {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+input[type="radio"]:checked + .input-label {
+    outline: 1px solid var(--border-color--2);
+    outline-offset: 2px;
+    padding: 5px;
+}
+
+.input-label.white {
+    background: var(--color-white);
+    border: 1px solid var(--border-color--2);
+}
+
+.input-label.blue {
+    background: blue;
+}
+
+.input-label.red {
+    background: red;
+}
+
+.input-label.black {
+    background: black;
+}

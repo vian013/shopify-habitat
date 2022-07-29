@@ -1,15 +1,30 @@
-import React from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import Select from '../Select'
+import styles from "./ColorSelect.module.css"
 
 function ColorSelect({values}: {values: string[]}) {
+  const [curColor, setCurColor] = useState(values[0])
+
+  useEffect(() => {
+    console.log(curColor);
+    
+  }, [curColor])
+  
+  const handleChange = (e: FormEvent) => {
+    const target = e.target as HTMLInputElement
+    setCurColor(target.value)
+  }
+  
   return (
-    <Select title='color'>
-        <div className='color-panel'>
-            {values.map(value => (
+    <Select title={"Color"} currentValue={curColor}>
+        <div className={styles['color-panel']}>
+            {values.map((value, index) => (
                 <React.Fragment key={value}>
-                <div className="color-option">
-                    {value}<input type="radio" name={'Color'} value={value}/>
-                </div>
+                  <div className={styles["color-option"]}>
+                    <input id={`color-${value}`} defaultChecked={index===0&&true} type="radio" name={'Color'} value={value} onChange={handleChange}/>
+                    <label className={`${styles["input-label"]} ${styles[value]}`} htmlFor={`color-${value}`}>
+                    </label>
+                  </div>
                 </React.Fragment>
             ))}
         </div>

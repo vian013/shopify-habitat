@@ -1,0 +1,19 @@
+.quantity-panel {
+    width: 88px;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid var(--border-color--3);
+    margin-right: 10px;
+}
+
+.decrease-btn, .increase-btn{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.quantity-value {
+    font-weight: 600;
+}

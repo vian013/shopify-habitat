@@ -1,12 +1,12 @@
 import React from 'react'
-import { JsxAttribute } from 'typescript'
+import styles from "./Select.module.css"
 
-function Select({title, children} : {title: string, children?: JSX.Element}) {
+function Select({title, currentValue, children} : {title: string, currentValue: string, children?: JSX.Element}) {
   return (
-    <>
-      <h1>{title}</h1>
+    <div className={styles['select']}>
+      <p className={styles['title']}>{title}: <span className={styles['current-value']}>{currentValue}</span></p>
       {children}
-    </>
+    </div>
   )
 }
 

@@ -26,6 +26,11 @@ a {
     text-decoration: none;
 }
 
+button {
+    border: none;
+    background: none;
+}
+
 /* font */
 @font-face {
     font-family: "Pragmatica";
@@ -52,6 +57,8 @@ a {
     --background-color--1: #103a3a;
     --background-color--2: #c25b41;
     --border-color--1: #eeeeee;
+    --border-color--2: #103a3a;
+    --border-color--3: #dedede;
     --color-text-hover: #c25b41;
 }
 

@@ -1,3 +1,5 @@
+import { ProductType } from "./product"
+
 export interface IState {
     language: string
     currency: string,
@@ -14,4 +16,9 @@ export interface IUser {
     fName: string,
     lName: string,
     email: string
+}
+
+export interface ICart {
+    cartId: string,
+    cartItems: ProductType[]
 }
