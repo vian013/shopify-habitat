@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext, useEffect, useRef, useState } from 'react'
+import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../../App'
 import ColorSelect from '../../components/select/color/ColorSelect'
@@ -58,6 +58,14 @@ function Product() {
     return _options
   }
 
+  const handleDecrease = useCallback(() => {
+    setQuantity(quantity => quantity-1)
+  }, [quantity]) 
+
+  const handleIncrease = useCallback(() => {
+    setQuantity(quantity => quantity+1)
+  }, [quantity])
+
   if (!product) return <h1>...Loading</h1>
   const {
     featuredImage,
@@ -72,7 +80,8 @@ function Product() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
+    console.log("submit");
+    
     try {
       const options = getOptions()
       const variantId = (await fetchVariantID(options)).variantId
@@ -105,13 +114,6 @@ function Product() {
     }
   }
 
-  const handleDecrease = () => {
-    setQuantity(quantity => quantity-1)
-  }
-
-  const handleIncrease = () => {
-    setQuantity(quantity => quantity+1)
-  }
   
   return (
     <div className={styles['product-page']}>
@@ -157,7 +159,7 @@ function Product() {
             </>
             <div className="quantity-and-add-to-cart">
               <QuantitySelect handleDecrease={handleDecrease} handleIncrease={handleIncrease} quantity={quantity}/>
-              <button className={"btn-add-to-cart"} type="submit">Add To Cart</button>
+              <button className={"btn-add-to-cart"} onClick={handleSubmit}>Add To Cart</button>
             </div>
           </form>
         </div>
@@ -166,4 +168,4 @@ function Product() {
   )
 }
 
-export default Product
+export default React.memo(Product)

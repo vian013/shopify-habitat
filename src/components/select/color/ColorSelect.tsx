@@ -32,4 +32,4 @@ function ColorSelect({values}: {values: string[]}) {
   )
 }
 
-export default ColorSelect
+export default React.memo(ColorSelect)

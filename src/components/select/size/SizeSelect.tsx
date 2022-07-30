@@ -34,4 +34,4 @@ function SizeSelect({values}: {values: string[]}) {
   )
 }
 
-export default SizeSelect
+export default React.memo(SizeSelect)
