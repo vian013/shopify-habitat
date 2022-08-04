@@ -15,6 +15,16 @@ export const cartReducer: Reducer<ICart, IAction<any>> = (state: ICart, {type, p
                 ...state,
                 cartItems: payload.items
             }
+        case CartActions.OPEN_CART:
+            return {
+                ...state,
+                isCartOpen: true
+            }
+        case CartActions.CLOSE_CART:
+            return {
+                ...state,
+                isCartOpen: false
+            }
     
         default:
             return state

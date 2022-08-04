@@ -4,11 +4,6 @@ import styles from "./ColorSelect.module.css"
 
 function ColorSelect({values}: {values: string[]}) {
   const [curColor, setCurColor] = useState(values[0])
-
-  useEffect(() => {
-    console.log(curColor);
-    
-  }, [curColor])
   
   const handleChange = (e: FormEvent) => {
     const target = e.target as HTMLInputElement

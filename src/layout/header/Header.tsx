@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useRef, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useRef, useState } from 'react'
 import Nav from '../nav/Nav'
 import SearchPanel from '../search-panel/SearchPanel'
 import AnnouncementBar from './announcement-bar/AnnouncementBar'
@@ -64,9 +64,9 @@ function Header() {
     setIsCartOpen(true)
   }
 
-  const closeCart = () => {
+  const closeCart = useCallback(() => {
     setIsCartOpen(false)
-  }
+  },[])
 
   const openShopPanel = () => {
     setIsShopOpen(true)

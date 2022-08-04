@@ -20,5 +20,6 @@ export interface IUser {
 
 export interface ICart {
     cartId: string,
-    cartItems: ProductType[]
+    cartItems: ProductType[],
+    isCartOpen: boolean
 }

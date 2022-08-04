@@ -4,11 +4,6 @@ import styles from './SizeSelect.module.css'
 
 function SizeSelect({values}: {values: string[]}) {
   const [curSize, setSize] = useState(values[0])
-
-  useEffect(() => {
-    console.log(curSize);
-    
-  }, [curSize])
   
   const handleChange = (e: FormEvent) => {
     const target = e.target as HTMLInputElement

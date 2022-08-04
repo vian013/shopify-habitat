@@ -39,7 +39,8 @@ const initUser: IUser = {
 
 const initCart: ICart = {
   cartId: "",
-  cartItems: []
+  cartItems: [],
+  isCartOpen: false
 }
 
 export const AppContext = createContext<IAppValues|null>(null)
@@ -55,9 +56,6 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initState)
   const [userState, userDispatch] = useReducer(userReducer, initUser)
   const [cartState, cartDispatch] = useReducer(cartReducer, initCart)
-  useEffect(() => {
-    console.log(cartState);
-  }, [cartState])
 
   return (
     <Router>

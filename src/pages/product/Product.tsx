@@ -15,8 +15,7 @@ function Product() {
   const productHandle = params.handle
   const formRef = useRef<HTMLFormElement | null>(null)
   const [quantity, setQuantity] = useState(1)
-  const {cartState, cartDispatch} = useContext(CartContext)!
-  const {cartId} = cartState
+  const {cartState: {cartId}, cartDispatch} = useContext(CartContext)!
   
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +27,7 @@ function Product() {
     fetchData()
     
   }, [])
-
+  
   const fetchVariantID = async (options: Object) => {
     const res = await fetch(`http://localhost:4000/products/${productHandle}`, {
       method: "POST",
@@ -85,16 +84,16 @@ function Product() {
     try {
       const options = getOptions()
       const variantId = (await fetchVariantID(options)).variantId
-      handleAddToCart(variantId, quantity)
+      await handleAddToCart(variantId, quantity)
+      cartDispatch({type: CartActions.OPEN_CART})
     } catch (error) {
       console.log(error);
     }
-    
   }
 
   const handleAddToCart = async (variantId: string, quantity: number) => {
     try {
-      const res = await fetch("http://localhost:4000/add-to-cart", {
+      const res = await fetch("http://localhost:4000/cart-item", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
