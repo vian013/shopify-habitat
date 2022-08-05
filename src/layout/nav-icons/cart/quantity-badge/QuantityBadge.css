@@ -1,0 +1,14 @@
+.quantity-badge {
+    background: var(--background-color--2);
+    color: var(--text-color--1);
+    border-radius: 50%;
+    font-size: 11px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -7px;
+    right: 0;
+}

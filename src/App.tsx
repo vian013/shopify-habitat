@@ -40,7 +40,9 @@ const initUser: IUser = {
 const initCart: ICart = {
   cartId: "",
   cartItems: [],
-  isCartOpen: false
+  isCartOpen: false,
+  cartTotalQuantity: 0,
+  outOfStockError: {lineId: ""}
 }
 
 export const AppContext = createContext<IAppValues|null>(null)

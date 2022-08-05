@@ -1,3 +1,4 @@
+import { log } from 'console'
 import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../../App'
@@ -16,6 +17,7 @@ function Product() {
   const formRef = useRef<HTMLFormElement | null>(null)
   const [quantity, setQuantity] = useState(1)
   const {cartState: {cartId}, cartDispatch} = useContext(CartContext)!
+  const [loading, setLoading] = useState<boolean>(false)
   
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +81,8 @@ function Product() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    console.log("submit");
+
+    if (!loading) setLoading(true)
     
     try {
       const options = getOptions()
@@ -88,6 +91,8 @@ function Product() {
       cartDispatch({type: CartActions.OPEN_CART})
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -104,12 +109,17 @@ function Product() {
         const {id, items} = await res.json()
         cartDispatch({type: CartActions.CREATE_CART, payload: {id, items}})
       } else {
-        const {items} = await res.json()
+        const {items, outOfStockError} = await res.json()
+        console.log(outOfStockError);
+        cartDispatch({type: CartActions.UPDATE_OUT_OF_STOCK, payload: {lineId: outOfStockError?outOfStockError.id:""}})
+        
         cartDispatch({type: CartActions.ADD_TO_CART, payload: {items}})
       }
     } catch (error) {
       console.log(error)
-      
+    }
+    finally {
+      setLoading(false)
     }
   }
 
@@ -159,6 +169,7 @@ function Product() {
             <div className="quantity-and-add-to-cart">
               <QuantitySelect handleDecrease={handleDecrease} handleIncrease={handleIncrease} quantity={quantity}/>
               <button className={"btn-add-to-cart"} onClick={handleSubmit}>Add To Cart</button>
+              {loading && <p>Loading...</p>}
             </div>
           </form>
         </div>

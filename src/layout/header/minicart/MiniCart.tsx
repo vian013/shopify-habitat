@@ -27,11 +27,10 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
           "Content-Type": "application/json"
         },
       })
-      const items = await data.json()
-      console.log(items);
-      
-      
-      if (items && items.length > 0) setCartItems(items)
+      const {totalQuantity, items} = await data.json()
+
+      if (totalQuantity) cartDispatch({type: CartActions.UPDATE_TOTAL_QUANTITY, payload: totalQuantity})
+      if (items) setCartItems(items)
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +41,8 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
 
   useEffect(() => {
     _isCartOpen && fetchCartItems(loading, setLoading)
+    console.log(cartId);
+    
   }, [_isCartOpen])
   
   return (
@@ -72,4 +73,3 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
 })
 
 export default React.memo(MiniCart)
-// export default MiniCart

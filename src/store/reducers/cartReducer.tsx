@@ -25,6 +25,16 @@ export const cartReducer: Reducer<ICart, IAction<any>> = (state: ICart, {type, p
                 ...state,
                 isCartOpen: false
             }
+        case CartActions.UPDATE_TOTAL_QUANTITY:
+            return {
+                ...state,
+                cartTotalQuantity: payload
+            }
+        case CartActions.UPDATE_OUT_OF_STOCK:
+            return {
+                ...state,
+                outOfStockError: payload
+            }
     
         default:
             return state
