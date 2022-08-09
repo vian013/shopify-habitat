@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { withRouter } from 'react-router-dom'
 import Product from '../../components/product/Product'
 import {ProductType} from "../../type/product"
 import "./Products.css"
@@ -20,12 +21,6 @@ function Products() {
         fetchData()
     }, [])
     
-    useEffect(() => {
-        // console.log("products:", products);
-        
-    }, [products])
-
-    
   return products.length === 0 ? <h1>"Loading..."</h1> : (
     <div className='products-page'>
         <div className="products-container">
@@ -37,4 +32,4 @@ function Products() {
   )
 }
 
-export default Products
+export default withRouter(Products) 

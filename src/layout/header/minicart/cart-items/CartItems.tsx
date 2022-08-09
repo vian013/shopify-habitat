@@ -10,11 +10,6 @@ function CartItems({cartItems, fetchCartItems}: {cartItems: CartItemsType, fetch
   useEffect(() => {
     cartDispatch({type: CartActions.OPEN_CART})
   }, [])
-
-  useEffect(() => {
-    console.log(outOfStockError);
-     
-  }, [outOfStockError])
     
   return (
     <>

@@ -23,7 +23,7 @@ function LineItem({title, quantity, variantId, cartId, lineId, outOfStock, fetch
     const handleDelete = async () => {
         setLoading(true)
         await handleDeleteCartItem()
-        fetchCartItems(loading, setLoading)
+        await fetchCartItems(loading, setLoading)
     }
 
     const handleDeleteCartItem = async () => {

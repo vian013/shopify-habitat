@@ -19,6 +19,7 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
   }
 
   const fetchCartItems = async(loading: boolean, setLoading: React.Dispatch<React.SetStateAction<boolean>>)=> {
+    
     if (!loading) setLoading(true)
     try {
       const data = await fetch(`http://localhost:4000/cart-items?cartId=${cartId}`, {
@@ -27,9 +28,9 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
           "Content-Type": "application/json"
         },
       })
-      const {totalQuantity, items} = await data.json()
+      const {totalQuantity, items}: {totalQuantity: number, items: CartItems} = await data.json()
 
-      if (totalQuantity) cartDispatch({type: CartActions.UPDATE_TOTAL_QUANTITY, payload: totalQuantity})
+      if (totalQuantity >= 0) cartDispatch({type: CartActions.UPDATE_TOTAL_QUANTITY, payload: totalQuantity})
       if (items) setCartItems(items)
     } catch (error) {
       console.log(error);

@@ -26,6 +26,7 @@ export const cartReducer: Reducer<ICart, IAction<any>> = (state: ICart, {type, p
                 isCartOpen: false
             }
         case CartActions.UPDATE_TOTAL_QUANTITY:
+            
             return {
                 ...state,
                 cartTotalQuantity: payload

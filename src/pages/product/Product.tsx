@@ -1,4 +1,3 @@
-import { log } from 'console'
 import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../../App'
@@ -28,7 +27,7 @@ function Product() {
 
     fetchData()
     
-  }, [])
+  }, [productHandle])
   
   const fetchVariantID = async (options: Object) => {
     const res = await fetch(`http://localhost:4000/products/${productHandle}`, {
@@ -103,14 +102,14 @@ function Product() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({variantId, quantity, cartId})
+        body: JSON.stringify({variantId, quantity, cartId}),
+        credentials: "include"
       })
       if (!cartId) {
         const {id, items} = await res.json()
         cartDispatch({type: CartActions.CREATE_CART, payload: {id, items}})
       } else {
         const {items, outOfStockError} = await res.json()
-        console.log(outOfStockError);
         cartDispatch({type: CartActions.UPDATE_OUT_OF_STOCK, payload: {lineId: outOfStockError?outOfStockError.id:""}})
         
         cartDispatch({type: CartActions.ADD_TO_CART, payload: {items}})

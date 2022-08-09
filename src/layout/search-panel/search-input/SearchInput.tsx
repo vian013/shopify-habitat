@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react'
 import CloseSearch from '../close-search/CloseSearch';
 import "./SearchInput.css"
 
-function SearchInput({placeholder, handleClose}: {placeholder: string, handleClose: ()=>void}) {
+function SearchInput({placeholder, handleClose, handleSearch}: {placeholder: string, handleClose: ()=>void, handleSearch: Function}) {
   const [term, setTerm] = useState("")
 
   useEffect(() => {
-    const handleSearch = () => {
+    const timeout = setTimeout(() => {
+      if(term) handleSearch(term)
+    }, 500)
+    return () => {
+      clearTimeout(timeout)
     }
-
-    handleSearch()
   }, [term])
     
   return (
