@@ -65,10 +65,6 @@ function App() {
   const {cartId, cartTotalQuantity} = cartState
 
   useEffect(() => {
-    console.log("app render");
-  })
-
-  useEffect(() => {
     const cookie = document.cookie
     if (cookie.indexOf("cartId=") != -1) {
       const idNum = cookie.substring(cookie.length-32)

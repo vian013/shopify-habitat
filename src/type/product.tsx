@@ -7,7 +7,9 @@ type ProductType = {
     variants: Variant[],
     vendor: string,
     images: Image[],
-    options: Option[]
+    options: Option[],
+    totalInventory: number,
+    price: number
 }
 
 type Option = {

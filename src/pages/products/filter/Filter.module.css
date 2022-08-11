@@ -1,0 +1,11 @@
+.filter-wrapper strong{
+    margin-right: 20px;
+}
+
+.color-option, .size-option {
+    border: 1px solid;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px;
+    display: inline-block;
+}

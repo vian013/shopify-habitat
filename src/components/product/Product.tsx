@@ -9,8 +9,12 @@ function Product({product} : {product: ProductType}) {
         handle,
         title,
         variants,
-        vendor
+        vendor, 
+        price
     } = product
+
+    // console.log(variants);
+    
     
   return (
     <div className={styles['product-wrapper']}>
@@ -24,7 +28,7 @@ function Product({product} : {product: ProductType}) {
           <Link className={styles['title']} to={`/products/${handle}`}>
             {title}
           </Link>
-          <p className={styles['price']}>${variants[0].price}.00</p>
+          <p className={styles['price']}>${price}.00</p>
           <div className={styles["colors"]}></div>
           <div className={styles["review"]}></div>
         </div>

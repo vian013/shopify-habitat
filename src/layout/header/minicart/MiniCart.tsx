@@ -42,7 +42,6 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
 
   useEffect(() => {
     _isCartOpen && fetchCartItems(loading, setLoading)
-    console.log(cartId);
     
   }, [_isCartOpen])
   

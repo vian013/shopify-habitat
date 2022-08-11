@@ -25,3 +25,10 @@ export interface ICart {
     cartTotalQuantity: number,
     outOfStockError: {lineId: string}
 }
+
+export interface IFilter {
+    minPrice: number,
+    maxPrice: number,
+    color: string,
+    size: string
+}
