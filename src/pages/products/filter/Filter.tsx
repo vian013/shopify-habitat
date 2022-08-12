@@ -54,8 +54,18 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
     filterDispatch({type: FilterActions.SET_SIZE, payload: target.dataset.name})
   }
   
+  const resetSize = () => filterDispatch({type: FilterActions.SET_SIZE, payload: ""})
+
+  const resetColor = () => filterDispatch({type: FilterActions.SET_COLOR, payload: ""})
   
-  const {minPrice, maxPrice} = filterState
+  const resetPrices = () => {
+    filterDispatch({type: FilterActions.SET_MIN_PRICE, payload: 0})
+    filterDispatch({type: FilterActions.SET_MAX_PRICE, payload: 1000})
+  }
+  
+  const {minPrice, maxPrice, color, size} = filterState
+  const showPricesTag = !(minPrice===0&&maxPrice===1000) && (minPrice < maxPrice)
+
   return (
 
     <div className={styles["filter-wrapper"]}>
@@ -82,6 +92,11 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
           {sizeMap.map(({value, quantity}) => (
             <span onClick={handleSize} data-name={value}  className={styles['size-option']} key={value}>{`${value} (${quantity})`}</span>
           ))}
+        </div>
+        <div className={styles["selected-tags"]}>
+          {showPricesTag&&<span onClick={resetPrices}>{minPrice}-{maxPrice} X</span>}
+          {color&&<span onClick={resetColor}>{color} X</span>}
+          {size&&<span onClick={resetSize}>{size} X</span>}
         </div>
     </div>
   )

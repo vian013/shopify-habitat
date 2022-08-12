@@ -22,24 +22,23 @@ function Products() {
     const [sizes, setSizes] = useState<Options>({})
     const [colors, setColors] = useState<Options>({})
     const [filterState, filterDispatch] = useReducer(filterReducer, initFilter)
-    const firstRender = useRef<boolean>(true)
+    const firstRender = useRef<number>(0)
     const {minPrice, maxPrice, color, size} = filterState
     console.log(minPrice, maxPrice, color, size);
 
     useEffect(() => {
         filterDispatch({type: FilterActions.SET_COLOR, payload: ""})
         filterDispatch({type: FilterActions.SET_SIZE, payload: ""})
+        filterDispatch({type: FilterActions.SET_MIN_PRICE, payload: 0})
+        filterDispatch({type: FilterActions.SET_MAX_PRICE, payload: 1000})
         fetchData({all: true})
     }, [])
 
     useEffect(() => {
-        if (firstRender.current) {
-            console.log("first");
-            
-            firstRender.current = false
+        if (firstRender.current<=1) {
+            firstRender.current++
             return
         }
-        console.log("next");
         
         if (typeof minPrice === "number" && typeof maxPrice === "number" && (minPrice < maxPrice)) fetchData({all: false})
     }, [minPrice, maxPrice, color, size])
@@ -55,6 +54,8 @@ function Products() {
         const {products, colors, sizes} = data
         // console.log(colors);
         // console.log(sizes);
+        console.log(products);
+        
         
         if (products && products.length > 0) setProducts(products)
         if (Object.keys(colors).length > 0) setColors(colors)

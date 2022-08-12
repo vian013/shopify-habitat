@@ -9,3 +9,12 @@
     padding: 5px;
     display: inline-block;
 }
+
+.selected-tags span {
+    padding: 5px;
+    border: 1px solid;
+    display: inline-block;
+    margin-right: 10px;
+    background: #dedede;
+    cursor: pointer;
+}
