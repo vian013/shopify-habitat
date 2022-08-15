@@ -20,7 +20,7 @@ function Product({product} : {product: ProductType}) {
     <div className={styles['product-wrapper']}>
         <div className={styles["img-wrapper"]}>
             <Link to={`/products/${handle}`}>
-              <img src={featuredImage} alt={handle} />
+              <img loading='lazy' src={featuredImage} alt={handle} />
             </Link>
         </div>
         <div className={styles["content-wrapper"]}>

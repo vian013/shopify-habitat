@@ -1,0 +1,37 @@
+.product-slide {
+    cursor: pointer;
+}
+
+.product-slide:hover .img-wrapper img{
+    transform: scale(1.1);
+    transform-origin: center;
+}
+
+.product-slide:hover .sub-title {
+    color: var(--text-color--2);
+}
+
+.img-wrapper, .img-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+.img-wrapper {
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    transition: transform 1s ease-out;
+}
+
+.title {
+    font-family: var(--font-title);
+    font-weight: 300;
+    margin: 10px 0;
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+.sub-title {
+    font-size: 15px;
+}

@@ -126,7 +126,7 @@ function Product() {
   return (
     <div className={styles['product-page']}>
       <div className={styles["product-container"]}>
-        <div className={styles["detail-pictures"]}>
+        <div className={styles["detail-images"]}>
           {images.map(({ url }, index) => (
             <div className={styles["img-wrapper"]} key={index}>
               <img src={url} alt={`${title}-image-${index + 1}`} />

@@ -5,7 +5,8 @@
 }
 
 html, body {
-    font-family: var(--font-family);
+    font-family: var(--font-primary);
+    color: var(--text-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,6 +25,7 @@ ul, li {
 
 a {
     text-decoration: none;
+    color: var(--text-color);
 }
 
 button {
@@ -49,13 +51,16 @@ button {
 
 /* color */
 :root {
-    --font-family: "Nimbus";
+    --font-primary: "Nimbus";
+    --font-title: "ITC NB";
     --color-primary: #103a3a;
     --color-white: #ffffff;
     --text-color: #103a3a;
     --text-color--1: #ffffff;
+    --text-color--2: #c25b41;
     --background-color--1: #103a3a;
     --background-color--2: #c25b41;
+    --background-color--3: #f6f6f0;
     --border-color--1: #eeeeee;
     --border-color--2: #103a3a;
     --border-color--3: #dedede;

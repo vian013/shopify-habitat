@@ -1,0 +1,17 @@
+.shop-by-category {
+}
+
+.title, .sub-title {
+    text-align: center;
+}
+
+.title {
+    font-family: var(--font-title);
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.sub-title {
+    font-size: 18.5px;
+    margin-bottom: 48px;
+}

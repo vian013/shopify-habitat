@@ -1,0 +1,31 @@
+.announcement-slider-container {
+    overflow: hidden;
+    background: var(--background-color--3);
+}
+
+.announcement-slider-container .announcement-wrapper {
+    padding: 30px 0;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    animation: text_slide 30s linear infinite;
+}
+
+.announcement-slider-container .announcement {
+    font-size: 25px;
+    font-weight: 600;
+    margin-right: 200px;
+    color: var(--text-color--2);
+    letter-spacing: 0.1rem;
+    flex-shrink: 0;
+}
+
+@keyframes text_slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}

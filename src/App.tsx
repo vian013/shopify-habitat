@@ -1,7 +1,7 @@
 import { useState, createContext, useEffect, useReducer} from "react";
 import Header from "./layout/header/Header";
-import currencies from "./settings-options/currencies";
-import languages from "./settings-options/languages";
+import currencies from "./messages/settings-options/currencies";
+import languages from "./messages/settings-options/languages";
 import {Router, useHistory} from "react-router-dom"
 import Routes from "./routes/Routes";
 import {IAction, ICart, IState, IUser} from "./type/global"
@@ -10,6 +10,7 @@ import { userReducer } from "./store/reducers/userReducer";
 import { cartReducer } from "./store/reducers/cartReducer";
 import { CartActions } from "./store/actions/cartActions";
 import { createBrowserHistory } from "history";
+import "./App.css"
 
 interface IAppValues {
   state: IState,

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo } from 'react'
 import { AppContext } from '../../../App'
-import currencies from '../../../settings-options/currencies'
+import currencies from '../../../messages/settings-options/currencies'
 import { AppActions } from '../../../store/actions/actions'
 import GeneralSetting from './general-setting/GeneralSetting'
 

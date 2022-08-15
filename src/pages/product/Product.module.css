@@ -8,17 +8,17 @@
     display: flex;
 }
 
-.detail-pictures {
+.detail-images {
     display: flex;
     flex-flow: column wrap;
 }
 
-.detail-pictures .img-wrapper {
+.detail-images .img-wrapper {
     width: 80px;
     height: 95px;
 }
 
-.detail-pictures .img-wrapper img {
+.detail-images .img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
