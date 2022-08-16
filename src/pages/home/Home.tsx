@@ -1,6 +1,7 @@
 import React from 'react'
 import AnnouncementSlider from '../../components/announcement-slider/AnnouncementSlider'
 import SlideShow from '../../components/slide-show/SlideShow'
+import BrandLogos from '../../sections/brand-logos/BrandLogos'
 import ShopByCategory from '../../sections/shop-by-category/ShopByCategory'
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
         <SlideShow />
         <AnnouncementSlider />
         <ShopByCategory />
+        <BrandLogos />
     </div>
   )
 }

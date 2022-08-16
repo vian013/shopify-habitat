@@ -1,0 +1,14 @@
+.img-wrapper {
+    width: 180px;
+    margin: 20px;
+    cursor: pointer;
+    transition: opacity .3s ease-in;
+}
+
+.img-wrapper.faded {
+    opacity: 0.5;
+}
+
+.img-wrapper img {
+    width: 100%;
+}

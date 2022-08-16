@@ -1,4 +1,5 @@
 .shop-by-category {
+    overflow-x: hidden;
 }
 
 .title, .sub-title {

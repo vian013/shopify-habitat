@@ -1,0 +1,8 @@
+.brand-logos {
+    display: flex;
+    justify-content: center;
+}
+
+.brand-logos.section {
+    padding-top: 50px;
+}
