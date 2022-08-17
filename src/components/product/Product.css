@@ -1,27 +1,26 @@
 .product-wrapper {
-    width: 25%;
     padding: 0 15px 35px;
 }
 
-.img-wrapper {
+.product-wrapper .img-wrapper {
     width: 100%;
     height: 375px;
 }
 
-.img-wrapper img {
+.product-wrapper .img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
-.content-wrapper {
+.product-wrapper .content-wrapper {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.content-wrapper .vendor {
+.product-wrapper .content-wrapper .vendor {
     font-size: 12px;
     letter-spacing: 0.1rem;
     color: var(--text-color);
@@ -29,13 +28,15 @@
     margin-bottom: 10px;
 }
 
-.content-wrapper .title {
+.product-wrapper .content-wrapper .title {
     text-align: center;
     text-transform: lowercase;
     margin-bottom: 5px;
-    color: var(--text-color);;
+    color: var(--text-color);
+    font-size: 16px;
+    font-family: var(--font-primary);
 }
 
-.content-wrapper .title::first-letter {
+.product-wrapper .content-wrapper .title::first-letter {
     text-transform: uppercase;
 }

@@ -13,8 +13,8 @@ function ProductSlider() {
             spaceBetween={30}
             loop={true}
         >
-            {productSlides.map(slide => (
-                <SwiperSlide>
+            {productSlides.map((slide, index) => (
+                <SwiperSlide key={index}>
                     <Link to={slide.link}><ProductSlide {...slide}/></Link>
                 </SwiperSlide>
             ))}

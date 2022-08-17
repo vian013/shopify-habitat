@@ -3,25 +3,14 @@ import brandLogos from '../../messages/brand-logos'
 import BrandLogo from '../brand-logo/BrandLogo'
 import "./BrandLogos.css"
 
-const initFadedState = [
-  false,
-  false,
-  false,
-  false,
-  false
-]
+const initFadedState = new Array<boolean>(brandLogos.length) 
 
 function BrandLogos() {
   const [fadedState, setFadedState] = useState<boolean[]>(initFadedState)
 
   const handleMouseOver = (index: number) => {
-    const newState = [
-      true,
-      true,
-      true,
-      true,
-      true
-    ]
+    const newState = new Array<boolean>(brandLogos.length) 
+    newState.fill(true)
 
     newState[index] = false
     setFadedState(newState)

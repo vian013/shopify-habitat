@@ -12,6 +12,8 @@ import { CartActions } from "./store/actions/cartActions";
 import { createBrowserHistory } from "history";
 import "./App.css"
 
+export const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
+
 interface IAppValues {
   state: IState,
   dispatch: ({}: IAction<any>) => void

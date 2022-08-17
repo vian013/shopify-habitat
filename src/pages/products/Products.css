@@ -6,6 +6,10 @@
     flex-wrap: wrap;
 }
 
+.products-container .product-wrapper {
+    width: 25%;
+}
+
 .quantity-and-add-to-cart {
     margin-top: 30px;
     display: flex;

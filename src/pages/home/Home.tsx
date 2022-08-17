@@ -3,6 +3,7 @@ import AnnouncementSlider from '../../components/announcement-slider/Announcemen
 import SlideShow from '../../components/slide-show/SlideShow'
 import BrandLogos from '../../sections/brand-logos/BrandLogos'
 import ShopByCategory from '../../sections/shop-by-category/ShopByCategory'
+import ShopNewArrivals from '../../sections/shop-new-arrivals/ShopNewArrivals'
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
         <AnnouncementSlider />
         <ShopByCategory />
         <BrandLogos />
+        <ShopNewArrivals />
     </div>
   )
 }

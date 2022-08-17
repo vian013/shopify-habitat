@@ -1,0 +1,33 @@
+.collection-tabs {
+    display: flex;
+    justify-content: center;
+}
+
+.collection-tab {
+    margin-right: 40px;
+    cursor: pointer;
+    text-transform: capitalize;
+    opacity: .6;
+    position: relative;
+    overflow: hidden;
+}
+
+.collection-tab::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: var(--background-color--2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    transition: transform .1s ease-in;
+}
+
+.collection-tab.active {
+    color: var(--text-color--2);
+}
+
+.collection-tab.active::after {
+    transform: translateX(0);
+}
