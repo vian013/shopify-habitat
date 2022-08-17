@@ -1,10 +1,11 @@
 import React, { FormEvent, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { CartContext } from '../../App'
+import { AppContext, CartContext } from '../../App'
 import ColorSelect from '../../components/select/color/ColorSelect'
 import QuantitySelect from '../../components/select/quantity/QuantitySelect'
 import Select from '../../components/select/Select'
 import SizeSelect from '../../components/select/size/SizeSelect'
+import { AppActions } from '../../store/actions/actions'
 import { CartActions } from '../../store/actions/cartActions'
 import { ProductType } from '../../type/product'
 import styles from "./Product.module.css"
@@ -16,6 +17,7 @@ function Product() {
   const formRef = useRef<HTMLFormElement | null>(null)
   const [quantity, setQuantity] = useState(1)
   const {cartState: {cartId}, cartDispatch} = useContext(CartContext)!
+  const {dispatch} = useContext(AppContext)!
   const [loading, setLoading] = useState<boolean>(false)
   
   useEffect(() => {
@@ -88,6 +90,7 @@ function Product() {
       const variantId = (await fetchVariantID(options)).variantId
       await handleAddToCart(variantId, quantity)
       cartDispatch({type: CartActions.OPEN_CART})
+      dispatch({type: AppActions.OPEN_SIDEBAR})
     } catch (error) {
       console.log(error);
     } finally {

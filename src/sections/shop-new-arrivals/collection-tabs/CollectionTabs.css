@@ -1,6 +1,7 @@
 .collection-tabs {
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .collection-tab {
@@ -10,6 +11,7 @@
     opacity: .6;
     position: relative;
     overflow: hidden;
+    font-size: 18px;
 }
 
 .collection-tab::after {
@@ -24,8 +26,14 @@
     transition: transform .1s ease-in;
 }
 
+.collection-tab:hover {
+    color: var(--text-color--2);
+    opacity: 1;
+}
+
 .collection-tab.active {
     color: var(--text-color--2);
+    opacity: 1;
 }
 
 .collection-tab.active::after {

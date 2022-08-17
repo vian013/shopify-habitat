@@ -1,4 +1,4 @@
-.minicart-container {
+.sidebar-container {
     position: relative;
     z-index: 12;
 }
@@ -20,7 +20,7 @@
     display: block;
 }
 
-.minicart-wrapper {
+.sidebar-wrapper {
     width: 570px;
     background: var(--color-white);
     position: fixed;
@@ -32,26 +32,6 @@
     padding: 40px;
 }
 
-.minicart-wrapper.open{
+.sidebar-wrapper.open{
     right: 0;
-}
-
-.cart-header {
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color--1);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.cart-header .title{
-    font-family: "ITC NB";
-    font-size: 28px;
-    color: var(--text-color);
-}
-
-.cart-header .close-btn {
-    border: none;
-    background: var(--color-white);
-    cursor: pointer;
 }

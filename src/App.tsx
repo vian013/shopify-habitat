@@ -33,7 +33,10 @@ const initState: IState = {
   language: languages[0],
   currency: currencies[0],
   isBackgroundBlurred: false,
-  isLoggedIn: false
+  isLoggedIn: false,
+  isSidebarOpen: false,
+  isQuickViewOpen: false,
+  quickViewHandle: ""
 }
 
 const initUser: IUser = {

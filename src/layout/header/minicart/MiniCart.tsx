@@ -7,16 +7,10 @@ import "./MiniCart.css"
 
 export type CartItems = {title: string, quantity: number, variantId: string, lineId: string}[]
 
-const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: () => void }>(({ isCartOpen, closeCart }, ref) => {
-  const {dispatch} = useContext(AppContext)!
+const MiniCart = forwardRef<HTMLDivElement, {}>((props, ref) => {
   const [cartItems, setCartItems] = useState<CartItems>([])
   const {cartState: {cartId, isCartOpen: _isCartOpen}, cartDispatch} = useContext(CartContext)!
   const [loading, setLoading] = useState<boolean>(false)
-
-  const handleCloseCart = () => {
-    dispatch({type: AppActions.SET_UNBLURRED})
-    cartDispatch({type: CartActions.CLOSE_CART})
-  }
 
   const fetchCartItems = async(loading: boolean, setLoading: React.Dispatch<React.SetStateAction<boolean>>)=> {
     
@@ -46,15 +40,7 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
   }, [_isCartOpen])
   
   return (
-    <>
-    <div className={`minicart-container ${_isCartOpen&&"open"}`}>
-        <div className={`overlay ${_isCartOpen&&"open"}`} onClick={handleCloseCart}></div>
-        <div className={`minicart-wrapper ${_isCartOpen&&"open"}`} ref={ref}>
           <>
-            <div className="cart-header">
-              <h3 className='title'>Cart</h3>
-              <button className='close-btn' onClick={handleCloseCart}>Close</button>
-            </div>
             {loading ? (
               <h1>Loading...</h1>
             ) : (
@@ -65,9 +51,6 @@ const MiniCart = forwardRef<HTMLDivElement, { isCartOpen: boolean, closeCart: ()
               ) 
             )}
           </>
-        </div>
-    </div>
-    </>
   )
 
 })

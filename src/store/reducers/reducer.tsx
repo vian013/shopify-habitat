@@ -35,6 +35,31 @@ export const reducer: Reducer<IState, IAction<any>> = (state: IState, {type, pay
             ...state,
             isLoggedIn: false
             }
+        case AppActions.OPEN_SIDEBAR:
+            return {
+            ...state,
+            isSidebarOpen: true
+            }
+        case AppActions.CLOSE_SIDEBAR:
+            return {
+            ...state,
+            isSidebarOpen: false
+            }
+        case AppActions.OPEN_QUICKVIEW:
+            return {
+            ...state,
+            isQuickViewOpen: true
+            }
+        case AppActions.CLOSE_QUICKVIEW:
+            return {
+            ...state,
+            isQuickViewOpen: false
+            }
+        case AppActions.SET_QUICKVIEW_HANDLE:
+            return {
+            ...state,
+            quickViewHandle: payload
+            }
         default:
             return state
     }

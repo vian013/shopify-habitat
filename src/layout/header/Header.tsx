@@ -1,6 +1,7 @@
 import React, { createContext, useCallback, useEffect, useRef, useState } from 'react'
 import Nav from '../nav/Nav'
 import SearchPanel from '../search-panel/SearchPanel'
+import Sidebar from '../sidebar/Sidebar'
 import AnnouncementBar from './announcement-bar/AnnouncementBar'
 import { announcementTitle } from './announcement-bar/announment'
 import "./Header.css"
@@ -101,7 +102,8 @@ function Header() {
         <Nav toggleSearch={toggleSearch} openCart={openCart} />
         <SearchPanel ref={panelRef1} closeSearch={closeSearch}/>
         <ShopPanel ref={shopRef}/>
-        <MiniCart ref={cartRef} isCartOpen={isCartOpen} closeCart={closeCart}/>
+        {/* <MiniCart ref={cartRef}/> */}
+        <Sidebar />
       </ShopProvider>
     </header>
   )

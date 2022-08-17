@@ -1,3 +1,5 @@
 #header {
-    
+    z-index: 12;
+    position: sticky;
+    top: 0;
 }

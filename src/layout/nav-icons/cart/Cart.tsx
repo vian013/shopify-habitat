@@ -13,6 +13,7 @@ function Cart({openCart}: {openCart: ()=>void}) {
 
   const handleClick = () => {
     dispatch({type: AppActions.SET_BLURRED})
+    dispatch({type: AppActions.OPEN_SIDEBAR})
     cartDispatch({type: CartActions.OPEN_CART})
   }
   

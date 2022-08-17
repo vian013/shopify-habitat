@@ -4,7 +4,10 @@ export interface IState {
     language: string
     currency: string,
     isBackgroundBlurred: boolean,
-    isLoggedIn: boolean
+    isLoggedIn: boolean,
+    isSidebarOpen: boolean,
+    isQuickViewOpen: boolean,
+    quickViewHandle: string
 }
 
 export interface IAction<T> {
