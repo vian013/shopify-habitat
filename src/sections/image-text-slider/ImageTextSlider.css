@@ -64,6 +64,7 @@
 
 .image-text-slider .swiper-pagination-bullets.swiper-pagination-horizontal {
     right: 360px;
+    left: initial;
     bottom: 60px;
     width: fit-content;
 }

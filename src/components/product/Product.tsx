@@ -32,12 +32,12 @@ function Product({product} : {product: ProductType}) {
           <div className="quick-view-wrapper" onClick={handleOpenQuickView}>
             <div className="quick-view">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="quick-view-icon" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.96205 9.96248L12.9996 13M11.4999 6.24997C11.4999 9.14945 9.14945 11.4999 6.24997 11.4999C3.35049 11.4999 1 9.14945 1 6.24997C1 3.35049 3.35049 1 6.24997 1C9.14945 1 11.4999 3.35049 11.4999 6.24997Z" stroke="var(--background-color--1)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M9.96205 9.96248L12.9996 13M11.4999 6.24997C11.4999 9.14945 9.14945 11.4999 6.24997 11.4999C3.35049 11.4999 1 9.14945 1 6.24997C1 3.35049 3.35049 1 6.24997 1C9.14945 1 11.4999 3.35049 11.4999 6.24997Z" stroke="var(--background-color--1)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
               </svg>
             </div>
             <div className="quick-view-hover">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="quick-view-icon-hover" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.96205 9.96248L12.9996 13M11.4999 6.24997C11.4999 9.14945 9.14945 11.4999 6.24997 11.4999C3.35049 11.4999 1 9.14945 1 6.24997C1 3.35049 3.35049 1 6.24997 1C9.14945 1 11.4999 3.35049 11.4999 6.24997Z" stroke="var(--background-color--2)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M9.96205 9.96248L12.9996 13M11.4999 6.24997C11.4999 9.14945 9.14945 11.4999 6.24997 11.4999C3.35049 11.4999 1 9.14945 1 6.24997C1 3.35049 3.35049 1 6.24997 1C9.14945 1 11.4999 3.35049 11.4999 6.24997Z" stroke="var(--background-color--2)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
               </svg>
               <span>quick view</span>
             </div>

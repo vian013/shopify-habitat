@@ -14,7 +14,7 @@ export default [
         description: "Time and time again I won the applause of the bloodthirsty multitude, and toward the end there were cries."
     },
     {
-        imgUrl: "https://cdn.shopify.com/s/files/1/0605/2616/6208/files/hb4_375x500_crop_center.jpg?v=1648576977%20375w,//cdn.shopify.com/s/files/1/0605/2616/6208/files/hb4_1320x600_crop_center.jpg?v=1648576977",
+        imgUrl: "https://cdn.shopify.com/s/files/1/0605/2616/6208/files/hb4_1320x600_crop_center.jpg?v=1648576977",
         imgWidth: 1489,
         imgHeight: 993,
         title: "Sit with luxury",

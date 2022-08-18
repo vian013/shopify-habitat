@@ -19,7 +19,7 @@ function ImageTextSlider() {
         effect='fade'
       >
         {slides.map(({imgUrl, imgWidth, imgHeight, title, description}) => (
-          <SwiperSlide>
+          <SwiperSlide key={title}>
             <div className={`${styles["slide-wrapper"]}`}>
               <div className="img-wrapper">
                 <img

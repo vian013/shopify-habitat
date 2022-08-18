@@ -26,7 +26,7 @@ function SlideShow() {
         // onSwiper={(swiper) => console.log(swiper)}
       >
         {slides.map(slide => (
-          <SwiperSlide>
+          <SwiperSlide key={slide.title}>
             <Slide {...slide}/>
           </SwiperSlide>
         ))}
