@@ -1,0 +1,9 @@
+.slide-wrapper {
+    display: flex;
+    height: 550px;
+}   
+
+.content-wrapper {
+    background: var(--background-color--3);
+    padding: 65px;
+}

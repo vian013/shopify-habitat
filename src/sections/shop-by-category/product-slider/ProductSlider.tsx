@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import productSlides from '../../../messages/product-slides'
+import productSlides from './product-slides'
 import ProductSlide from '../product-slide/ProductSlide'
 import "./ProductSlider.css"
 
@@ -11,7 +11,7 @@ function ProductSlider() {
         <Swiper 
             slidesPerView={4}
             spaceBetween={30}
-            loop={true}
+            loop
         >
             {productSlides.map((slide, index) => (
                 <SwiperSlide key={index}>
