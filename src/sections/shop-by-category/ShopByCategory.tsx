@@ -1,16 +1,16 @@
 import React from 'react'
+import SectionHeader from '../../components/section-header/SectionHeader'
 import sections from '../../messages/sections'
 import ProductSlider from './product-slider/ProductSlider'
 import "./ShopByCategory.css"
 
 function ShopByCategory() {
-   const {title, subTitle} = sections.shopByCategory
+   const content = sections.shopByCategory
     
   return (
     <div className={"shop-by-category section"}>
-        <h1 className={"title"}>{title}</h1>
-        <p className={"sub-title"}>{subTitle}</p>
-        <ProductSlider />
+      <SectionHeader {...content}/>
+      <ProductSlider />
     </div>
   )
 }

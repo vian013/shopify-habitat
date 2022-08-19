@@ -6,5 +6,9 @@ export default {
     shopNewArrivals: {
         title: "Shop New Arrivals",
         subTitle: "New arrivals coming in regularly, find the freshest modern styles here."
+    },
+    featuredProduct: {
+        title: "Featured product",
+        subTitle: "Most popular furniture piece with great affordable price."
     }
 }

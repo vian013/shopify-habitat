@@ -18,8 +18,8 @@
     margin-bottom: 20px;
 }
 
-.image-text-slider.section .description {
-    font-size: 18px;
+.image-text-slider.section .sub-title {
+    text-align: left;
     line-height: 30px;
     margin-bottom: 30px;
 }

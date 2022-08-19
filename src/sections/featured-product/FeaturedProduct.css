@@ -1,3 +1,7 @@
+.featured-product.section {
+    padding-top: var(--padding-top-section--1);
+}
+
 .featured-product .swiper-horizontal>.swiper-pagination-bullets {
     flex-direction: column;
     display: flex;

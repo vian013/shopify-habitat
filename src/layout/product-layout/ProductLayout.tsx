@@ -9,6 +9,7 @@ import { AppActions } from '../../store/actions/actions'
 import { CartActions } from '../../store/actions/cartActions'
 import { ProductType } from '../../type/product'
 import styles from "./ProductLayout.module.css"
+import "./ProductLayout.css"
 import "swiper/css"
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -29,26 +30,29 @@ function ProductLayout({productHandle, children}: {productHandle: string, childr
 
   useEffect(() => {
     const bullets = document.querySelectorAll(".bullet-img")
+    if (!bullets) return
     const renderBullets = () => {
+      if (product) {
+        const images = product.images
         bullets.forEach((bullet, index) => {
-            bullet.setAttribute("src", images[index].url)
-        })
+        bullet.setAttribute("src", images![index].url)
+      })
+      } 
     } 
     if(bullets.length){
         renderBullets()
     }
     else {
-        console.log("hehe");
-        const observer = new MutationObserver((mutations, observer)=> {
-            const bullets = document.querySelectorAll(".bullet-img")
-            if(bullets.length){
-                renderBullets()
-                observer.disconnect()
-            }
-        })
-        observer.observe(document, {subtree: true, childList: true})
+      const observer = new MutationObserver((mutations, observer)=> {
+          const bullets = document.querySelectorAll(".bullet-img")
+          if(bullets.length){
+              renderBullets()
+              observer.disconnect()
+          }
+      })
+      observer.observe(document, {subtree: true, childList: true})
     }
-  }, [])
+  }, [product])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -157,69 +161,67 @@ function ProductLayout({productHandle, children}: {productHandle: string, childr
 
   
   return (
-    <div className={styles['product-page']}>
-      <div className={styles["product-container"]}>
-        <div className={styles["img-slider"]}>
-            <Swiper 
-                modules={[Pagination, Navigation]} 
-                pagination={{clickable: true,
-                    renderBullet(index, className) {
-                        return `<div class="${className}">
-                                    <img class="bullet-img ${styles["bullet-img"]}"/>
-                                </div>`
-                    },
-                }}
-                navigation
-            >
-                {images.map(({ url }, index) => (
-                    <SwiperSlide key={index}>
-                        <div className="slide-wrapper">
-                            <div className={styles["img-wrapper"]} key={index}>
-                            <img src={url} alt={`${title}-image-${index + 1}`} />
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+    <div className={`${styles["product-container"]} product-container`}>
+      <div className={styles["img-slider"]}>
+          <Swiper 
+              modules={[Pagination, Navigation]} 
+              pagination={{clickable: true,
+                  renderBullet(index, className) {
+                      return `<div class="${className}">
+                                  <img class="bullet-img ${styles["bullet-img"]}"/>
+                              </div>`
+                  },
+              }}
+              navigation
+          >
+              {images.map(({ url }, index) => (
+                  <SwiperSlide key={index}>
+                      <div className="slide-wrapper">
+                          <div className={styles["img-wrapper"]} key={index}>
+                          <img src={url} alt={`${title}-image-${index + 1}`} />
+                          </div>
+                      </div>
+                  </SwiperSlide>
+              ))}
+          </Swiper>
+      </div>
 
-        <div className={styles["content-wrapper"]}>
-          <p>{vendor}</p>
-          <h1>{title}</h1>
-          <p>${price}</p> 
-          {hasReview && children.props.children}
+      <div className={styles["content-wrapper"]}>
+        <p>{vendor}</p>
+        <h1>{title}</h1>
+        <p>${price}</p> 
+        {hasReview && children.props.children}
 
-          <form ref={formRef} onSubmit={handleSubmit}>
-            <>
-              {options.map(({ name, values }) => {
-                switch (name) {
-                  case "Color":
-                    return <ColorSelect key={name} values={values}/>
-                  case "Size":
-                    return <SizeSelect key={name} values={values}/>
-                  default:
-                    return (
-                      <Select key={name} title={name} currentValue={values[0]}>
-                        <>
-                          {values.map(value => (
-                              <React.Fragment key={value}>
-                              <br />
-                              {value}<input type="radio" name={name} value={value}/>
-                              </React.Fragment>
-                          ))}
-                        </>
-                      </Select>
-                    ) 
-                }
-              })}
-            </>
-            <div className="quantity-and-add-to-cart">
-              <QuantitySelect handleDecrease={handleDecrease} handleIncrease={handleIncrease} quantity={quantity}/>
-              <button className={"btn-add-to-cart"} onClick={handleSubmit}>Add To Cart</button>
-              {loading && <p>Loading...</p>}
-            </div>
-          </form>
-        </div>
+        <form ref={formRef} onSubmit={handleSubmit}>
+          <>
+            {options.map(({ name, values }) => {
+              switch (name) {
+                case "Color":
+                  return <ColorSelect key={name} values={values}/>
+                case "Size":
+                  return <SizeSelect key={name} values={values}/>
+                default:
+                  return (
+                    <Select key={name} title={name} currentValue={values[0]}>
+                      <>
+                        {values.map(value => (
+                            <React.Fragment key={value}>
+                            <br />
+                            {value}<input type="radio" name={name} value={value}/>
+                            </React.Fragment>
+                        ))}
+                      </>
+                    </Select>
+                  ) 
+              }
+            })}
+          </>
+          <div className="quantity-and-add-to-cart">
+            <QuantitySelect handleDecrease={handleDecrease} handleIncrease={handleIncrease} quantity={quantity}/>
+            <button className={"btn-add-to-cart"} onClick={handleSubmit}>Add To Cart</button>
+            {loading && <p>Loading...</p>}
+          </div>
+        </form>
       </div>
     </div>
   )

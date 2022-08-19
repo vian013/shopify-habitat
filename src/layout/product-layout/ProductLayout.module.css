@@ -1,10 +1,6 @@
-.product-page {
+.product-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding-top: 55px;
-}
-
-.product-container {
     display: flex;
 }
 
@@ -19,6 +15,7 @@
     width: 580px;
     height: 690px;
     border: 1px solid var(--border-color--1);
+    cursor: grab;
 }
 
 .img-wrapper img {

@@ -9,6 +9,7 @@ import "./ImageTextSlider.css"
 import slides from './slides'
 import { Link } from 'react-router-dom'
 import messages from '../../messages/messages'
+import SectionHeader from '../../components/section-header/SectionHeader'
 
 function ImageTextSlider() {
   return (
@@ -27,8 +28,7 @@ function ImageTextSlider() {
                  loading='lazy' src={imgUrl} alt={title} sizes={"1423px"}/>
               </div>
               <div className={`${styles["content-wrapper"]}`}>
-                <h1 className="title">{title}</h1>
-                <p className="description">{description}</p>
+                <SectionHeader title={title} subTitle={description}/>
                 <Link to={"/"} className="shop-btn">{messages.btn.shopBtn}</Link>
               </div>
             </div>

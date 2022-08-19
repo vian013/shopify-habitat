@@ -3,5 +3,5 @@
 }
 
 .shop-by-category.section {
-    padding-top: 110px;
+    padding-top: var(--padding-top-section--1);
 }

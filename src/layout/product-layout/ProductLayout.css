@@ -1,0 +1,19 @@
+.product-container .swiper-horizontal .swiper-button-prev, .product-container .swiper-horizontal .swiper-button-next {
+    opacity: 0;
+}
+
+.product-container .swiper-button-prev {
+    left: 110px;
+}
+
+.product-container .swiper-button-next {
+    right: 20px;
+}
+
+.product-container .swiper-horizontal:hover .swiper-button-prev, .product-container .swiper-horizontal:hover .swiper-button-next {
+    opacity: 1;
+}
+
+.product-container .swiper-horizontal:hover .swiper-button-next.swiper-button-disabled, .product-container .swiper-horizontal:hover .swiper-button-prev.swiper-button-disabled {
+    opacity: .35;
+}
