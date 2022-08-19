@@ -1,6 +1,6 @@
 .img-wrapper {
     width: 180px;
-    margin: 20px;
+    margin: 0 20px;
     cursor: pointer;
     transition: opacity .3s ease-in;
 }

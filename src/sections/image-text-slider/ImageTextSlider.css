@@ -62,22 +62,10 @@
     transform: scaleX(1);
 }
 
-.image-text-slider .swiper-pagination-bullets.swiper-pagination-horizontal {
+
+.image-text-slider.section .swiper-pagination-bullets.swiper-pagination-horizontal {
     right: 360px;
     left: initial;
     bottom: 60px;
     width: fit-content;
-}
-
-.image-text-slider .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background: transparent;
-    border: 2px solid var(--background-color--1);
-    opacity: .5;
-}
-
-.image-text-slider .swiper-pagination-bullet-active {
-    background: var(--background-color--1);
-    opacity: 1;
 }

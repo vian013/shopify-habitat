@@ -13,7 +13,7 @@ import SectionHeader from '../../components/section-header/SectionHeader'
 
 function ImageTextSlider() {
   return (
-    <div className='image-text-slider section'>
+    <div className='image-text-slider section custom-pagination-slider'>
       <Swiper 
         modules={[Pagination, EffectFade]}
         pagination={{clickable: true}}

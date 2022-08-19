@@ -1,5 +1,5 @@
 .section {
-    padding-top: 50px;
+    padding-top: var(--padding-top-section--1);
 }
 
 .section .title, .sub-title {
@@ -57,6 +57,19 @@
     top: -7px;
 }
 
+.custom-pagination-slider .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    border: 2px solid var(--background-color--1);
+    opacity: .5;
+}
+
+.custom-pagination-slider .swiper-pagination-bullet-active {
+    background: var(--background-color--1);
+    opacity: 1;
+}
+
 .blurred-bg {
     position: fixed;
     top: 0;
@@ -68,7 +81,6 @@
     opacity: 0;
     background: rgba(196,196,196,.7);
     backdrop-filter: blur(3px);
-    
 }
 
 .blurred-bg.open {

@@ -1,0 +1,28 @@
+.review-wrapper {
+    width: 650px;
+    text-align: center;
+}
+
+.review-wrapper .rating {
+    --star-percent: calc(var(--review-rating) / 5 * 100%);
+    margin-bottom: 20px;
+}
+
+.review-wrapper .rating::after {
+    content: "★★★★★";
+    background: linear-gradient(90deg, var(--color-star) var(--star-percent), #e1e1e1 var(--star-percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.review-wrapper .content {
+    line-height: 1.4em;
+    margin-bottom: 10px;
+}
+
+.review-wrapper .author {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

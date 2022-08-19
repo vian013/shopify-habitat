@@ -6,6 +6,7 @@ import FeaturedProduct from '../../sections/featured-product/FeaturedProduct'
 import ImageTextSlider from '../../sections/image-text-slider/ImageTextSlider'
 import ShopByCategory from '../../sections/shop-by-category/ShopByCategory'
 import ShopNewArrivals from '../../sections/shop-new-arrivals/ShopNewArrivals'
+import Testimonials from '../../sections/testimonials/Testimonials'
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
         <ShopNewArrivals />
         <ImageTextSlider />
         <FeaturedProduct />
+        <Testimonials />
     </div>
   )
 }

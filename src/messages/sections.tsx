@@ -10,5 +10,9 @@ export default {
     featuredProduct: {
         title: "Featured product",
         subTitle: "Most popular furniture piece with great affordable price."
+    },
+    testimonials: {
+        title: "Testimonials",
+        subTitle: "We take pride in our work and our customer testimonials reflect that."
     }
 }
