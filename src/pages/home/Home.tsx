@@ -4,6 +4,7 @@ import SlideShow from '../../components/slide-show/SlideShow'
 import BrandLogos from '../../sections/brand-logos/BrandLogos'
 import FeaturedProduct from '../../sections/featured-product/FeaturedProduct'
 import ImageTextSlider from '../../sections/image-text-slider/ImageTextSlider'
+import LatestNews from '../../sections/latest-news/LatestNews'
 import ShopByCategory from '../../sections/shop-by-category/ShopByCategory'
 import ShopNewArrivals from '../../sections/shop-new-arrivals/ShopNewArrivals'
 import Testimonials from '../../sections/testimonials/Testimonials'
@@ -19,6 +20,7 @@ function Home() {
         <ImageTextSlider />
         <FeaturedProduct />
         <Testimonials />
+        <LatestNews />
     </div>
   )
 }

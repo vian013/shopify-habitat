@@ -1,0 +1,119 @@
+.latest-news {
+    padding-bottom: 100px;
+}
+
+
+.latest-news .articles-wrapper {
+    max-width: 1270px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 40px;
+}
+
+.latest-news .img-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.latest-news .img-wrapper.style-1 {
+    border-radius: 50% 50% 0% 0%;
+}
+
+.latest-news .img-wrapper.style-2 {
+    border-radius: 50%;
+}
+
+.latest-news .img-wrapper.style-3 {
+    border-radius: 0 0 50% 50%;
+}
+
+.latest-news .img-wrapper::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.latest-news .img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scale(1);
+    transform-origin: center;
+    transition: transform 1s ease-out;
+}
+
+.latest-news .img-wrapper:hover img{
+    transform: scale(1.05);
+}
+
+.latest-news .content-wrapper {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.latest-news .content-wrapper .published-at {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: .6;
+    margin-bottom: 18px;
+}
+
+.latest-news .content-wrapper .title {
+    font-size: 22px;
+    transition: color .2s ease-in;
+}
+
+.latest-news .content-wrapper .title:hover {
+    color: var(--text-color--2);
+}
+
+.latest-news .content-wrapper .read-more {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    position: relative;
+    padding-bottom: 10px;
+    transition: color .2s ease-in;
+}
+
+.latest-news .content-wrapper .read-more:hover {
+    color: var(--text-color--2);
+}
+
+.latest-news .content-wrapper .read-more::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: var(--border-color--3);
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+
+.latest-news .view-all-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.latest-news .view-all {
+    padding: 20px;
+    text-transform: uppercase;
+    color: var(--text-color--1);
+    background: var(--background-color--1);
+    font-weight: 600;
+    border-radius: 3px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    padding: 15px 25px;
+}

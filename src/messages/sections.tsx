@@ -14,5 +14,11 @@ export default {
     testimonials: {
         title: "Testimonials",
         subTitle: "We take pride in our work and our customer testimonials reflect that."
+    },
+    latestNews: {
+        title: "Latest News",
+        subTitle: "Keep up to date with all the latest news.",
+        readMoreBtn: "Read more",
+        viewAllBtn: "View all posts",
     }
 }
