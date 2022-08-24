@@ -36,10 +36,10 @@ function LatestNews() {
         <SectionHeader title={title} subTitle={subTitle}/>
         <div className="articles-wrapper">
             {articles.map(({imgUrl, publishedAt, title, handle}, index) => (
-                <div className="article-wrapper">
+                <div key={index} className="article-wrapper">
                     <Link to={`/blogs/${handle}`} >
                         <div className={`img-wrapper style-${index+1}`}>
-                            <img src={imgUrl} alt={`article-${index}-img`} />
+                            <img loading='lazy' src={imgUrl} alt={`article-${index}-img`} />
                         </div>
                     </Link>
                     <div className="content-wrapper">

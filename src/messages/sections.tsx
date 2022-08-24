@@ -1,4 +1,7 @@
 export default {
+    header: {
+        popularSearches: "Popular Searches"
+    },
     shopByCategory: {
         title: "Shop by Category",
         subTitle: "Shop by room to find the furniture that you are looking for."
@@ -20,5 +23,17 @@ export default {
         subTitle: "Keep up to date with all the latest news.",
         readMoreBtn: "Read more",
         viewAllBtn: "View all posts",
+    },
+    footer: {
+        menuTitles: {
+            company: "Company",
+            help: "Help",
+            getInTouch: "Get in touch"
+        },
+        newsLetter: {
+            title: "JOIN OUR MAILING LIST",
+            subTitle: "Sign up for our newsletter and receive 10% off your first order!",
+            emailPlaceholder: "Enter your mail address"
+        } 
     }
 }

@@ -178,7 +178,7 @@ function ProductLayout({productHandle, children}: {productHandle: string, childr
                   <SwiperSlide key={index}>
                       <div className="slide-wrapper">
                           <div className={styles["img-wrapper"]} key={index}>
-                          <img src={url} alt={`${title}-image-${index + 1}`} />
+                          <img loading='lazy' src={url} alt={`${title}-image-${index + 1}`} />
                           </div>
                       </div>
                   </SwiperSlide>

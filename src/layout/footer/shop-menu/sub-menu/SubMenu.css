@@ -1,0 +1,10 @@
+#footer .list-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    display: none;
+}
+
+#footer .list-wrapper.open {
+    display: flex;
+}

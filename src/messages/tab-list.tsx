@@ -1,26 +1,30 @@
+import shopList from "./shop-list";
+
 export default [
     {
-        link: "",
+        link: "/",
         title: "Home"
     },
     {
         link: "/products",
-        title: "Shop"
+        title: "Shop",
+        subMenus: shopList
+
     },
     {
-        link: "",
+        link: "/",
         title: "Blog"
     },
     {
-        link: "",
+        link: "/",
         title: "About"
     },
     {
-        link: "",
+        link: "/",
         title: "Contact"
     },
     {
-        link: "",
+        link: "/",
         title: "FAQ"
     }
 ]

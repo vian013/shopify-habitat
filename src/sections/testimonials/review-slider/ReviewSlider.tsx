@@ -14,8 +14,8 @@ function ReviewSlider() {
             loop
             pagination={{clickable: true}}
         >
-            {reviews.map(({rating, author, content}) => (
-                <SwiperSlide>
+            {reviews.map(({rating, author, content}, index) => (
+                <SwiperSlide key={index}>
                     <div className="review-wrapper">
                         <div className="rating" style={{"--review-rating": rating} as CSSProperties}></div>
                         <h1 className='content'>{content}</h1>

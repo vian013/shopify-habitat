@@ -11,6 +11,7 @@ import { cartReducer } from "./store/reducers/cartReducer";
 import { CartActions } from "./store/actions/cartActions";
 import { createBrowserHistory } from "history";
 import "./App.css"
+import Footer from "./layout/footer/Footer";
 
 export const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
 
@@ -108,6 +109,7 @@ function App() {
             <div className="App">
               <Header />
               <Routes />
+              <Footer />
               <div className={`blurred-bg ${state.isBackgroundBlurred?"open":""}`}></div>
             </div>
           </CartProvider>

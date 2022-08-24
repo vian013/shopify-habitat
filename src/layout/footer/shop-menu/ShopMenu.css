@@ -1,0 +1,15 @@
+#footer .shop-menu {
+    position: relative;
+}
+
+#footer .shop-menu .sub-menus-wrapper {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    display: none;
+}
+
+#footer .shop-menu .sub-menus-wrapper.open {
+    display: block;
+}
