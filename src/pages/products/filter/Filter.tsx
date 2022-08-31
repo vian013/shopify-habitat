@@ -1,12 +1,30 @@
-import React, { ChangeEvent, Dispatch, MouseEvent, useMemo } from 'react'
+import React, { ChangeEvent, Dispatch, MouseEvent, useEffect, useMemo, useState } from 'react'
 import { MouseEventHandler } from 'react'
 import { FilterActions } from '../../../store/actions/filterActions'
 import { IAction, IFilter } from '../../../type/global'
 import { ProductType } from '../../../type/product'
 import { Options } from '../Products'
 import styles from "./Filter.module.css"
+import "./Filter.css"
+import OptionPanel from './option-panel/OptionPanel'
         
+type OptionPanel = {
+  availability: boolean,
+  price: boolean,
+  colors: boolean,
+  sizes: boolean
+}
+
+const initOptionPanelState = {
+  availability: false,
+  price: false,
+  colors: false,
+  sizes: false
+}
+
 function Filter({products, colors, sizes, filterState, filterDispatch}: {products: ProductType[], colors: Options, sizes: Options, filterState: IFilter, filterDispatch: Dispatch<IAction<any>>}) {
+  const [optionPanel, setOptionPanel] = useState<OptionPanel>(initOptionPanelState)
+  
   const colorMap = useMemo(() => {
     const _colorMap: {value: string, quantity: number}[] = []
     for (let color in colors) {
@@ -66,38 +84,63 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
   const {minPrice, maxPrice, color, size} = filterState
   const showPricesTag = !(minPrice===0&&maxPrice===1000) && (minPrice < maxPrice)
 
+  const togglePanel = (name: string) => {
+    setOptionPanel({...optionPanel, [name]: !optionPanel[name as keyof OptionPanel]})
+  }
+
   return (
-
     <div className={styles["filter-wrapper"]}>
-        <strong>Filter:</strong>
-
-        <div className={styles["availability"]}>
-          <strong>Availability</strong> 
-          <input type="checkbox"/> In stock {`(${inStock})`}
-          <input type="checkbox"/> Out of stock {`(${outOfStock})`}
+      <div className="filter-options">
+      <strong>Filter:</strong>
+        <div className={` ${styles["filter-option"]}`}>
+          <strong onClick={() => togglePanel("availability")} className="option-label availability">Availability<span className='dropdown-btn'></span></strong> 
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.availability} option="availability">
+            <>
+              <div className="input-wrapper">
+                <input type="checkbox"/><p>In stock {`(${inStock})`}</p> 
+              </div>
+              <div className="input-wrapper">
+                <input type="checkbox"/><p>Out of stock {`(${outOfStock})`}</p> 
+              </div>
+            </>
+          </OptionPanel>
         </div>
-        <div className={styles["price"]}>
-          <strong>Price</strong>
-          From <input type="text" onChange={handleMinPrice} value={minPrice}/>
-          To <input type="text" onChange={handleMaxPrice} value={maxPrice}/>
+        <div className={` ${styles["price"]} ${styles["filter-option"]}`}>
+          <strong onClick={() => togglePanel("price")} className="option-label price">Price<span className='dropdown-btn'></span></strong>
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.price} option="price">
+            <>
+              From <input type="text" onChange={handleMinPrice} value={minPrice}/>
+              To <input type="text" onChange={handleMaxPrice} value={maxPrice}/>
+            </>
+          </OptionPanel>
         </div>
-        <div className={styles["color"]}>
-          <strong>Colors</strong>
-          {colorMap.map(({value, quantity}) => (
-            <span onClick={handleColor} data-name={value} className={styles['color-option']} key={value}>{`${value} (${quantity})`}</span>
-          ))}
+        <div className={` ${styles["colors"]} ${styles["filter-option"]}`}>
+          <strong onClick={() => togglePanel("colors")} className="option-label colors">Colors<span className='dropdown-btn'></span></strong>
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.colors} option="colors">
+            <>
+              {colorMap.map(({value, quantity}) => (
+                <span onClick={handleColor} data-name={value} className={styles['color-option']} key={value}>{`${value} (${quantity})`}</span>
+              ))}
+            </>
+          </OptionPanel>
         </div>
-        <div className={styles["size"]}>
-          <strong>Sizes</strong>
-          {sizeMap.map(({value, quantity}) => (
-            <span onClick={handleSize} data-name={value}  className={styles['size-option']} key={value}>{`${value} (${quantity})`}</span>
-          ))}
+        <div className={` ${styles["sizes"]} ${styles["filter-option"]}`}>
+          <strong onClick={() => togglePanel("sizes")} className="option-label sizes">Sizes<span className='dropdown-btn'></span></strong>
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.sizes} option="sizes">
+            <>
+              {sizeMap.map(({value, quantity}) => (
+                <span onClick={handleSize} data-name={value}  className={styles['size-option']} key={value}>{`${value} (${quantity})`}</span>
+              ))}
+            </>
+          </OptionPanel>
         </div>
-        <div className={styles["selected-tags"]}>
-          {showPricesTag&&<span onClick={resetPrices}>{minPrice}-{maxPrice} X</span>}
-          {color&&<span onClick={resetColor}>{color} X</span>}
-          {size&&<span onClick={resetSize}>{size} X</span>}
-        </div>
+      </div>
+        
+      <div className={"selected-tags"}>
+        {showPricesTag&&<span className='selected-tag' onClick={resetPrices}>{minPrice}-{maxPrice} x</span>}
+        {color&&<span className='selected-tag' onClick={resetColor}>{color} x</span>}
+        {size&&<span className='selected-tag' onClick={resetSize}>{size} x</span>}
+      </div>
     </div>
   )
 }

@@ -1,6 +1,17 @@
+.filter-wrapper {
+    margin-bottom: 30px;
+}
+
 .filter-wrapper strong{
     margin-right: 20px;
+    position: relative;
 }
+
+.filter-option {
+    position: relative;
+    margin-right: 20px;
+}
+
 
 .color-option, .size-option {
     border: 1px solid;

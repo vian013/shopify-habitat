@@ -1,0 +1,17 @@
+.products-page .option-label {
+    cursor: pointer;
+}
+
+.products-page .filter-options {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.products-page .selected-tag {
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-size: 13px;
+    border: 1px solid var(--border-color--2);
+    margin-right: 10px;
+    cursor: pointer;
+}

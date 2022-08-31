@@ -1,9 +1,13 @@
+.products-page {
+    max-width: 1280px;
+    margin: 50px auto;
+}
+
 .products-container {
-    width: 1280px;
-    margin: 0 auto;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin: 0 -15px;
 }
 
 .products-container .product-wrapper {

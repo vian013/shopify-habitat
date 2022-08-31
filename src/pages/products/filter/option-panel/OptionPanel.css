@@ -1,0 +1,53 @@
+.products-page .option-panel {
+    display: none;
+    position: absolute;
+    top: 30px;
+    width: 350px;
+    border: 1px solid var(--border-color--1);
+    z-index: 3;
+    background: var(--color-white);
+}
+
+.products-page .option-panel.open {
+    display: block;
+}
+
+.products-page .option-panel .option-content {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+}
+
+.products-page .option-panel .input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.products-page .option-panel .input-wrapper:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.products-page .option-panel .input-wrapper input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+}
+
+.products-page .option-panel .input-wrapper p {
+    font-size: 15px;
+}
+
+.products-page .option-panel .footer {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-top: 1px solid var(--border-color--1);
+}
+
+.products-page .option-panel .reset-btn {
+    cursor: pointer;
+    color: var(--text-color--2);
+    text-decoration: underline;
+}

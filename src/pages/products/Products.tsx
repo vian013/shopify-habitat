@@ -24,7 +24,6 @@ function Products() {
     const [filterState, filterDispatch] = useReducer(filterReducer, initFilter)
     const firstRender = useRef<number>(0)
     const {minPrice, maxPrice, color, size} = filterState
-    console.log(minPrice, maxPrice, color, size);
 
     useEffect(() => {
         filterDispatch({type: FilterActions.SET_COLOR, payload: ""})
@@ -52,9 +51,6 @@ function Products() {
         const res = await fetch(url)
         const data: {products: any, colors: Options, sizes: Options} = await res.json()
         const {products, colors, sizes} = data
-        // console.log(colors);
-        // console.log(sizes);
-        console.log(products);
         
         
         if (products && products.length > 0) setProducts(products)
@@ -74,4 +70,4 @@ function Products() {
   )
 }
 
-export default withRouter(Products) 
+export default Products 

@@ -34,7 +34,7 @@ function Footer() {
               <div className="menu-title">{menuTitles.help}</div>
               <div className="links-wrapper">
                 {helpList.map(({link, name}, index) => (
-                  <Link to={link}>{name}</Link>
+                  <Link key={index} to={link}>{name}</Link>
                 ))}
               </div>
             </div>
@@ -44,7 +44,7 @@ function Footer() {
               <div className="menu-title">{menuTitles.getInTouch}</div>
               <div className="links-wrapper">
                 {socialList.map(({link, name, svgContent}, index) => (
-                  <Link className='social-link' to={link}>{parser(svgContent)}<span className='link-name'>{name}</span></Link>
+                  <Link key={index} className='social-link' to={link}>{parser(svgContent)}<span className='link-name'>{name}</span></Link>
                 ))}
               </div>
             </div>
@@ -58,10 +58,10 @@ function Footer() {
               <div className="email-input-wrapper">
                 <input className='email-input' placeholder={newsLetter.emailPlaceholder} type="text" />
                 <button className='submit-btn'>
-                <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.799805 5.5H12.7998" stroke="var(--background-color--1)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
-                  <path d="M9.49976 1L13.9998 5.5L9.49976 10" stroke="var(--background-color--1)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
+                  <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.799805 5.5H12.7998" stroke="var(--background-color--1)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
+                    <path d="M9.49976 1L13.9998 5.5L9.49976 10" stroke="var(--background-color--1)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
+                  </svg>
                 </button>
               </div>
             </div>
