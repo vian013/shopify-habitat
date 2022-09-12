@@ -30,6 +30,8 @@
     z-index: 20;
     transition: all .25s cubic-bezier(.104,.204,.492,1);
     padding: 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .sidebar-wrapper.open{

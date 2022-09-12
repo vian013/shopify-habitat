@@ -30,4 +30,4 @@ type Variant = {
     price: number
 }
 
-export {ProductType, Variant}
+export {ProductType, Variant, Option}

@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, useRef, useState } from 'react'
-import { withRouter } from 'react-router-dom'
 import Product from '../../components/product/Product'
 import { FilterActions } from '../../store/actions/filterActions'
 import { filterReducer } from '../../store/reducers/filterReducer'
@@ -33,25 +32,38 @@ function Products() {
         fetchData({all: true})
     }, [])
 
+    const timeRef = useRef<NodeJS.Timeout|null>(null)
+
     useEffect(() => {
         if (firstRender.current<=1) {
             firstRender.current++
             return
         }
         
+        if (timeRef.current) {
+            clearTimeout(timeRef.current)
+          }
+          timeRef.current = setTimeout(() => {
+            if (typeof minPrice === "number" && typeof maxPrice === "number" && (minPrice < maxPrice)) fetchData({all: false})
+          }, 1000);
+
+    }, [minPrice, maxPrice])
+
+    useEffect(() => {
+        if (firstRender.current<=1) {
+            firstRender.current++
+            return
+        }
+
         if (typeof minPrice === "number" && typeof maxPrice === "number" && (minPrice < maxPrice)) fetchData({all: false})
-    }, [minPrice, maxPrice, color, size])
+    }, [color, size])
 
     const fetchData = async ({all}: {all: boolean}) => {
-        console.log("fetch data");
         let url: string = `http://localhost:4000/product-variants?minPrice=${minPrice}&maxPrice=${maxPrice}${all===true?`&all=true`:""}${color&&`&color=${color}`}${size&&`&size=${size}`}`
-
-        console.log(url);
 
         const res = await fetch(url)
         const data: {products: any, colors: Options, sizes: Options} = await res.json()
         const {products, colors, sizes} = data
-        
         
         if (products && products.length > 0) setProducts(products)
         if (Object.keys(colors).length > 0) setColors(colors)

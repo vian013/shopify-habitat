@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, MouseEvent, useEffect, useMemo, useState } from 'react'
+import React, { ChangeEvent, Dispatch, MouseEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { MouseEventHandler } from 'react'
 import { FilterActions } from '../../../store/actions/filterActions'
 import { IAction, IFilter } from '../../../type/global'
@@ -109,8 +109,10 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
           <strong onClick={() => togglePanel("price")} className="option-label price">Price<span className='dropdown-btn'></span></strong>
           <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.price} option="price">
             <>
-              From <input type="text" onChange={handleMinPrice} value={minPrice}/>
-              To <input type="text" onChange={handleMaxPrice} value={maxPrice}/>
+              From {minPrice} 
+              <input type="range" onChange={handleMinPrice} value={minPrice}/>
+              To {maxPrice}  
+              <input type="range" onChange={handleMaxPrice} value={maxPrice}/>
             </>
           </OptionPanel>
         </div>
@@ -129,7 +131,7 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
           <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.sizes} option="sizes">
             <>
               {sizeMap.map(({value, quantity}) => (
-                <span onClick={handleSize} data-name={value}  className={styles['size-option']} key={value}>{`${value} (${quantity})`}</span>
+                <span onClick={handleSize} data-name={value} className={styles['size-option']} key={value}>{`${value} (${quantity})`}</span>
               ))}
             </>
           </OptionPanel>

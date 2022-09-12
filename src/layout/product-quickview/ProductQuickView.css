@@ -1,8 +1,24 @@
-.product-quickview-container {
-  
-}
-
 .product-quickview-wrapper {
     width: 570px;
     background: var(--color-white);
+}
+
+.product-quickview-wrapper .img-slider {
+    margin-bottom: 35px;
+}
+
+.product-quickview-wrapper .img-wrapper, .product-quickview-wrapper img {
+    width: 100%;
+}
+
+.product-quickview-wrapper .swiper-wrapper {
+    padding-bottom: 20px;
+}
+
+.product-quickview-wrapper .swiper-scrollbar.swiper-scrollbar-horizontal {
+    height: 2px;
+}
+
+.product-quickview-wrapper .swiper-scrollbar-drag {
+    background: var(--background-color--2);
 }

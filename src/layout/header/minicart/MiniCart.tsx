@@ -9,7 +9,7 @@ export type CartItems = {title: string, quantity: number, variantId: string, lin
 
 const MiniCart = forwardRef<HTMLDivElement, {}>((props, ref) => {
   const [cartItems, setCartItems] = useState<CartItems>([])
-  const {cartState: {cartId, isCartOpen: _isCartOpen}, cartDispatch} = useContext(CartContext)!
+  const {cartState: {cartId, isCartOpen}, cartDispatch} = useContext(CartContext)!
   const [loading, setLoading] = useState<boolean>(false)
 
   const fetchCartItems = async(loading: boolean, setLoading: React.Dispatch<React.SetStateAction<boolean>>)=> {
@@ -35,9 +35,9 @@ const MiniCart = forwardRef<HTMLDivElement, {}>((props, ref) => {
   }
 
   useEffect(() => {
-    _isCartOpen && fetchCartItems(loading, setLoading)
+    isCartOpen && fetchCartItems(loading, setLoading)
     
-  }, [_isCartOpen])
+  }, [isCartOpen])
   
   return (
           <>

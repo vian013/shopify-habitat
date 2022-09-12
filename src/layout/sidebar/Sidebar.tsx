@@ -21,9 +21,9 @@ const Sidebar = forwardRef<HTMLDivElement, {}>((props, ref) => {
   }
 
   useEffect(()=>{
-    if (isCartOpen) setContent("cart")
-    if (isQuickViewOpen) setContent("quickview")
-  }, [isSidebarOpen],
+    if (isCartOpen && !isQuickViewOpen) setContent("cart")
+    if (isQuickViewOpen && !isCartOpen) setContent("quickview")
+  }, [isSidebarOpen, isCartOpen, isQuickViewOpen],
   )
 
     return (

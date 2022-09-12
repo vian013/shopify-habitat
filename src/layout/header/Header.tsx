@@ -5,7 +5,6 @@ import Sidebar from '../sidebar/Sidebar'
 import AnnouncementBar from './announcement-bar/AnnouncementBar'
 import { announcementTitle } from './announcement-bar/announment'
 import "./Header.css"
-import MiniCart from './minicart/MiniCart'
 import ShopPanel from './shop-panel/ShopPanel'
 
 type Shop = {
@@ -22,7 +21,6 @@ function Header() {
   const [isShopOpen, setIsShopOpen] = useState(false)
   const panelRef1 = useRef<HTMLDivElement>(null)
   const shopRef = useRef<HTMLDivElement>(null)
-  const cartRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     openSearch ? doOpenSearch() : doCloseSearch()
@@ -65,10 +63,6 @@ function Header() {
     setIsCartOpen(true)
   }
 
-  const closeCart = useCallback(() => {
-    setIsCartOpen(false)
-  },[])
-
   const openShopPanel = () => {
     setIsShopOpen(true)
   }
@@ -102,7 +96,6 @@ function Header() {
         <Nav toggleSearch={toggleSearch} openCart={openCart} />
         <SearchPanel ref={panelRef1} closeSearch={closeSearch}/>
         <ShopPanel ref={shopRef}/>
-        {/* <MiniCart ref={cartRef}/> */}
         <Sidebar />
       </ShopProvider>
     </header>

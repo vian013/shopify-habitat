@@ -14,11 +14,13 @@
 
 
 .color-option, .size-option {
-    border: 1px solid;
+    /* margin-bottom: 5px; */
     cursor: pointer;
     margin-right: 10px;
     padding: 5px;
     display: inline-block;
+    font-size: 15px;
+    text-transform: capitalize;
 }
 
 .selected-tags span {
