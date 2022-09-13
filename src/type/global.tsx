@@ -35,3 +35,11 @@ export interface IFilter {
     color: string,
     size: string
 }
+
+export type Article = {
+    imgUrl: string,
+    publishedAt: string
+    title: string,
+    handle: string,
+    excerpt?: string
+}

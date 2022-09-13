@@ -12,19 +12,19 @@ export default [
 
     },
     {
-        link: "/",
+        link: "/blogs",
         title: "Blog"
     },
     {
-        link: "/",
+        link: "/qbout",
         title: "About"
     },
     {
-        link: "/",
+        link: "/contact",
         title: "Contact"
     },
     {
-        link: "/",
+        link: "/faq",
         title: "FAQ"
     }
 ]

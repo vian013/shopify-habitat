@@ -1,6 +1,7 @@
 import React from 'react'
 import {Switch, Route} from "react-router-dom"
 import Account from '../pages/account/Account'
+import Blogs from '../pages/blogs/Blogs'
 import CreateAccount from '../pages/create-account/CreateAccount'
 import Home from '../pages/home/Home'
 import Login from '../pages/login/Login'
@@ -19,6 +20,9 @@ function Routes() {
             </Route>
             <Route path={"/products/:handle"}>
                 <Product />
+            </Route>
+            <Route path={"/blogs"}>
+                <Blogs />
             </Route>
             <Route path={"/account"}>
                 <Account />

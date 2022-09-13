@@ -1,57 +1,21 @@
-import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { BASE_API_URL } from '../../App'
+import ArticlesWrapper from '../../components/articles-wrapper/ArticlesWrapper'
 import SectionHeader from '../../components/section-header/SectionHeader'
+import useFetchArticles from '../../custom-hooks/useFetchArticles'
 import sections from '../../messages/sections'
+import { Article } from '../../type/global'
 import "./LatestNews.css"
 
-type Article = {
-    imgUrl: string,
-    publishedAt: string
-    title: string,
-    handle: string
-}
-
 function LatestNews() {
-    const [articles, setArticles] = useState<Article[]>([])
-    const {title, subTitle, readMoreBtn, viewAllBtn} = sections.latestNews
+    const {title, subTitle, viewAllBtn} = sections.latestNews
     const blogHandle = "news"
-
-    useEffect(() => {
-        const fetchArticles = async() => {
-            try {
-                const res = await fetch(`${BASE_API_URL}/blogs/${blogHandle}`)
-                const _articles = await res.json()
-                setArticles(_articles)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-
-        fetchArticles() 
-    }, [blogHandle])    
+    
+    const articles: Article[] = useFetchArticles(blogHandle).slice(0, 3)
     
   return (
     <div className='latest-news section'>
         <SectionHeader title={title} subTitle={subTitle}/>
-        <div className="articles-wrapper">
-            {articles.map(({imgUrl, publishedAt, title, handle}, index) => (
-                <div key={index} className="article-wrapper">
-                    <Link to={`/blogs/${handle}`} >
-                        <div className={`img-wrapper style-${index+1}`}>
-                            <img loading='lazy' src={imgUrl} alt={`article-${index}-img`} />
-                        </div>
-                    </Link>
-                    <div className="content-wrapper">
-                        <p className='published-at'>{publishedAt}</p>
-                        <Link to={`/blogs/${handle}`} >
-                            <h1 className='title'>{title}</h1>
-                        </Link>
-                        <Link to={`/blogs/${handle}`} className='read-more'>{readMoreBtn}</Link>
-                    </div>
-                </div>
-            ))}
-        </div>
+        <ArticlesWrapper articles={articles} showExcerpt={false}/>
         <div className="view-all-wrapper">
             <Link to="/blogs" className='view-all'>{viewAllBtn}</Link>
         </div>

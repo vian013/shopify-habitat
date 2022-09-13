@@ -1,0 +1,21 @@
+#blogs-page header{
+    max-width: 1270px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: var(--font-title);
+    padding-top: 90px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid var(--border-color--1);
+}
+
+#blogs-page .date {
+    font-size: 30px;
+}
+
+#blogs-page .articles-wrapper {
+    margin-top: 50px;
+}
+
+#blogs-page .article-wrapper {
+    margin-bottom: 100px;
+}
