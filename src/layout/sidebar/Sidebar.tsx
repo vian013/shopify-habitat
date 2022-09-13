@@ -30,7 +30,7 @@ const Sidebar = forwardRef<HTMLDivElement, {}>((props, ref) => {
       <div className={`sidebar-container ${isSidebarOpen?"open":""}`}>
           <div className={`overlay ${isSidebarOpen?"open":""}`} onClick={handleCloseSidebar}></div>
           <div className={`sidebar-wrapper ${isSidebarOpen?"open":""}`} ref={ref}>
-            <div className="cart-header">
+            <div className="sidebar-header">
               <h3 className='title'>
                 {content==="cart" && "Cart"}
                 {content==="quickview" && "Select options"}

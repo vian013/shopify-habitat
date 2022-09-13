@@ -1,10 +1,23 @@
+import parser from 'html-react-parser'
 import React, { useState } from 'react'
 import QuantitySelect from '../../../../components/select/quantity/QuantitySelect'
-import styles from "./LineItem.module.css"
+import trashIcon from '../../../icons/trash-icon'
+import "./LineItem.css"
 
-type LineItem = {title: string, quantity: number, variantId: string, cartId: string, lineId: string, outOfStock: boolean, fetchCartItems: Function}
+type LineItem = {
+    imgUrl: string,
+    title: string, 
+    options: string,
+    price: number,
+    quantity: number, 
+    variantId: string, 
+    cartId: string, 
+    lineId: string, 
+    outOfStock: boolean, 
+    fetchCartItems: Function
+}
 
-function LineItem({title, quantity, variantId, cartId, lineId, outOfStock, fetchCartItems}: LineItem) {
+function LineItem({imgUrl ,title, options, price, quantity, variantId, cartId, lineId, outOfStock, fetchCartItems}: LineItem) {
     const [loading, setLoading] = useState<boolean>(false)
     
     const handleDecrease = async () => {
@@ -55,12 +68,22 @@ function LineItem({title, quantity, variantId, cartId, lineId, outOfStock, fetch
     }
     
     return (
-        <div className={styles["cart-item"]}>
-            <p>{title} {variantId}</p>
-            <QuantitySelect quantity={quantity} handleDecrease={handleDecrease} handleIncrease={handleIncrease}/>
-            {loading && <p>Loading...</p>}
-            {outOfStock && <p>Out of stock. Maximum left is {quantity}</p>}
-            <button className={styles['delete-btn']} onClick={handleDelete}>Delete</button>
+        <div className={"cart-item"}>
+            <div className="img-wrapper">
+                <img src={imgUrl} alt={title} />
+            </div>
+            <div className="content-wrapper">
+                <p className='title'>{title}</p>
+                <p className='price'>${price}</p>
+                <p className='options'>{options}</p>
+
+                <div className="buttons-wrapper">
+                    <QuantitySelect quantity={quantity} handleDecrease={handleDecrease} handleIncrease={handleIncrease}/>
+                    <button className={'delete-btn'} onClick={handleDelete}>{parser(trashIcon)}</button>
+                </div>
+                {loading && <p>Loading...</p>}
+                {outOfStock && <p>Out of stock. Maximum left is {quantity}</p>}
+            </div>
         </div>
     )
 }

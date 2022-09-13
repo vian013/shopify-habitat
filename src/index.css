@@ -69,3 +69,14 @@ button {
     --padding-top-section--1: 110px
 }
 
+.btn {
+    text-transform: uppercase;
+    text-align: center;
+    background: var(--background-color--1);
+    border-radius: 3px;
+    color: var(--text-color--1);
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    height: 50px;
+}

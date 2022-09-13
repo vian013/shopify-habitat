@@ -218,7 +218,7 @@ function ProductLayout({productHandle, children}: {productHandle: string, childr
           </>
           <div className="quantity-and-add-to-cart">
             <QuantitySelect handleDecrease={handleDecrease} handleIncrease={handleIncrease} quantity={quantity}/>
-            <button className={"btn-add-to-cart"} onClick={handleSubmit}>Add To Cart</button>
+            <button className={"btn btn-add-to-cart"} onClick={handleSubmit}>Add To Cart</button>
             {loading && <p>Loading...</p>}
           </div>
         </form>

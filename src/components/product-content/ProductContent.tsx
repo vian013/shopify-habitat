@@ -1,4 +1,5 @@
 import React, { FormEvent, useCallback, useContext, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AppContext, CartContext } from '../../App'
 import { AppActions } from '../../store/actions/actions'
 import { CartActions } from '../../store/actions/cartActions'
@@ -7,6 +8,7 @@ import ColorSelect from '../select/color/ColorSelect'
 import QuantitySelect from '../select/quantity/QuantitySelect'
 import Select from '../select/Select'
 import SizeSelect from '../select/size/SizeSelect'
+import "./ProductContent.css"
 
 type Props = {
     productHandle: string,
@@ -107,9 +109,11 @@ function ProductContent({productHandle, vendor, title, price, options}: Props) {
       }
     
   return (
-    <div className={"content-wrapper"}>
+    <div className={"product-content"}>
           {vendor&&<p>{vendor}</p>}
-          <h1>{title}</h1>
+          <Link to={`/products/${productHandle}`}>
+            <h1 className='title'>{title}</h1>
+          </Link>
           <p>${price}</p>
 
           <form ref={formRef} onSubmit={handleSubmit}>
@@ -138,7 +142,7 @@ function ProductContent({productHandle, vendor, title, price, options}: Props) {
             </>
             <div className="quantity-and-add-to-cart">
               <QuantitySelect handleDecrease={handleDecrease} handleIncrease={handleIncrease} quantity={quantity}/>
-              <button className={"btn-add-to-cart"} onClick={handleSubmit}>{loading ? <p>Loading...</p> : <p>Add To Cart</p>}</button>
+              <button className={"btn btn-add-to-cart"} onClick={handleSubmit}>{loading ? <p>Loading...</p> : <p>Add To Cart</p>}</button>
               
             </div>
           </form>

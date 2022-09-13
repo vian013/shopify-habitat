@@ -36,7 +36,7 @@
     right: 0;
 }
 
-.cart-header {
+.sidebar-header {
     padding-bottom: 20px;
     border-bottom: 1px solid var(--border-color--1);
     display: flex;
@@ -44,14 +44,50 @@
     align-items: baseline;
 }
 
-.cart-header .title{
+.sidebar-header .title{
     font-family: "ITC NB";
     font-size: 28px;
     color: var(--text-color);
 }
 
-.cart-header .close-btn {
+.sidebar-header .close-btn {
     border: none;
     background: var(--color-white);
     cursor: pointer;
+}
+
+.mini-cart .cart-footer {
+    position: fixed;
+    background: var(--color-white);
+    width: 490px;
+    bottom: 0;
+    border-top: 1px solid var(--border-color--3);
+    padding: 35px 0;
+}
+
+.mini-cart .subtotal-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.mini-cart .footer-buttons-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mini-cart .btn-view-cart, .mini-cart .btn-checkout {
+    width: 50%;
+}
+
+.mini-cart .btn-view-cart {
+    color: var(--text-color);
+    background: var(--color-white);
+    border: 1px solid var(--border-color--2);
+    margin-right: 5px;
+}
+
+.mini-cart .btn-checkout {
+    margin-left: 5px;
 }
