@@ -12,6 +12,11 @@
     font-size: 30px;
 }
 
+#blogs-page .articles-container {
+    position: relative;
+    padding-bottom: 100px;
+}
+
 #blogs-page .articles-wrapper {
     margin-top: 50px;
 }

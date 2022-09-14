@@ -43,3 +43,11 @@ export type Article = {
     handle: string,
     excerpt?: string
 }
+
+export type PageData = {
+    articles: Article[], 
+    hasNextPage: boolean, 
+    hasPreviousPage: boolean, 
+    startCursor: string, 
+    endCursor: string
+}

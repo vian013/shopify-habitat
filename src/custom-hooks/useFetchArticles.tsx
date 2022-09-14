@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { BASE_API_URL } from '../App'
-import { Article } from '../type/global'
+import { PageData } from '../type/global'
+
 
 function useFetchArticles(blogHandle: string) {
-    const [articles, setArticles] = useState<Article[]>([])
+    const [pageData, setPageData] = useState<PageData>({
+        articles: [],
+        hasNextPage: true,
+        hasPreviousPage: false,
+        startCursor: "",
+        endCursor: ""
+    })
 
     useEffect(() => {
         const fetchArticles = async() => {
             try {
                 const res = await fetch(`${BASE_API_URL}/blogs/${blogHandle}`)
-                const _articles = await res.json()
-                setArticles(_articles)
+                const data = await res.json()
+                setPageData(data)
             } catch (error) {
                 console.log(error)
             }
@@ -19,7 +26,7 @@ function useFetchArticles(blogHandle: string) {
         fetchArticles() 
     }, [blogHandle]) 
 
-  return articles
+  return pageData
 }
 
 export default useFetchArticles
