@@ -1,6 +1,4 @@
 .articles-wrapper {
-    max-width: 1270px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 40px;

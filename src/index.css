@@ -80,3 +80,8 @@ button {
     cursor: pointer;
     height: 50px;
 }
+
+.page-width {
+    max-width: 1280px;
+    margin: 0 auto;
+}

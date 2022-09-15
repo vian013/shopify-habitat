@@ -1,0 +1,16 @@
+.shop-btn {
+    padding: 20px;
+    text-transform: uppercase;
+    color: var(--text-color--1);
+    background: var(--background-color--1);
+    font-weight: 600;
+    border-radius: 3px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    padding: 15px 25px;
+    border: 1px solid var(--color-white);
+}
+
+.shop-btn.orange {
+    background: var(--background-color--2);
+}

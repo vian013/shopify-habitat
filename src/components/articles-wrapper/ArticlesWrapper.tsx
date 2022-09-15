@@ -8,7 +8,8 @@ function ArticlesWrapper({articles, showExcerpt}: {articles: Article[], showExce
     const {readMoreBtn} = sections.latestNews
     
   return (
-    <div className="articles-wrapper">
+    <div className="page-width">
+        <div className="articles-wrapper">
             {articles.map(({imgUrl, publishedAt, title, handle, excerpt}, index) => (
                 <div key={index} className="article-wrapper">
                     <Link to={`/blogs/${handle}`} >
@@ -27,6 +28,7 @@ function ArticlesWrapper({articles, showExcerpt}: {articles: Article[], showExce
                 </div>
             ))}
         </div>
+    </div>
   )
 }
 

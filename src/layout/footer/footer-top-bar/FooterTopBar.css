@@ -1,0 +1,15 @@
+.footer-top-bar {
+    background: var(--background-color--2);
+    padding: 20px 0;
+}
+
+.footer-top-bar .content-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top-bar .title {
+    color: var(--text-color--1);
+    font-size: 25px;
+}

@@ -34,6 +34,11 @@ export default {
             title: "JOIN OUR MAILING LIST",
             subTitle: "Sign up for our newsletter and receive 10% off your first order!",
             emailPlaceholder: "Enter your mail address"
+        },
+        topBar: {
+            title: "Your fave furniture, for less. Save up to 20% on selected furniture.",
+            btnText: "Shop the sale",
+            link: "/"
         } 
     }
 }

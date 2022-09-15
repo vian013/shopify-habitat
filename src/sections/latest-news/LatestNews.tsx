@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ArticlesWrapper from '../../components/articles-wrapper/ArticlesWrapper'
 import SectionHeader from '../../components/section-header/SectionHeader'
+import ShopBtn from '../../components/shop-btn/ShopBtn'
 import useFetchArticles from '../../custom-hooks/useFetchArticles'
 import sections from '../../messages/sections'
 import { Article, PageData } from '../../type/global'
@@ -18,7 +19,7 @@ function LatestNews() {
         <SectionHeader title={title} subTitle={subTitle}/>
         <ArticlesWrapper articles={articles.slice(0, 3)} showExcerpt={false}/>
         <div className="view-all-wrapper">
-            <Link to="/blogs" className='view-all'>{viewAllBtn}</Link>
+          <ShopBtn link='/' title={viewAllBtn}/>
         </div>
     </div>
   )
