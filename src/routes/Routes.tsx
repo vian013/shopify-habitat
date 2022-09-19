@@ -21,7 +21,10 @@ function Routes() {
             <Route path={"/products/:handle"}>
                 <Product />
             </Route>
-            <Route path={"/blogs"}>
+            <Route path={"/blogs"} exact>
+                <Blogs />
+            </Route>
+            <Route path={"/blogs/news/tagged/:handle"}>
                 <Blogs />
             </Route>
             <Route path={"/account"}>

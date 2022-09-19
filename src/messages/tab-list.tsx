@@ -16,7 +16,7 @@ export default [
         title: "Blog"
     },
     {
-        link: "/qbout",
+        link: "/about",
         title: "About"
     },
     {

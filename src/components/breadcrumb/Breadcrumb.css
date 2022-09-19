@@ -1,0 +1,13 @@
+.breadcrumb {
+    padding: 13px 35px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    margin: 0 5px;
+}
+
+.breadcrumb .tag {
+    margin: 0 5px;
+    text-transform: capitalize;
+}

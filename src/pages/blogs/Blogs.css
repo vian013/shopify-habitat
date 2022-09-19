@@ -3,13 +3,23 @@
     margin: 0 auto;
     text-align: center;
     font-family: var(--font-title);
-    padding-top: 90px;
-    padding-bottom: 50px;
+    padding: 50px 0;
     border-bottom: 1px solid var(--border-color--1);
 }
 
 #blogs-page .date {
     font-size: 30px;
+}
+
+#blogs-page .select-wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#blogs-page select {
+    border: none;
+    font-size: 23px;
+    color: var(--text-color--2);
 }
 
 #blogs-page .articles-container {

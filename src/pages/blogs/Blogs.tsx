@@ -1,71 +1,47 @@
 import React, { useEffect, useState } from 'react'
-import { useRef } from 'react'
-import { BASE_API_URL } from '../../App'
-import ArticlesWrapper from '../../components/articles-wrapper/ArticlesWrapper'
-import Pagination from '../../components/pagination/Pagination'
-import useFetchArticles from '../../custom-hooks/useFetchArticles'
+import { useHistory, useParams } from 'react-router-dom'
+import Breadcrumb from '../../components/breadcrumb/Breadcrumb'
 import messages from '../../messages/messages'
-import { Article, PageData } from '../../type/global'
+import BlogGrid from './blog-grid/BlogGrid'
 import "./Blogs.css"
 import styles from "./Blogs.module.css"
 
 function Blogs() {
+  const {handle} = useParams() as {handle: string}
   const [date, setDate] = useState<string>(new Date().toDateString())
   const blogHandle = "news"
-  // const pageData: PageData = useFetchArticles(blogHandle)
-  const [pageData, setPageData] = useState<PageData>({
-    articles: [],
-    hasNextPage: true,
-    hasPreviousPage: false,
-    startCursor: "",
-    endCursor: ""
-})
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const {articles, hasNextPage, hasPreviousPage, startCursor, endCursor} = pageData
-
-  const fetchArticles = async(direction: string) => {
-    try {
-        if (direction==="prev") {
-          const res = await fetch(`${BASE_API_URL}/blogs/${blogHandle}?startCursor=${startCursor}`)
-          const data = await res.json()
-          setPageData(data)
-        } else {
-          const res = await fetch(`${BASE_API_URL}/blogs/${blogHandle}?endCursor=${endCursor}`)
-          const data = await res.json()
-          setPageData(data)
-        }
-        
-    } catch (error) {
-        console.log(error)
-    }
-  }
+  const [tag, setTag] = useState<string>(handle)
+  const history = useHistory()
   
   useEffect(() => {
     setDate(new Date().toDateString().substring(3))
   }, [])
 
-  const curPageRef = useRef<number>(currentPage)
-  
-  useEffect(() => {
-    if (currentPage < curPageRef.current) fetchArticles("prev")
-    if (currentPage >= curPageRef.current) fetchArticles("next")
-    curPageRef.current = currentPage
-
-  }, [currentPage])
+  useEffect(()=>{
+    if (tag!=="all" && tag!==undefined) history.push(`/blogs/news/tagged/${tag}`)
+    else history.push("/blogs")
+  }, [tag])
 
   return (
     <div id='blogs-page'>
+      <Breadcrumb tag={handle}/>
       <header>
         <h1 className={styles.title}>{messages.pages.blogs.title}</h1>
         <p className='date'>{date}</p>
       </header>
       <div className="articles-container">
-        <ArticlesWrapper articles={articles} showExcerpt/>
-        <Pagination 
-          currentPage={currentPage} 
-          setCurrentPage={setCurrentPage}
-          hasNextPage={hasNextPage}
-          hasPreviousPage={hasPreviousPage}  
+        <div className="select-wrapper">
+          <select defaultValue={handle} onChange={(e) => setTag(e.target.value)}>
+            <option value="all">All</option>
+            <option value="chairs">Chairs</option>
+            <option value="cushion">Cushion</option>
+            <option value="green">Green</option>
+            <option value="home">Home</option>
+          </select>
+        </div>
+        <BlogGrid 
+          blogHandle={blogHandle}
+          handle={handle}
         />
       </div>
     </div>

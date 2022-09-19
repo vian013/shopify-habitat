@@ -3,18 +3,26 @@ import "./Pagination.css"
 
 type Props = {
   currentPage: number,
+  navigate: number,
   setCurrentPage: React.Dispatch<number>,
+  setNavigate: React.Dispatch<number>,
   hasNextPage: boolean,
   hasPreviousPage: boolean
 }
 
-function Pagination({currentPage, setCurrentPage, hasNextPage, hasPreviousPage}: Props) {
+function Pagination({currentPage, navigate, setCurrentPage, setNavigate, hasNextPage, hasPreviousPage}: Props) {
   const goToPrevPage = () => {
-    if (hasPreviousPage) setCurrentPage(currentPage-1)
+    if (hasPreviousPage) {
+      setNavigate(navigate-1)
+      setCurrentPage(currentPage-1)
+    }
   }
   
   const goToNextPage = () => {
-    if (hasNextPage) setCurrentPage(currentPage+1)
+    if (hasNextPage) {
+      setNavigate(navigate+1)
+      setCurrentPage(currentPage+1)
+    } 
   }
 
   return (

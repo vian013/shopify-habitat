@@ -54,6 +54,10 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
     return products.length - inStock
   }, [products, inStock])
   
+  const resetOptionPanel = () => {
+    setOptionPanel(initOptionPanelState)
+  }
+
   const handleMinPrice = (e: ChangeEvent<HTMLInputElement>) => {
     filterDispatch({type: FilterActions.SET_MIN_PRICE, payload: Number(e.target.value)})
   }
@@ -92,9 +96,9 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
     <div className={styles["filter-wrapper"]}>
       <div className="filter-options">
       <strong>Filter:</strong>
-        <div className={` ${styles["filter-option"]}`}>
-          <strong onClick={() => togglePanel("availability")} className="option-label availability">Availability<span className='dropdown-btn'></span></strong> 
-          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.availability} option="availability">
+        <div className={` ${styles["filter-option"]}`} onClick={() => togglePanel("availability")}>
+          <strong className="option-label availability">Availability<span className='dropdown-btn'></span></strong> 
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.availability} option="availability" resetOptionPanel={resetOptionPanel}>
             <>
               <div className="input-wrapper">
                 <input type="checkbox"/><p>In stock {`(${inStock})`}</p> 
@@ -105,9 +109,9 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
             </>
           </OptionPanel>
         </div>
-        <div className={` ${styles["price"]} ${styles["filter-option"]}`}>
-          <strong onClick={() => togglePanel("price")} className="option-label price">Price<span className='dropdown-btn'></span></strong>
-          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.price} option="price">
+        <div className={`${styles["filter-option"]}`} onClick={() => togglePanel("price")}>
+          <strong className="option-label price">Price<span className='dropdown-btn'></span></strong>
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.price} option="price" resetOptionPanel={resetOptionPanel}>
             <>
               From {minPrice} 
               <input type="range" onChange={handleMinPrice} value={minPrice}/>
@@ -116,9 +120,9 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
             </>
           </OptionPanel>
         </div>
-        <div className={` ${styles["colors"]} ${styles["filter-option"]}`}>
-          <strong onClick={() => togglePanel("colors")} className="option-label colors">Colors<span className='dropdown-btn'></span></strong>
-          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.colors} option="colors">
+        <div className={`${styles["filter-option"]}`} onClick={() => togglePanel("colors")}>
+          <strong className="option-label colors">Colors<span className='dropdown-btn'></span></strong>
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.colors} option="colors" resetOptionPanel={resetOptionPanel}>
             <>
               {colorMap.map(({value, quantity}) => (
                 <span onClick={handleColor} data-name={value} className={styles['color-option']} key={value}>{`${value} (${quantity})`}</span>
@@ -126,9 +130,9 @@ function Filter({products, colors, sizes, filterState, filterDispatch}: {product
             </>
           </OptionPanel>
         </div>
-        <div className={` ${styles["sizes"]} ${styles["filter-option"]}`}>
-          <strong onClick={() => togglePanel("sizes")} className="option-label sizes">Sizes<span className='dropdown-btn'></span></strong>
-          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.sizes} option="sizes">
+        <div className={`${styles["filter-option"]}`} onClick={() => togglePanel("sizes")}>
+          <strong className="option-label sizes">Sizes<span className='dropdown-btn'></span></strong>
+          <OptionPanel handleReset={()=>{}} selectedCount={0} open={optionPanel.sizes} option="sizes" resetOptionPanel={resetOptionPanel}>
             <>
               {sizeMap.map(({value, quantity}) => (
                 <span onClick={handleSize} data-name={value} className={styles['size-option']} key={value}>{`${value} (${quantity})`}</span>

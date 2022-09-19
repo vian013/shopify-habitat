@@ -10,6 +10,7 @@
 .filter-option {
     position: relative;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 

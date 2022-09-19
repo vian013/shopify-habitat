@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import "./OptionPanel.css"
 
-function OptionPanel({children, selectedCount, handleReset, open, option}: {children: JSX.Element, selectedCount: number, handleReset: ()=>void, open: boolean, option: string}) {
+type Props = {
+  children: JSX.Element, 
+  selectedCount: number, 
+  handleReset: ()=>void, 
+  open: boolean, 
+  option: string,
+  resetOptionPanel: ()=>void
+}
+
+function OptionPanel({children, selectedCount, handleReset, open, option, resetOptionPanel}: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(open)
 
-  useEffect(()=>{
-    setIsOpen(open)
-  }, [open])
-  
   useEffect(() => {
-    if (!open) return
+    if (open) setIsOpen(open)
 
     const handleClickOutside = (e: Event) => {
+      if (!isOpen) return
       const target = e.target as HTMLElement
 
       if (!target.classList.contains("option-label") && !target.closest(".option-panel") || target.classList.contains("option-label") && !target.classList.contains(option) ) {
         setIsOpen(false)
+        resetOptionPanel()
         removeClickOutside()
       }
     }
@@ -23,12 +30,12 @@ function OptionPanel({children, selectedCount, handleReset, open, option}: {chil
       document.removeEventListener("click", handleClickOutside)
     }
 
-    document.addEventListener("click", handleClickOutside)
+    if (isOpen) document.addEventListener("click", handleClickOutside)
     
     return () => {
       removeClickOutside()
     }
-  }, [open])
+  }, [isOpen, open])
   
   return (
     <div className={`option-panel ${isOpen?"open":""}`}>
