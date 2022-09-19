@@ -1,0 +1,46 @@
+.image-with-text.section {
+    padding-top: var(--padding-top-section--2);
+}
+
+.image-with-text .container{
+    display: flex;
+    height: 530px;
+}
+
+.image-with-text .img-wrapper {
+    width: 45%;
+    flex-shrink: 0;
+    margin-right: 70px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-with-text .img-wrapper img {
+    position: absolute;
+    top: -40%;
+    left: -40%;
+}
+
+.image-with-text .content-wrapper {
+    width: 42%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.image-with-text .content-wrapper .subtitle {
+    margin-bottom: 20px;
+}
+
+.image-with-text .content-wrapper .title {
+    font-size: 38px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.image-with-text .content-wrapper .description {
+    font-size: 18px;
+    line-height: 27px;
+}

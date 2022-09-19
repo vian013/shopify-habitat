@@ -66,7 +66,8 @@ button {
     --border-color--2: #103a3a;
     --border-color--3: #dedede;
     --color-text-hover: #c25b41;
-    --padding-top-section--1: 110px
+    --padding-top-section--1: 110px;
+    --padding-top-section--2: 90px;
 }
 
 .btn {

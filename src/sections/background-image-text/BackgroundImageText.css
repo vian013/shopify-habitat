@@ -1,0 +1,46 @@
+.background-image-text.section {
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+}
+
+.background-image-text .img-wrapper {
+    width: 100%;
+    position: relative;
+    top: -100px;
+}
+
+.background-image-text .img-wrapper::after {
+    content: "";
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.background-image-text .img-wrapper img{
+    width: 100%;
+    object-position: 0 20%;
+}
+
+.background-image-text .content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-color--1);
+    max-width: 630px;
+    text-align: center;
+}
+
+.background-image-text .content-wrapper .title {
+    text-transform: capitalize;
+    font-size: 64px;
+}
+
+.background-image-text .content-wrapper .subtitle {
+    font-size: 18px;
+    line-height: 28px;
+}

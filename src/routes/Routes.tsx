@@ -1,5 +1,6 @@
 import React from 'react'
 import {Switch, Route} from "react-router-dom"
+import About from '../pages/about/About'
 import Account from '../pages/account/Account'
 import Blogs from '../pages/blogs/Blogs'
 import CreateAccount from '../pages/create-account/CreateAccount'
@@ -26,6 +27,9 @@ function Routes() {
             </Route>
             <Route path={"/blogs/news/tagged/:handle"}>
                 <Blogs />
+            </Route>
+            <Route path={"/about"}>
+                <About />
             </Route>
             <Route path={"/account"}>
                 <Account />
