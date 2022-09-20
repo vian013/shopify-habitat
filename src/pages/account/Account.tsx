@@ -40,7 +40,7 @@ function Account() {
   } 
 
   if (!state.isLoggedIn) return (
-    <Redirect to={"/login"}/>
+    <Redirect to={"/account/login"}/>
   )
   
   return (

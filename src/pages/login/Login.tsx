@@ -3,8 +3,11 @@ import { useEffect } from 'react'
 import { useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import { AppContext, UserContext } from '../../App'
+import AccountForm from '../../components/account-form/AccountForm'
+import messages from '../../messages/messages'
 import { AppActions } from '../../store/actions/actions'
 import { UserActions } from '../../store/actions/userActions'
+import "./Login.css"
 
 function Login() {
   const [email, setEmail] = useState("")
@@ -12,6 +15,7 @@ function Login() {
   const [error, setError] = useState("")
   const {userDispatch} = useContext(UserContext)!
   const {state: {isLoggedIn}, dispatch} = useContext(AppContext)!
+  const {title, subtitle, btnText, noAccount, forgotPassword, createAccountLink, createAccount} = messages.pages.login
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -38,20 +42,21 @@ function Login() {
   return isLoggedIn ? (
     <Redirect to={"/account"}/>
   ) : (
-    <div className="login-container">
-      <form onSubmit={handleSubmit}>
-        Email
-        <input type="text" value={email} onChange={e => setEmail(e.target.value)}/>
-        <br />
-        Password
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
-        <br />
-        <input type="submit" value="Submit" />
-      </form>
-
-      {error&&<p>{error}</p>}
-      <Link to={"/create-account"}>Create an account</Link>
-    </div>
+    <AccountForm 
+      email={email}
+      setEmail={setEmail}
+      password={password}
+      setPassword={setPassword}
+      handleSubmit={handleSubmit}
+      error={error}
+      title={title}
+      subtitle={subtitle}
+      btnText={btnText}
+      additionalLink={forgotPassword}
+      footerTitle={createAccount}
+      footerText={noAccount}
+      footerLink={createAccountLink}
+    />
   )
 }
 

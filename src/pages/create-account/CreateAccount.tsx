@@ -1,14 +1,17 @@
 import React, { FormEvent, useContext, useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import { AppContext } from '../../App'
+import AccountForm from '../../components/account-form/AccountForm'
+import messages from '../../messages/messages'
 import { AppActions } from '../../store/actions/actions'
-import style from "./CreateAccount.module.css"
+import "./CreateAccount.css"
 
 function CreateAccount() {
     const [fName, setFName] = useState("")
     const [lName, setLName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
 
     const {state, dispatch} = useContext(AppContext)!
     const history = useHistory()
@@ -70,6 +73,7 @@ function CreateAccount() {
 
                 if (errors) {
                     console.log(errors[0]);
+                    setError(errors[0])
                 }
 
             } catch (error) {
@@ -82,31 +86,38 @@ function CreateAccount() {
 
     } 
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async(e: FormEvent) => {
         e.preventDefault()
         createAccount()
     }
-    
-  return (
-    <div className={style['create-account-container']}>
-        <form onSubmit={handleSubmit} >
-            Fist Name
-            <input type="text" value={fName} onChange={e => setFName(e.target.value)}/>
-            <br />
-            Last Name
-            <input type="text" value={lName} onChange={e => setLName(e.target.value)}/>
-            <br />
-            Email
-            <input type="text" value={email} onChange={e => setEmail(e.target.value)}/>
-            <br />
-            Password
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
-            <br />
 
-            <input type="submit" />
-        </form>
-    </div>
-  )
+    const {alreadyAccount, btnText, fNamePlaceholder, lnamePlaceholder, login, loginLink, subtitle, title} = messages.pages.register
+    
+    return isLoggedIn ? (
+        <Redirect to={"/account"}/>
+    ) : (
+        <div className="create-account-wrapper">
+            <AccountForm 
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                handleSubmit={handleSubmit}
+                error={error}
+                title={title}
+                subtitle={subtitle}
+                btnText={btnText}
+                footerTitle={alreadyAccount}
+                footerText={login}
+                footerLink={loginLink}
+            >
+                <div className='name-input-wrapper'>
+                    <input type="text" placeholder={fNamePlaceholder}/>
+                    <input type="text" placeholder={lnamePlaceholder}/>
+                </div>
+            </AccountForm>
+        </div>
+    )
 }
 
 export default CreateAccount

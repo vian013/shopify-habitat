@@ -121,6 +121,28 @@ export default {
                     ]
                 },
             ]
+        },
+        login: {
+            title: "Login",
+            subtitle: "If you have an account with us, please log in.",
+            emailPlaceholder: "Email address",
+            passwordPlaceholder: "Password",
+            btnText: "Sign in",
+            forgotPassword: "Forgot your password?",
+            noAccount: "Don’t have an account?",
+            createAccount: "Create an account",
+            createAccountLink: "/account/register"
+        },
+        register: {
+            title: "Create an account",
+            subtitle: "Enter your information below to proceed. If you already have an account, please log in instead.",
+            fNamePlaceholder: "First name",
+            lnamePlaceholder: "Last name",
+            btnText: "create an account",
+            alreadyAccount: "Already have an account?",
+            login: "Login",
+            loginLink: "/account/login",
         }
+
     }
 }

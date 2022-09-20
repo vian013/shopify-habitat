@@ -35,13 +35,13 @@ function Routes() {
             <Route path={"/faq"}>
                 <FAQ />
             </Route>
-            <Route path={"/account"}>
+            <Route path={"/account"} exact>
                 <Account />
             </Route>
-            <Route path={"/login"}>
+            <Route path={"/account/login"}>
                 <Login />
             </Route>
-            <Route path={"/create-account"}>
+            <Route path={"/account/register"}>
                 <CreateAccount />
             </Route>
             <Route path={"*"}>
