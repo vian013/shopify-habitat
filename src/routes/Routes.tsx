@@ -4,6 +4,7 @@ import About from '../pages/about/About'
 import Account from '../pages/account/Account'
 import Blogs from '../pages/blogs/Blogs'
 import CreateAccount from '../pages/create-account/CreateAccount'
+import FAQ from '../pages/faq/FAQ'
 import Home from '../pages/home/Home'
 import Login from '../pages/login/Login'
 import NotFound from '../pages/not-found/NotFound'
@@ -30,6 +31,9 @@ function Routes() {
             </Route>
             <Route path={"/about"}>
                 <About />
+            </Route>
+            <Route path={"/faq"}>
+                <FAQ />
             </Route>
             <Route path={"/account"}>
                 <Account />

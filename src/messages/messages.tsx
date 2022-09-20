@@ -71,6 +71,56 @@ export default {
                     ]
                 }
             }
+        },
+        faq:  {
+            title: 'FAQ',
+            subtitle: "Our frequently asked questions. Find out about our shops, refund policies and donations.",
+            questions: [
+                {
+                    content: "how long does an order take to arrive?",
+                    answers: [
+                        "International orders normally arrive within 2-4 weeks of shipping. Please note that these orders need to pass through the customs office in your country before it will be released for final delivery, which can occasionally cause additional delays.",
+                        "Once an order leaves our warehouse, carrier shipping delays may occur due to factors outside our control. We, unfortunately, can’t control how quickly an order arrives once it has left our warehouse. Contacting the carrier is the best way to get more insight into your package’s location and estimated delivery date."
+                    ]
+                },
+                {
+                    content: "How do I set up a Subscription order?",
+                    answers: [
+                        "We will deliver products to you as soon as reasonably possible. Orders are usually dispatched between 1-3 days from the date of the order being placed. Please contact us our customer service team if your delivery has not been received within the dates described."
+                    ]
+                },
+                {
+                    content: "HOW TO RETURN MY ITEMS?",
+                    answers: [
+                        "We do not currently offer free returns to overseas customers. You will therefore need to cover all costs of returning any items to us yourself. We advise that you mark your package ‘returned goods’ to avoid further duties.",
+                        "Remember:",
+                        "We strongly recommend that you return any items via a registered trackable service and obtain and retain proof of posting as we do not accept responsibility for items that fail to arrive with us."
+                    ]
+                },
+                {
+                    content: "How can I choose the right size for me?",
+                    answers: [
+                        "Habitat has created a universal sizing system that aims to provide a unique reference for all countries. You can easily spot the best size for you by referring to our Size Guide that provides a conversion table to all major country size systems.",
+                        "The Size Guide is conveniently available on the page of each product."
+                    ]
+                },
+                {
+                    content: "Which payment methods do you accept?",
+                    answers: [
+                        "Habitat accepts the following payment methods for online purchases:",
+                        "• All major credit cards, as shown at checkout",
+                        "• PayPal: if you do not have an account yet, you can create one while shopping with us",
+                        "• Apple Pay, Google Pay, Samsung Pay",
+                        "Please note that your billing address must match the address on your credit card statement."
+                    ]
+                },
+                {
+                    content: "How can I track my order?",
+                    answers: [
+                        "Once you place your order online, you will be able to see the details of the purchase, follow its preparation, and see shipping updates in the My Account area."
+                    ]
+                },
+            ]
         }
     }
 }

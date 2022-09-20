@@ -1,0 +1,33 @@
+.question-wrapper {
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color--1);
+}
+
+.question-wrapper:last-of-type {
+    border-bottom: 1px solid var(--border-color--1);
+}
+
+.question-wrapper .question{
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    cursor: pointer;
+    position: relative;
+}
+
+.question-wrapper .dropdown-btn::after {
+    right: 15px;
+}
+
+.question-wrapper .dropdown-btn.open::after {
+    border-top: none;
+    border-bottom: 4px solid var(--background-color--1);
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+
+.question-wrapper .answers {
+    margin-top: 20px;
+    line-height: 25px;
+}

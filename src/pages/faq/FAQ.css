@@ -1,0 +1,25 @@
+#faq-page .page-width{
+    max-width: 1060px;
+}
+
+#faq-page .title {
+    font-family: var(--font-title);
+    text-transform: capitalize;
+    font-size: 64px;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+#faq-page .subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 50px;
+}
+
+#faq-page .questions-wrapper {
+    margin-bottom: 125px;
+}
