@@ -3,7 +3,7 @@
 
 .image-text-slider .img-wrapper {
     height: 100%;
-    width: 1423px;
+    width: 75%;
     flex-shrink: 0;
 }
 
@@ -23,45 +23,6 @@
     line-height: 30px;
     margin-bottom: 30px;
 }
-
-.image-text-slider.section .shop-btn {
-    font-weight: 600;
-    position: relative;
-    transition: color .2s ease-in;
-}
-
-.image-text-slider.section .shop-btn:hover {
-    color: var(--text-color--2);
-}
-
-.image-text-slider.section .shop-btn::before {
-    content: "";
-    width: 100%;
-    height: 1px;
-    background: var(--background-color--1);
-    position: absolute;
-    opacity: .3;
-    bottom: -5px;
-    left: 0;
-}
-
-.image-text-slider.section .shop-btn::after {
-    content: "";
-    width: 100%;
-    height: 1px;
-    background: var(--background-color--2);
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .2s ease-in;
-}
-
-.image-text-slider.section .shop-btn:hover:after {
-    transform: scaleX(1);
-}
-
 
 .image-text-slider.section .swiper-pagination-bullets.swiper-pagination-horizontal {
     right: 360px;

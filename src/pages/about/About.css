@@ -1,3 +1,11 @@
 #about-page .background-image-text.section{
     padding: 0;
 }
+
+#about-page .image-text-slider .img-wrapper {
+    width: 70%;
+}
+
+#about-page .image-text-slider.section .swiper-pagination-bullets.swiper-pagination-horizontal {
+    right: 450px;
+}

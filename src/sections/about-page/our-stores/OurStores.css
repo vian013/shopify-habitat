@@ -1,0 +1,33 @@
+.our-stores {
+    padding-bottom: 140px;
+}
+
+.our-stores .stores-wrapper {
+    display: flex;
+    margin: 0 -15px;
+}
+
+.our-stores .store-wrapper {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 0 15px;
+}
+
+.our-stores .store-wrapper .img-wrapper {
+    width: 100%;
+}
+
+.our-stores .store-wrapper .img-wrapper img {
+    width: 100%;
+}
+
+.our-stores .store-wrapper .title {
+    font-size: 28px;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.our-stores .store-wrapper .address {
+    font-size: 18px;
+    margin-bottom: 15px;
+}

@@ -11,7 +11,18 @@ import { Link } from 'react-router-dom'
 import messages from '../../messages/messages'
 import SectionHeader from '../../components/section-header/SectionHeader'
 
-function ImageTextSlider() {
+type Props = {
+  slides: Slide[]
+}
+
+type Slide = {
+  imgUrl: string, 
+  title: string, 
+  description: string,
+  btnLink: string
+}
+
+function ImageTextSlider({slides}: Props) {
   return (
     <div className='image-text-slider section custom-pagination-slider'>
       <Swiper 
@@ -19,17 +30,17 @@ function ImageTextSlider() {
         pagination={{clickable: true}}
         effect='fade'
       >
-        {slides.map(({imgUrl, imgWidth, imgHeight, title, description}) => (
+        {slides.map(({imgUrl, title, description, btnLink}) => (
           <SwiperSlide key={title}>
             <div className={`${styles["slide-wrapper"]}`}>
               <div className="img-wrapper">
-                <img
-                 width={imgWidth} height={imgHeight} 
-                 loading='lazy' src={imgUrl} alt={title} sizes={"1423px"}/>
+                <img loading='lazy' src={imgUrl} alt={title}/>
               </div>
               <div className={`${styles["content-wrapper"]}`}>
                 <SectionHeader title={title} subTitle={description}/>
-                <Link to={"/"} className="shop-btn">{messages.btn.shopBtn}</Link>
+                {btnLink && (
+                  <Link to={btnLink} className="shop-btn">{messages.btn.shopBtn}</Link>
+                )}
               </div>
             </div>
           </SwiperSlide>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import "./ShopBtn.css"
+import styles from "./ShopBtn.module.css"
 
 type Props = {
     link: string, 
@@ -10,7 +10,7 @@ type Props = {
 
 function ShopBtn({link, title, bgColor}: Props) {
   return (
-    <Link to={link} className={`shop-btn ${bgColor}`}>{title}</Link>
+    <Link to={link} className={`${styles["shop-btn"]} ${bgColor?styles[bgColor]:""}`}>{title}</Link>
   )
 }
 
