@@ -17,12 +17,13 @@ type Props = {
     subtitle: string,
     btnText: string,
     additionalLink?: string,
+    additionalText?: string,
     footerTitle: string
     footerText: string,
     footerLink: string,
 }
 
-function AccountForm({children, email, setEmail, password, setPassword, error, handleSubmit, title, subtitle, btnText, additionalLink, footerTitle, footerText, footerLink}: Props) {
+function AccountForm({children, email, setEmail, password, setPassword, error, handleSubmit, title, subtitle, btnText, additionalText, additionalLink, footerTitle, footerText, footerLink}: Props) {
   const {state: {isLoggedIn}} = useContext(AppContext)!
   const { emailPlaceholder, passwordPlaceholder} = messages.pages.login
 
@@ -44,7 +45,7 @@ function AccountForm({children, email, setEmail, password, setPassword, error, h
 
         <div className="forgot-password-wrapper">
           {additionalLink && (
-            <Link to={"/"} className="forgot-password shop-btn">{additionalLink}</Link>
+            <Link to={additionalLink} className="forgot-password shop-btn">{additionalText}</Link>
           )} 
         </div>
         <div className="login-footer">

@@ -2,11 +2,11 @@ import React, { FormEvent, useState } from 'react'
 import { useEffect } from 'react'
 import { useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import { AppContext, UserContext } from '../../App'
-import AccountForm from '../../components/account-form/AccountForm'
-import messages from '../../messages/messages'
-import { AppActions } from '../../store/actions/actions'
-import { UserActions } from '../../store/actions/userActions'
+import { AppContext, UserContext } from '../../../App'
+import AccountForm from '../../../components/account-form/AccountForm'
+import messages from '../../../messages/messages'
+import { AppActions } from '../../../store/actions/actions'
+import { UserActions } from '../../../store/actions/userActions'
 import "./Login.css"
 
 function Login() {
@@ -15,7 +15,7 @@ function Login() {
   const [error, setError] = useState("")
   const {userDispatch} = useContext(UserContext)!
   const {state: {isLoggedIn}, dispatch} = useContext(AppContext)!
-  const {title, subtitle, btnText, noAccount, forgotPassword, createAccountLink, createAccount} = messages.pages.login
+  const {title, subtitle, btnText, noAccount, forgotPassword, forgotPasswordLink, createAccountLink, createAccount} = messages.pages.login
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -52,7 +52,8 @@ function Login() {
       title={title}
       subtitle={subtitle}
       btnText={btnText}
-      additionalLink={forgotPassword}
+      additionalText={forgotPassword}
+      additionalLink={forgotPasswordLink}
       footerTitle={createAccount}
       footerText={noAccount}
       footerLink={createAccountLink}

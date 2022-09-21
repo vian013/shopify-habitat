@@ -3,13 +3,14 @@ import {Switch, Route} from "react-router-dom"
 import About from '../pages/about/About'
 import Account from '../pages/account/Account'
 import Blogs from '../pages/blogs/Blogs'
-import CreateAccount from '../pages/create-account/CreateAccount'
+import CreateAccount from '../pages/account/create-account/CreateAccount'
 import FAQ from '../pages/faq/FAQ'
 import Home from '../pages/home/Home'
-import Login from '../pages/login/Login'
+import Login from '../pages/account/login/Login'
 import NotFound from '../pages/not-found/NotFound'
 import Product from '../pages/product/Product'
 import Products from '../pages/products/Products'
+import ResetPassword from '../pages/account/reset-password/ResetPassword'
 
 function Routes() {
   return (
@@ -38,8 +39,11 @@ function Routes() {
             <Route path={"/account"} exact>
                 <Account />
             </Route>
-            <Route path={"/account/login"}>
+            <Route path={"/account/login"} exact>
                 <Login />
+            </Route>
+            <Route path={"/account/recover"} >
+                <ResetPassword />
             </Route>
             <Route path={"/account/register"}>
                 <CreateAccount />

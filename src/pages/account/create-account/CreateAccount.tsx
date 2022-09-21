@@ -1,9 +1,9 @@
 import React, { FormEvent, useContext, useEffect, useState } from 'react'
 import { Redirect, useHistory } from 'react-router-dom'
-import { AppContext } from '../../App'
-import AccountForm from '../../components/account-form/AccountForm'
-import messages from '../../messages/messages'
-import { AppActions } from '../../store/actions/actions'
+import { AppContext } from '../../../App'
+import AccountForm from '../../../components/account-form/AccountForm'
+import messages from '../../../messages/messages'
+import { AppActions } from '../../../store/actions/actions'
 import "./CreateAccount.css"
 
 function CreateAccount() {

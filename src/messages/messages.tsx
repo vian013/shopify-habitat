@@ -128,6 +128,7 @@ export default {
             emailPlaceholder: "Email address",
             passwordPlaceholder: "Password",
             btnText: "Sign in",
+            forgotPasswordLink: "/account/recover",
             forgotPassword: "Forgot your password?",
             noAccount: "Don’t have an account?",
             createAccount: "Create an account",
@@ -142,7 +143,13 @@ export default {
             alreadyAccount: "Already have an account?",
             login: "Login",
             loginLink: "/account/login",
+        },
+        resetPassword: {
+            title: "Reset your password",
+            subtitle: "We will send you an email to reset your password",
+            submit: "Submit",
+            cancel: "Cancel",
+            cancelLink: "/account/login"
         }
-
     }
 }
