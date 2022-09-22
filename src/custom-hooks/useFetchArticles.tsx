@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BASE_API_URL } from '../App'
+import { BASE_URL } from '../App'
 import { PageData } from '../type/global'
 
 
@@ -15,7 +15,7 @@ function useFetchArticles(blogHandle: string) {
     useEffect(() => {
         const fetchArticles = async() => {
             try {
-                const res = await fetch(`${BASE_API_URL}/blogs/${blogHandle}`)
+                const res = await fetch(`${BASE_URL}/blogs/${blogHandle}`)
                 const data = await res.json()
                 setPageData(data)
             } catch (error) {

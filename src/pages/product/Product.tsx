@@ -4,6 +4,7 @@ import { ProductType } from '../../type/product'
 import styles from "./Product.module.css"
 import "./Product.css"
 import ProductContent from '../../components/product-content/ProductContent'
+import { BASE_URL } from '../../App'
 
 function Product() {
   const [product, setProduct] = useState<ProductType | null>(null)
@@ -12,7 +13,7 @@ function Product() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:4000/products/${productHandle}`)
+      const res = await fetch(`${BASE_URL}/products/${productHandle}`)
       const data = await res.json()
       setProduct(data)
     }

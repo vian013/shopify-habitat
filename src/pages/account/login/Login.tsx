@@ -1,8 +1,7 @@
 import React, { FormEvent, useState } from 'react'
-import { useEffect } from 'react'
 import { useContext } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { AppContext, UserContext } from '../../../App'
+import { Redirect } from 'react-router-dom'
+import { AppContext, BASE_URL, UserContext } from '../../../App'
 import AccountForm from '../../../components/account-form/AccountForm'
 import messages from '../../../messages/messages'
 import { AppActions } from '../../../store/actions/actions'
@@ -19,7 +18,7 @@ function Login() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    const res = await fetch("http://localhost:4000/login", {
+    const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

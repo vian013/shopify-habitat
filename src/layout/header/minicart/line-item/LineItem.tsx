@@ -1,5 +1,6 @@
 import parser from 'html-react-parser'
 import React, { useState } from 'react'
+import { BASE_URL } from '../../../../App'
 import QuantitySelect from '../../../../components/select/quantity/QuantitySelect'
 import trashIcon from '../../../icons/trash-icon'
 import "./LineItem.css"
@@ -41,7 +42,7 @@ function LineItem({imgUrl ,title, options, price, quantity, variantId, cartId, l
 
     const handleDeleteCartItem = async () => {
         try {
-            const res = await fetch("http://localhost:4000/cart-item", {
+            const res = await fetch(`${BASE_URL}/cart-item`, {
                 method: "DELETE",
                 headers: {
                 "Content-Type": "application/json"
@@ -55,7 +56,7 @@ function LineItem({imgUrl ,title, options, price, quantity, variantId, cartId, l
 
     const handleUpdateCart = async(quantity: number) => {
         try {
-            const res = await fetch("http://localhost:4000/cart-item", {
+            const res = await fetch(`${BASE_URL}/cart-item`, {
                 method: "POST",
                 headers: {
                 "Content-Type": "application/json"

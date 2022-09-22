@@ -1,6 +1,6 @@
 import React, { FormEvent, useCallback, useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AppContext, CartContext } from '../../App'
+import { AppContext, BASE_URL, CartContext } from '../../App'
 import { AppActions } from '../../store/actions/actions'
 import { CartActions } from '../../store/actions/cartActions'
 import { Option } from '../../type/product'
@@ -26,7 +26,7 @@ function ProductContent({productHandle, vendor, title, price, options}: Props) {
     const {state: {isSidebarOpen, isQuickViewOpen}, dispatch} = useContext(AppContext)!
 
       const fetchVariantID = async (options: Object) => {
-        const res = await fetch(`http://localhost:4000/products/${productHandle}`, {
+        const res = await fetch(`${BASE_URL}/products/${productHandle}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -83,7 +83,7 @@ function ProductContent({productHandle, vendor, title, price, options}: Props) {
     
       const handleAddToCart = async (variantId: string, quantity: number) => {
         try {
-          const res = await fetch("http://localhost:4000/cart-item", {
+          const res = await fetch(`${BASE_URL}/cart-item`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"

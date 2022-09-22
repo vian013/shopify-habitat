@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import styles from "./SearchResults.module.css"
 import { history } from '../../../App'
 import ProductResults from './products/ProductResults'
 import ArticleResults from './articles/ArticleResults'
 import { SearchResult } from '../../../messages/search-result-tabs'
+import "./SearchResults.css"
 
 export type Result = {title: string, titleHtml: string, link: string}
 
@@ -31,14 +31,14 @@ function SearchResults({results, handleCloseSearch}: {results: Result[], handleC
     }
 
   return (
-    <div className={styles['search-results']}>
-        <div className={styles["result-tabs"]}>
+    <div className='search-results'>
+        <div className="result-tabs">
             <button onClick={() => setResultTab(SearchResult.PRODUCTS)}>{SearchResult.PRODUCTS}</button>
             <button onClick={() => setResultTab(SearchResult.ARTICLES)}>{SearchResult.ARTICLES}</button>
             <button onClick={() => setResultTab(SearchResult.COLLECTION)}>{SearchResult.COLLECTION}</button>
             <button onClick={() => setResultTab(SearchResult.PAGE)}>{SearchResult.PAGE}</button>
         </div>
-        <div className={styles["result-panel"]}>
+        <div className="result-panel">
             {renderResult()}
         </div>
     </div>

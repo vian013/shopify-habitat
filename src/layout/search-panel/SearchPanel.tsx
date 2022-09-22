@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
+import { BASE_URL } from '../../App'
 import placeholders from '../../messages/placeholders'
 import PopularSearches from './popular-searches/PopularSearches'
 import SearchInput from './search-input/SearchInput'
@@ -13,7 +14,7 @@ const SearchPanel = forwardRef<HTMLDivElement, IProps>(({closeSearch}, ref) => {
   const [results, setResults] = useState<any>([])
   
   const handleSearch = async (term: string) => {
-    const res = await fetch(`http://localhost:4000/search?term=${term}`)
+    const res = await fetch(`${BASE_URL}/search?term=${term}`)
     const _results = await res.json()
     setResults(_results)
   }

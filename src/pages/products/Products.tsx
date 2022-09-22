@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useRef, useState } from 'react'
+import { BASE_URL } from '../../App'
 import Product from '../../components/product/Product'
 import { FilterActions } from '../../store/actions/filterActions'
 import { filterReducer } from '../../store/reducers/filterReducer'
@@ -59,7 +60,7 @@ function Products() {
     }, [color, size])
 
     const fetchData = async ({all}: {all: boolean}) => {
-        let url: string = `http://localhost:4000/product-variants?minPrice=${minPrice}&maxPrice=${maxPrice}${all===true?`&all=true`:""}${color&&`&color=${color}`}${size&&`&size=${size}`}`
+        let url: string = `${BASE_URL}/product-variants?minPrice=${minPrice}&maxPrice=${maxPrice}${all===true?`&all=true`:""}${color&&`&color=${color}`}${size&&`&size=${size}`}`
 
         const res = await fetch(url)
         const data: {products: any, colors: Options, sizes: Options} = await res.json()

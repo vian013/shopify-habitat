@@ -1,6 +1,6 @@
 import React, { FormEvent, FunctionComponent, PropsWithChildren, ReactElement, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { AppContext, CartContext } from '../../App'
+import { AppContext, BASE_URL, CartContext } from '../../App'
 import ColorSelect from '../../components/select/color/ColorSelect'
 import QuantitySelect from '../../components/select/quantity/QuantitySelect'
 import Select from '../../components/select/Select'
@@ -56,7 +56,7 @@ function ProductLayout({productHandle, children}: {productHandle: string, childr
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`http://localhost:4000/products/${productHandle}`)
+      const res = await fetch(`${BASE_URL}/products/${productHandle}`)
       const data = await res.json()
       setProduct(data)
     }
@@ -66,7 +66,7 @@ function ProductLayout({productHandle, children}: {productHandle: string, childr
   }, [productHandle])
   
   const fetchVariantID = async (options: Object) => {
-    const res = await fetch(`http://localhost:4000/products/${productHandle}`, {
+    const res = await fetch(`${BASE_URL}/products/${productHandle}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -134,7 +134,7 @@ function ProductLayout({productHandle, children}: {productHandle: string, childr
 
   const handleAddToCart = async (variantId: string, quantity: number) => {
     try {
-      const res = await fetch("http://localhost:4000/cart-item", {
+      const res = await fetch(`${BASE_URL}/cart-item`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

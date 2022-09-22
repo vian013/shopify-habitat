@@ -13,7 +13,7 @@ import { createBrowserHistory } from "history";
 import "./App.css"
 import Footer from "./layout/footer/Footer";
 
-export const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
+export const BASE_URL = process.env.REACT_APP_BASE_URL
 
 interface IAppValues {
   state: IState,
@@ -83,7 +83,7 @@ function App() {
   useEffect(()=> {
     const fetchCartTotalQuantity = async() => {
       try {
-        const data = await fetch(`http://localhost:4000/cart-items?cartId=${cartId}`, {
+        const data = await fetch(`${BASE_URL}/cart-items?cartId=${cartId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json"

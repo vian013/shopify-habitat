@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { AppContext, BASE_API_URL } from '../../App'
+import { AppContext, BASE_URL } from '../../App'
 import { ProductType } from '../../type/product'
 import "./ProductQuickView.css"
 import "swiper/css"
@@ -16,7 +16,7 @@ function ProductQuickView() {
   useEffect(()=>{
     const fetchProduct = async() => {
       try {
-        const res = await fetch(`${BASE_API_URL}/products/${quickViewHandle}`)
+        const res = await fetch(`${BASE_URL}/products/${quickViewHandle}`)
         const product = await res.json()
         setProduct(product)
       } catch (error) {

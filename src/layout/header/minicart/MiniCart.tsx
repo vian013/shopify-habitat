@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext, useEffect, useState } from 'react'
-import { CartContext } from '../../../App'
+import { BASE_URL, CartContext } from '../../../App'
 import { CartActions } from '../../../store/actions/cartActions'
 import CartItems from './cart-items/CartItems'
 import "./MiniCart.css"
@@ -24,7 +24,7 @@ const MiniCart = forwardRef<HTMLDivElement, {}>((props, ref) => {
     
     if (!loading) setLoading(true)
     try {
-      const data = await fetch(`http://localhost:4000/cart-items?cartId=${cartId}`, {
+      const data = await fetch(`${BASE_URL}/cart-items?cartId=${cartId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json"

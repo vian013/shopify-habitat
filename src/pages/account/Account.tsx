@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
-import { AppContext, UserContext } from '../../App'
+import { AppContext, BASE_URL, UserContext } from '../../App'
 import { AppActions } from '../../store/actions/actions'
 import { UserActions } from '../../store/actions/userActions'
 
@@ -11,7 +11,7 @@ function Account() {
   const {fName, lName, email} = userState
 
   const fetchUser = async() => {
-    const res = await fetch("http://localhost:4000/user", {
+    const res = await fetch(`${BASE_URL}/user`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,7 +32,7 @@ function Account() {
   },[])
 
   const handleLogout = () => {
-    fetch("http://localhost:4000/logout", {
+    fetch(`${BASE_URL}/logout`, {
       method: "GET",
       credentials: "include"
     })

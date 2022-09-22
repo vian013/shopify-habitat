@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css/navigation';
-import { BASE_API_URL } from '../../../App'
+import { BASE_URL } from '../../../App'
 import Product from '../../../components/product/Product'
 import { ProductType } from '../../../type/product'
 import "./CollectionSlider.css"
@@ -15,7 +15,7 @@ function CollectionSlider({collectionTab}: {collectionTab: string}) {
         const fetchProducts = async() => {
             setLoading(true)
             try {
-                const res = await fetch(`${BASE_API_URL}/collections/${collectionTab}`)
+                const res = await fetch(`${BASE_URL}/collections/${collectionTab}`)
                 const _products = await res.json()
                 
                 setProducts(_products)
