@@ -1,6 +1,7 @@
 .popular-search {
     padding: 20px 43px 30px;
     border-bottom: 1px solid var(--border-color--1);
+    border-top: 1px solid var(--border-color--1);
 }
 
 .popular-search .title {

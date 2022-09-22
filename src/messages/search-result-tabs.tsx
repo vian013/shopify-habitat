@@ -1,6 +1,6 @@
 export enum SearchResult {
     PRODUCTS = "Products",
-    ARTICLES = "Artices",
+    ARTICLES = "Articles",
     COLLECTION = "Collection",
     PAGE = "Page",
 }

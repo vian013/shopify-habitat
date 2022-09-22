@@ -13,7 +13,7 @@ import { createBrowserHistory } from "history";
 import "./App.css"
 import Footer from "./layout/footer/Footer";
 
-export const BASE_URL = process.env.REACT_APP_BASE_URL
+export const BASE_URL = process.env.REACT_APP_BASE_API_URL
 
 interface IAppValues {
   state: IState,

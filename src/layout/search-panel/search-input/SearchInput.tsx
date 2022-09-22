@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { Dispatch, useEffect, useState } from 'react'
 import CloseSearch from '../close-search/CloseSearch';
 import "./SearchInput.css"
 
-function SearchInput({placeholder, handleClose, handleSearch}: {placeholder: string, handleClose: ()=>void, handleSearch: Function}) {
-  const [term, setTerm] = useState("")
+type Props = {
+  term: string,
+  setTerm: Dispatch<string>
+  placeholder: string, 
+  handleClose: ()=>void, 
+  handleSearch: Function
+}
+
+function SearchInput({term, setTerm, placeholder, handleClose, handleSearch}: Props) {
 
   useEffect(() => {
     const timeout = setTimeout(() => {

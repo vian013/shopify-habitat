@@ -1,0 +1,44 @@
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-results .search-result {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    padding-right: 20px;
+    margin-bottom: 20px;
+}
+
+
+.search-results .img-wrapper{
+    width: 100px;
+    height: 120px;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.search-results .img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.search-results .title {
+    font-size: 15px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.search-results.products .title {
+    text-transform: lowercase;
+}
+
+.search-results .title .hightlight {
+    color: var(--text-color--2);
+}
+
+.search-results .price {
+    font-size: 15px;
+}
