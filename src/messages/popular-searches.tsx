@@ -5,22 +5,22 @@ export default [
     },
     {
         title: "Shop",
-        link: "/"
+        link: "/products"
     },
     {
         title: "Blog",
-        link: "/"
+        link: "/blogs"
     },
     {
         title: "About",
-        link: "/"
+        link: "/about"
     },
     {
         title: "Contact",
-        link: "/"
+        link: "/contact"
     },
     {
         title: "FAQ",
-        link: "/"
+        link: "/faq"
     }
 ]

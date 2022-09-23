@@ -150,6 +150,26 @@ export default {
             submit: "Submit",
             cancel: "Cancel",
             cancelLink: "/account/login"
+        },
+        contact: {
+            title: "Contact us",
+            name: "Name",
+            email: "Email", 
+            phone: "Phone number",
+            comment: "Comment",
+            btnText: "Send message",
+            contactInfo: [
+                {
+                    title: "General Office",
+                    info1: "6100 Wilshire Blvd 2nd Floor Los Angeles",
+                    info2: "CA 9004 +1 310 499 7700"
+                },
+                {
+                    title: "Store Hours",
+                    info1: "Monday-Saturday 11am–7pm ET",
+                    info2: "Sunday 11am–6pm ET"
+                }
+            ]
         }
     }
 }

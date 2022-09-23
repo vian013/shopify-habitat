@@ -12,6 +12,7 @@ import Product from '../pages/product/Product'
 import Products from '../pages/products/Products'
 import ResetPassword from '../pages/account/reset-password/ResetPassword'
 import Blog from '../pages/blogs/blog/Blog'
+import Contact from '../pages/contact/Contact'
 
 function Routes() {
   return (
@@ -36,6 +37,9 @@ function Routes() {
             </Route>
             <Route path={"/about"}>
                 <About />
+            </Route>
+            <Route path={"/contact"}>
+                <Contact />
             </Route>
             <Route path={"/faq"}>
                 <FAQ />
