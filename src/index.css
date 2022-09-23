@@ -68,6 +68,8 @@ button {
     --color-text-hover: #c25b41;
     --padding-top-section--1: 110px;
     --padding-top-section--2: 90px;
+    --page-width--1: 1280px;
+    --page-width--2: 1060px;
 }
 
 .btn {
@@ -83,6 +85,6 @@ button {
 }
 
 .page-width {
-    max-width: 1280px;
+    max-width: var(--page-width--1);
     margin: 0 auto;
 }

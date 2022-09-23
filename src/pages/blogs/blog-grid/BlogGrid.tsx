@@ -25,11 +25,11 @@ function BlogGrid({handle, blogHandle}: Props) {
     const paginate = async(direction: string) => {
         try {
             if (direction==="prev") {
-              const res = await fetch(`${BASE_URL}/blogs/${blogHandle}?startCursor=${startCursor}${handle&&`&tag=${handle}`}`)
+              const res = await fetch(`${BASE_URL}/blogs/news/tagged/${blogHandle}?startCursor=${startCursor}${handle&&`&tag=${handle}`}`)
               const data = await res.json()
               setPageData(data)
             } else {
-              const res = await fetch(`${BASE_URL}/blogs/${blogHandle}${endCursor&&`?endCursor=${endCursor}`}${handle&&`&tag=${handle}`}`)
+              const res = await fetch(`${BASE_URL}/blogs/news/tagged/${blogHandle}${endCursor&&`?endCursor=${endCursor}`}${handle&&`&tag=${handle}`}`)
               const data = await res.json()
               setPageData(data)
             }
@@ -41,7 +41,7 @@ function BlogGrid({handle, blogHandle}: Props) {
     
     const fetchInitialArticles = async() => {
         try {
-        const res = await fetch(`${BASE_URL}/blogs/${blogHandle}${handle&&`?tag=${handle}`}`)
+        const res = await fetch(`${BASE_URL}/blogs/news/tagged/${blogHandle}${handle&&`?tag=${handle}`}`)
         const data = await res.json()
         setPageData(data)
         setCurrentPage(1)

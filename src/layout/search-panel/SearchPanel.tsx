@@ -17,8 +17,6 @@ const SearchPanel = forwardRef<HTMLDivElement, IProps>(({closeSearch}, ref) => {
   const handleSearch = async (term: string) => {
     const res = await fetch(`${BASE_URL}/search?term=${term}`)
     const _results = await res.json()
-    console.log(_results);
-    
     setResults(_results)
   }
   
@@ -32,7 +30,7 @@ const SearchPanel = forwardRef<HTMLDivElement, IProps>(({closeSearch}, ref) => {
           handleClose={closeSearch} 
           handleSearch={handleSearch}
         />
-        {term&&results&&<SearchResults results={results} handleCloseSearch={closeSearch}/>}
+        {term && results && <SearchResults results={results} handleCloseSearch={closeSearch}/>}
         <PopularSearches />
       </div>
     </div>

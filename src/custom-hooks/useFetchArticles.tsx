@@ -15,7 +15,7 @@ function useFetchArticles(blogHandle: string) {
     useEffect(() => {
         const fetchArticles = async() => {
             try {
-                const res = await fetch(`${BASE_URL}/blogs/${blogHandle}`)
+                const res = await fetch(`${BASE_URL}/blogs/tagged/${blogHandle}`)
                 const data = await res.json()
                 setPageData(data)
             } catch (error) {

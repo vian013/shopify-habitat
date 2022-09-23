@@ -41,6 +41,8 @@ export type Article = {
     publishedAt: string
     title: string,
     handle: string,
+    contentHtml: string
+    author: string,
     excerpt?: string
 }
 

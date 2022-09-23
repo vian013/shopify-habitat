@@ -1,5 +1,5 @@
 #faq-page .page-width{
-    max-width: 1060px;
+    max-width: var(--page-width--2);
 }
 
 #faq-page .title {

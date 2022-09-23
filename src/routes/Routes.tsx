@@ -11,6 +11,7 @@ import NotFound from '../pages/not-found/NotFound'
 import Product from '../pages/product/Product'
 import Products from '../pages/products/Products'
 import ResetPassword from '../pages/account/reset-password/ResetPassword'
+import Blog from '../pages/blogs/blog/Blog'
 
 function Routes() {
   return (
@@ -26,6 +27,9 @@ function Routes() {
             </Route>
             <Route path={"/blogs"} exact>
                 <Blogs />
+            </Route>
+            <Route path={"/blogs/news/:handle"} exact>
+                <Blog />
             </Route>
             <Route path={"/blogs/news/tagged/:handle"}>
                 <Blogs />

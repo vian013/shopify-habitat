@@ -12,18 +12,18 @@ function ArticlesWrapper({articles, showExcerpt}: {articles: Article[], showExce
         <div className="articles-wrapper">
             {articles.map(({imgUrl, publishedAt, title, handle, excerpt}, index) => (
                 <div key={index} className="article-wrapper">
-                    <Link to={`/blogs/${handle}`} >
+                    <Link to={`/blogs/news/${handle}`} >
                         <div className={`img-wrapper style-${index+1}`}>
                             <img loading='lazy' src={imgUrl} alt={`article-${index}-img`} />
                         </div>
                     </Link>
                     <div className="content-wrapper">
                         <p className='published-at'>{publishedAt}</p>
-                        <Link to={`/blogs/${handle}`} >
+                        <Link to={`/blogs/news/${handle}`} >
                             <h1 className='title'>{title}</h1>
                         </Link>
                         {showExcerpt && excerpt && <p className='excerpt'>{`${excerpt.split(" ").slice(0, 30).join(" ")}...`}</p>}
-                        <Link to={`/blogs/${handle}`} className='read-more'>{readMoreBtn}</Link>
+                        <Link to={`/blogs/news/${handle}`} className='read-more'>{readMoreBtn}</Link>
                     </div>
                 </div>
             ))}

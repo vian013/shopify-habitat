@@ -18,7 +18,7 @@ function Blogs() {
   }, [])
 
   useEffect(()=>{
-    if (tag!=="all" && tag!==undefined) history.push(`/blogs/news/tagged/${tag}`)
+    if (tag!=="all" && tag!==undefined) history.push(`/blogs/tagged/${tag}`)
     else history.push("/blogs")
   }, [tag])
 
