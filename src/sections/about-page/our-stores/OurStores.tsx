@@ -13,8 +13,8 @@ function OurStores() {
             <SectionHeader title={title} subTitle={subttitle}/>
 
             <div className="stores-wrapper">
-                {stores.map(({address, imgUrl, title, btnLink})=> (
-                    <div className="store-wrapper">
+                {stores.map(({address, imgUrl, title, btnLink}, index)=> (
+                    <div className="store-wrapper" key={index}>
                         <div className="img-wrapper">
                             <img src={imgUrl} alt={title} loading="lazy"/>
                         </div>

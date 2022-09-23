@@ -10,10 +10,10 @@ function Question({content, answers}: {content: string, answers: string[]}) {
         {isOpen && (
             <div className="answers">
                 {answers.map((answer, index) => (
-                    <>
+                    <div className='answer' key={index}>
                         <p>{answer}</p>
                         {index!==answers.length-1 && <br/>}
-                    </>
+                    </div>
                 ))}
             </div>
         )}

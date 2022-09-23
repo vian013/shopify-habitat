@@ -170,6 +170,14 @@ export default {
                     info2: "Sunday 11am–6pm ET"
                 }
             ]
+        },
+        cart: {
+            cart: {
+                title: "Your cart"
+            },
+            orderSummary: {
+                title: "Order Summary"
+            }
         }
     }
 }

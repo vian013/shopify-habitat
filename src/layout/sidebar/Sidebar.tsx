@@ -12,7 +12,6 @@ const Sidebar = forwardRef<HTMLDivElement, {}>((props, ref) => {
     const [content, setContent] = useState<string>("") 
     
   const handleCloseSidebar = () => {
-    dispatch({type: AppActions.SET_UNBLURRED})
     dispatch({type: AppActions.CLOSE_SIDEBAR})
     dispatch({type: AppActions.CLOSE_QUICKVIEW})
     dispatch({type: AppActions.SET_QUICKVIEW_HANDLE, payload: ""})

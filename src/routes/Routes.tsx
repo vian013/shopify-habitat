@@ -13,6 +13,7 @@ import Products from '../pages/products/Products'
 import ResetPassword from '../pages/account/reset-password/ResetPassword'
 import Blog from '../pages/blogs/blog/Blog'
 import Contact from '../pages/contact/Contact'
+import Cart from '../pages/cart/Cart'
 
 function Routes() {
   return (
@@ -55,6 +56,9 @@ function Routes() {
             </Route>
             <Route path={"/account/register"}>
                 <CreateAccount />
+            </Route>
+            <Route path={"/cart"}>
+                <Cart />
             </Route>
             <Route path={"*"}>
                 <NotFound />

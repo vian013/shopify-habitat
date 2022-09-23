@@ -38,12 +38,14 @@ export const reducer: Reducer<IState, IAction<any>> = (state: IState, {type, pay
         case AppActions.OPEN_SIDEBAR:
             return {
             ...state,
-            isSidebarOpen: true
+            isSidebarOpen: true,
+            isBackgroundBlurred: true
             }
         case AppActions.CLOSE_SIDEBAR:
             return {
             ...state,
-            isSidebarOpen: false
+            isSidebarOpen: false,
+            isBackgroundBlurred: false
             }
         case AppActions.OPEN_QUICKVIEW:
             return {

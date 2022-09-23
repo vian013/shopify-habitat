@@ -1,5 +1,9 @@
-import React, { forwardRef, useContext, useEffect, useState } from 'react'
-import { BASE_URL, CartContext } from '../../../App'
+import React, { Dispatch, forwardRef, useContext, useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { AppContext, BASE_URL, CartContext } from '../../../App'
+import fetchCart from '../../../custom-hooks/fetchCart'
+import useFetchCart from '../../../custom-hooks/useFetchCart'
+import { AppActions } from '../../../store/actions/actions'
 import { CartActions } from '../../../store/actions/cartActions'
 import CartItems from './cart-items/CartItems'
 import "./MiniCart.css"
@@ -15,35 +19,27 @@ export type CartItems = {
 }[]
 
 const MiniCart = forwardRef<HTMLDivElement, {}>((props, ref) => {
-  const [cartItems, setCartItems] = useState<CartItems>([])
-  const {cartState: {cartId, isCartOpen}, cartDispatch} = useContext(CartContext)!
+  const {
+    cartItems,
+    setCartItems,
+    cartId,
+    isCartOpen,
+    cartDispatch,
+    subTotal,
+    setSubTotal
+  } = useFetchCart()
+  
   const [loading, setLoading] = useState<boolean>(false)
-  const [subTotal, setSubTotal] = useState<number>(0)
+  const history = useHistory()
+  const {dispatch} = useContext(AppContext)!
 
-  const fetchCartItems = async(loading: boolean, setLoading: React.Dispatch<React.SetStateAction<boolean>>)=> {
-    
-    if (!loading) setLoading(true)
-    try {
-      const data = await fetch(`${BASE_URL}/cart-items?cartId=${cartId}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        },
-      })
-      const {totalQuantity, subTotal, items}: {totalQuantity: number, subTotal: number, items: CartItems} = await data.json()
-      // console.log(items);
-      console.log(subTotal);
-      
-      
-      if (totalQuantity >= 0) cartDispatch({type: CartActions.UPDATE_TOTAL_QUANTITY, payload: totalQuantity})
-      if (items) setCartItems(items)
-      if (subTotal) setSubTotal(subTotal)
-    } catch (error) {
-      console.log(error);
-    }
-    finally {
-      setLoading(false)
-    }
+  const fetchCartItems = async (loading: boolean, setLoading: Dispatch<boolean>) => {
+    await fetchCart(cartId, loading, setLoading, cartDispatch, setCartItems, setSubTotal)
+  }
+
+  const handleButtonClick = (path: string) => {
+    history.push(path)
+    dispatch({type: AppActions.CLOSE_SIDEBAR})
   }
 
   useEffect(() => {
@@ -67,8 +63,12 @@ const MiniCart = forwardRef<HTMLDivElement, {}>((props, ref) => {
                       <p>${subTotal}</p>
                     </div>
                     <div className="footer-buttons-wrapper">
-                      <button className='btn btn-view-cart'>view cart</button>
-                      <button className='btn btn-checkout'>checkout</button>
+                      <button onClick={() => handleButtonClick("/cart")} className='btn btn-checkout'>
+                        view cart
+                      </button>
+                      <button onClick={() => handleButtonClick("/checkout")} className='btn btn-checkout'>
+                        checkout
+                      </button>
                     </div>
                   </div>
                 </div>
