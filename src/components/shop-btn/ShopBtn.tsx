@@ -10,7 +10,7 @@ type Props = {
 
 function ShopBtn({link, title, bgColor}: Props) {
   return (
-    <Link to={link} className={`${styles["shop-btn"]} ${bgColor?styles[bgColor]:""}`}>{title}</Link>
+    <Link to={link} className={`custom-shop-btn ${styles["shop-btn"]} ${bgColor?styles[bgColor]:""}`}>{title}</Link>
   )
 }
 

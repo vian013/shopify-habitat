@@ -5,7 +5,7 @@ function Logo({link, url, alt}: {link: string, url: string, alt: string}) {
   return (
     <div data-testid="test-logo" className='logo'>
         <Link to={link}>
-            <img className="lazyload logo-img" src={url} alt={alt}/>
+            <img className="logo-img" src={url} alt={alt}/>
         </Link>
     </div>
   )

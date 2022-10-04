@@ -5,7 +5,14 @@ import LineItem from '../line-item/LineItem'
 import { CartItems as CartItemsType } from '../MiniCart'
 import "./CartItems.css"
 
-function CartItems({cartItems, fetchCartItems}: {cartItems: CartItemsType, fetchCartItems: Function}) {
+type Props = {
+  cartItems: CartItemsType, 
+  fetchCartItems: Function
+  showCost?: boolean
+}
+
+
+function CartItems({cartItems, fetchCartItems, showCost}: Props) {
   const {cartState: {cartId, outOfStockError}, cartDispatch} = useContext(CartContext)!
 
   useEffect(() => {
@@ -14,19 +21,13 @@ function CartItems({cartItems, fetchCartItems}: {cartItems: CartItemsType, fetch
     
   return (
     <div className='cart-items'>
-        {cartItems.map(({imgUrl, title, options, price, quantity, variantId, lineId}) => (
-            <LineItem
-              imgUrl={imgUrl} 
-              key={variantId} 
-              title={title} 
-              options = {options}
-              price={price}
-              quantity={quantity} 
+        {cartItems.map((item) => (
+            <LineItem key={item.lineId}
+              {...item} 
+              outOfStock={outOfStockError.lineId === item.lineId} 
               cartId={cartId} 
-              variantId={variantId} 
-              lineId={lineId} 
-              outOfStock={outOfStockError.lineId === lineId} 
               fetchCartItems={fetchCartItems}
+              showCost={showCost}
             />
         ))}
     </div>

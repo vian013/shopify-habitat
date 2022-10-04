@@ -1,0 +1,10 @@
+.content-wrapper{
+    display: flex;
+    margin-top: 80px;
+}
+
+.title {
+    font-family: var(--font-title);
+    font-size: 28px;
+    margin-bottom: 60px;
+}

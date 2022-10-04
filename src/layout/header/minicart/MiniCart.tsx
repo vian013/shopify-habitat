@@ -1,51 +1,52 @@
-import React, { Dispatch, forwardRef, useContext, useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { AppContext, BASE_URL, CartContext } from '../../../App'
-import fetchCart from '../../../custom-hooks/fetchCart'
+import React, { forwardRef, useContext, useEffect, useState } from 'react'
+import {  useHistory, useLocation } from 'react-router-dom'
+import { AppContext } from '../../../App'
 import useFetchCart from '../../../custom-hooks/useFetchCart'
 import { AppActions } from '../../../store/actions/actions'
-import { CartActions } from '../../../store/actions/cartActions'
 import CartItems from './cart-items/CartItems'
 import "./MiniCart.css"
 
-export type CartItems = {
+export type CartItem = {
   imgUrl: string,
   title: string, 
   options: string, 
   price: number,
   quantity: number, 
   variantId: string, 
-  lineId: string
-}[]
+  lineId: string,
+  cost: number
+}
+
+export type CartItems = CartItem[]
 
 const MiniCart = forwardRef<HTMLDivElement, {}>((props, ref) => {
   const {
-    cartItems,
-    setCartItems,
     cartId,
+    cartItems,
     isCartOpen,
-    cartDispatch,
     subTotal,
-    setSubTotal
+    fetchCartItems
   } = useFetchCart()
   
   const [loading, setLoading] = useState<boolean>(false)
   const history = useHistory()
   const {dispatch} = useContext(AppContext)!
-
-  const fetchCartItems = async (loading: boolean, setLoading: Dispatch<boolean>) => {
-    await fetchCart(cartId, loading, setLoading, cartDispatch, setCartItems, setSubTotal)
-  }
+  const location = useLocation()
 
   const handleButtonClick = (path: string) => {
-    history.push(path)
+    const currentPath = location.pathname
+    if (currentPath==="/cart") {
+      history.go(0)
+    }
+    else {
+      history.push(path)
+    } 
     dispatch({type: AppActions.CLOSE_SIDEBAR})
   }
 
   useEffect(() => {
     isCartOpen && fetchCartItems(loading, setLoading)
-    
-  }, [isCartOpen])
+  }, [isCartOpen, cartId])
   
   return (
           <>
