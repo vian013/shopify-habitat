@@ -43,8 +43,8 @@ function Product({product} : {product: ProductType}) {
             </div>
           </div>
           <Link to={`/products/${handle}`}>
-              <img loading='lazy' src={featuredImage} alt={handle} />
-              <img loading='lazy' className='second-img' src={secondImage} alt={`${handle}-2`} />
+              <img className="lazyload" src={featuredImage} alt={handle} />
+              <img className="lazyload second-img" src={secondImage} alt={`${handle}-2`} />
           </Link>
         </div>
         <div className={"content-wrapper"}>

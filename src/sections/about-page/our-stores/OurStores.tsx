@@ -16,7 +16,7 @@ function OurStores() {
                 {stores.map(({address, imgUrl, title, btnLink}, index)=> (
                     <div className="store-wrapper" key={index}>
                         <div className="img-wrapper">
-                            <img src={imgUrl} alt={title} loading="lazy"/>
+                            <img src={imgUrl} alt={title} className="lazyload"/>
                         </div>
                         <h1 className='title'>{title}</h1>
                         <p className="address">{address}</p>

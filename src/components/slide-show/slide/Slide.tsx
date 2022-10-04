@@ -6,7 +6,7 @@ function Slide({imgSrc, imgAlt, subTitle, title, btnLink}: {imgSrc: string, imgA
   return (
     <div className='slide'>
         <div className="slide-wrapper">
-            <img className='background-img' src={imgSrc} alt={imgAlt} loading="lazy"/>
+            <img className='background-img' src={imgSrc} alt={imgAlt}/>
             <div className="content-wrapper">
                 <h3 className='sub-title'>{subTitle}</h3>
                 <h1 className='title'>{title}</h1>

@@ -14,7 +14,7 @@ function ArticlesWrapper({articles, showExcerpt}: {articles: Article[], showExce
                 <div key={index} className="article-wrapper">
                     <Link to={`/blogs/news/${handle}`} >
                         <div className={`img-wrapper style-${index+1}`}>
-                            <img loading='lazy' src={imgUrl} alt={`article-${index}-img`} />
+                            <img className="lazyload" src={imgUrl} alt={`article-${index}-img`} />
                         </div>
                     </Link>
                     <div className="content-wrapper">

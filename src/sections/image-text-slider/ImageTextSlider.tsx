@@ -34,7 +34,7 @@ function ImageTextSlider({slides}: Props) {
           <SwiperSlide key={title}>
             <div className={`${styles["slide-wrapper"]}`}>
               <div className="img-wrapper">
-                <img loading='lazy' src={imgUrl} alt={title}/>
+                <img className="lazyload" src={imgUrl} alt={title}/>
               </div>
               <div className={`${styles["content-wrapper"]}`}>
                 <SectionHeader title={title} subTitle={description}/>

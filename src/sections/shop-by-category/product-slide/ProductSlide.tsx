@@ -5,7 +5,7 @@ function ProductSlide({imgUrl, title, subTitle}: {imgUrl: string, title: string,
   return (
     <div className={styles['product-slide']}>
         <div className={styles["img-wrapper"]}>
-            <img loading='lazy' src={imgUrl} alt={title} />
+            <img className='lazyload' src={imgUrl} alt={title} />
         </div>
         <div className={styles["content-wrapper"]}>
             <h3 className={styles["title"]}>{title}</h3>

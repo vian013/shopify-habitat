@@ -140,3 +140,13 @@
 .shop-btn:hover:after {
     transform: scaleX(1);
 }
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+	transition: opacity 1s ease-in;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 1s ease-in;
+}
