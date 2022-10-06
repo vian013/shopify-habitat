@@ -53,3 +53,13 @@ export type PageData = {
     startCursor: string, 
     endCursor: string
 }
+
+export type LoginFormValues = {
+    email: string,
+    password: string
+}
+
+export type CreateAccountFormValues = LoginFormValues & {
+    fName: string,
+    lName: string
+}

@@ -13,6 +13,7 @@ import { createBrowserHistory } from "history";
 import "./App.css"
 import Footer from "./layout/footer/Footer";
 import "lazysizes"
+import Overlay from "./layout/overlay/Overlay";
 
 export const BASE_URL = process.env.REACT_APP_BASE_API_URL
 
@@ -111,7 +112,7 @@ function App() {
               <Header />
               <Routes />
               <Footer />
-              <div className={`blurred-bg ${state.isBackgroundBlurred?"open":""}`}></div>
+              <Overlay isBackgroundBlurred={state.isBackgroundBlurred}/>
             </div>
           </CartProvider>
         </UserProvider>

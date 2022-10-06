@@ -1,0 +1,10 @@
+.create-account-wrapper {
+}
+
+.create-account-wrapper .name-input-wrapper{
+    display: flex;
+}
+
+.create-account-wrapper .name-input-wrapper input:first-of-type{
+    margin-right: 10px;
+}

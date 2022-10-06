@@ -24,12 +24,9 @@ type Props = {
 }
 
 function AccountForm({children, email, setEmail, password, setPassword, error, handleSubmit, title, subtitle, btnText, additionalText, additionalLink, footerTitle, footerText, footerLink}: Props) {
-  const {state: {isLoggedIn}} = useContext(AppContext)!
   const { emailPlaceholder, passwordPlaceholder} = messages.pages.login
 
-  return isLoggedIn ? (
-    <Redirect to={"/account"}/>
-  ) : (
+  return (
     <div className="login-container">
       <div className="login-wrapper">
         <h1 className="title">{title}</h1>
