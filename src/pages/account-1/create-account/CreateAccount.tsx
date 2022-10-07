@@ -2,7 +2,7 @@ import React from 'react'
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form'
 import messages from '../../../messages/messages'
 import { CreateAccountFormValues } from '../../../type/global'
-import AccountForm from '../AccountForm'
+import AccountForm from '../account-form/AccountForm'
 import "./CreateAccount.css"
 
 function CreateAccount() {

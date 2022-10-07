@@ -14,6 +14,8 @@ import "./App.css"
 import Footer from "./layout/footer/Footer";
 import "lazysizes"
 import Overlay from "./layout/overlay/Overlay";
+import {Provider} from "react-redux"
+import store from "./redux/store";
 
 export const BASE_URL = process.env.REACT_APP_BASE_API_URL
 
@@ -105,18 +107,20 @@ function App() {
 
   return (
     <Router history={history}>
-      <AppProvider value={{state, dispatch}}>
-        <UserProvider value={{userState, userDispatch}}>
-          <CartProvider value={{cartState, cartDispatch}}>
-            <div className="App">
-              <Header />
-              <Routes />
-              <Footer />
-              <Overlay isBackgroundBlurred={state.isBackgroundBlurred}/>
-            </div>
-          </CartProvider>
-        </UserProvider>
-      </AppProvider>
+      <Provider store={store}>
+        <AppProvider value={{state, dispatch}}>
+          <UserProvider value={{userState, userDispatch}}>
+            <CartProvider value={{cartState, cartDispatch}}>
+              <div className="App">
+                <Header />
+                <Routes />
+                <Footer />
+                <Overlay isBackgroundBlurred={state.isBackgroundBlurred}/>
+              </div>
+            </CartProvider>
+          </UserProvider>
+        </AppProvider>
+      </Provider>
     </Router>
   );
 }

@@ -1,26 +1,46 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 import messages from '../../../messages/messages'
+import { login, loginRequest } from '../../../redux/user/actions'
+import { Action, User, UserData } from '../../../redux/user/types'
 import { LoginFormValues } from '../../../type/global'
-import AccountForm from '../AccountForm'
+import {ThunkDispatch} from "redux-thunk"
+import AccountForm from '../account-form/AccountForm'
+import { useHistory } from 'react-router-dom'
 
-function Login() {
+type Props = {
+  loading: boolean, 
+  login: Function, 
+  error: string
+  user: User
+}
+
+function Login({loading, login, user, error}: Props) {
   const {title, subtitle, noAccount, forgotPassword, forgotPasswordLink, createAccountLink, createAccount, btnText, emailPlaceholder, passwordPlaceholder} = messages.pages.login
 
-  const {register, handleSubmit, formState: {errors}} = useForm<LoginFormValues>({
+  const {register, handleSubmit, getValues, formState: {errors}} = useForm<LoginFormValues>({
     defaultValues: {
         email: "",
         password: ""
     }
   })
 
+  const history = useHistory()
+
   const onValid: SubmitHandler<LoginFormValues>=(data, e)=>{
-    console.log(data)
+    const info = getValues()
+    login(info)
   }
 
   const onError: SubmitErrorHandler<LoginFormValues>=(errors, e)=>{
 
   }
+
+  useEffect(()=>{
+    if (user) history.push("/account")
+  }, [user])
     
   return (
     <AccountForm 
@@ -45,10 +65,28 @@ function Login() {
                 required: "Password must not be empty!"
             })}/>
             {errors.password && <p className='error-message'>{errors.password.message}</p>}
+            {loading && <p>Loading...</p>}
+            {error && <p className='error-message'>{error}</p>}
             <button className='btn' type="submit">{btnText}</button>
         </form>
     </AccountForm>
   )
 }
 
-export default Login
+const mapStateToProps = (state: {user: UserData}) => {
+  const {loading, user, error} = state.user
+  return {
+    loading,
+    user,
+    error
+  }
+}
+
+const mapDispatchToProps = (dispatch: ThunkDispatch<UserData, null, Action>) => {
+  return {
+    loginRequest: () => dispatch(loginRequest()),
+    login: (info: {email: string, password: string}) => dispatch(login(info))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login) 

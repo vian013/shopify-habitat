@@ -6,7 +6,7 @@ import { AppActions } from '../../store/actions/actions'
 import { UserActions } from '../../store/actions/userActions'
 
 function Account() {
-  const {state, dispatch} = useContext(AppContext)!
+  const {state: {isLoggedIn}, dispatch} = useContext(AppContext)!
   const {userState, userDispatch} = useContext(UserContext)! 
   const {fName, lName, email} = userState
 
@@ -38,18 +38,16 @@ function Account() {
     })
     dispatch({type: AppActions.SET_LOGGEDOUT})
   } 
-
-  if (!state.isLoggedIn) return (
-    <Redirect to={"/account/login"}/>
-  )
   
-  return (
+  return isLoggedIn ? (
     <div>
       {fName && lName && <h1>User Name: {fName} {lName}</h1>}
       {email && <h1>Email: {email}</h1>}
       <button onClick={handleLogout}>Log out</button>
     </div>
-  ) 
+  ) : (
+    <Redirect to={"/account/login"}/>
+  )
 }
 
 export default Account
