@@ -26,7 +26,7 @@ function Blogs() {
     <div id='blogs-page'>
       <Breadcrumb tag={handle}/>
       <header>
-        <h1 className={styles.title}>{messages.pages.blogs.title}</h1>
+        <h1 className="page-title">{messages.pages.blogs.title}</h1>
         <p className='date'>{date}</p>
       </header>
       <div className="articles-container">

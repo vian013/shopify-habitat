@@ -3,7 +3,11 @@ import { Action, UserData, UserActions } from "./types";
 const initialState: UserData = {
     loading: false,
     user: null,
-    error: ""
+    loginError: "",
+    logoutError: "",
+    fetchUserError: "",
+    createAccountError: "",
+
 }
 
 const userReducer = (state: UserData = initialState, action: Action) => {
@@ -23,7 +27,7 @@ const userReducer = (state: UserData = initialState, action: Action) => {
         case UserActions.LOGIN_FAILURE: 
             return {
                 ...state,
-                error: payload,
+                loginError: payload,
                 loading: false
             }
         case UserActions.LOGOUT_REQUEST:
@@ -40,7 +44,7 @@ const userReducer = (state: UserData = initialState, action: Action) => {
         case UserActions.LOGOUT_FAILURE: 
             return {
                 ...state,
-                error: payload,
+                logoutError: payload,
                 loading: false
             }
         case UserActions.FETCH_USER_REQUEST:
@@ -57,7 +61,25 @@ const userReducer = (state: UserData = initialState, action: Action) => {
         case UserActions.FETCH_USER_FAILURE: 
             return {
                 ...state,
-                error: payload,
+                fetchUserError: payload,
+                loading: false
+            }
+        case UserActions.CREATE_USER_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }            
+        case UserActions.CREATE_USER_SUCCESS: 
+            return {
+                ...state,
+                user: payload,
+                loading: false
+            }
+        case UserActions.CREATE_USER_FAILURE: 
+            const _error = payload as {message: string}
+            return {
+                ...state,
+                createAccountError: _error.message,
                 loading: false
             }
         default:

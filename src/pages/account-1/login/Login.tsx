@@ -13,11 +13,11 @@ import { useHistory } from 'react-router-dom'
 type Props = {
   loading: boolean, 
   login: Function, 
-  error: string
+  loginError: string
   user: User
 }
 
-function Login({loading, login, user, error}: Props) {
+function Login({loading, login, user, loginError}: Props) {
   const {title, subtitle, noAccount, forgotPassword, forgotPasswordLink, createAccountLink, createAccount, btnText, emailPlaceholder, passwordPlaceholder} = messages.pages.login
 
   const {register, handleSubmit, getValues, formState: {errors}} = useForm<LoginFormValues>({
@@ -66,7 +66,7 @@ function Login({loading, login, user, error}: Props) {
             })}/>
             {errors.password && <p className='error-message'>{errors.password.message}</p>}
             {loading && <p>Loading...</p>}
-            {error && <p className='error-message'>{error}</p>}
+            {loginError && <p className='loginError-message'>{loginError}</p>}
             <button className='btn' type="submit">{btnText}</button>
         </form>
     </AccountForm>
@@ -74,11 +74,11 @@ function Login({loading, login, user, error}: Props) {
 }
 
 const mapStateToProps = (state: {user: UserData}) => {
-  const {loading, user, error} = state.user
+  const {loading, user, loginError} = state.user
   return {
     loading,
     user,
-    error
+    loginError
   }
 }
 

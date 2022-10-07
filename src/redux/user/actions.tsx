@@ -61,7 +61,27 @@ const fetchUserFailure = (payload: any) => {
     }
 }
 
-const login = ({email, password}: {email: string, password: string}) => {
+const createUserRequest = () => {
+    return {
+        type: UserActions.CREATE_USER_REQUEST,
+    }
+}
+
+const createUserSuccess = (payload: any) => {
+    return {
+        type: UserActions.CREATE_USER_SUCCESS,
+        payload
+    }
+}
+
+const createUserFailure = (payload: any) => {
+    return {
+        type: UserActions.CREATE_USER_FAILURE,
+        payload
+    }
+}
+
+const login = (fields: {email: string, password: string}) => {
     return async (dispatch: Dispatch<Action>) => {
         try {
             dispatch(loginRequest())
@@ -70,7 +90,7 @@ const login = ({email, password}: {email: string, password: string}) => {
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({email, password}),
+                body: JSON.stringify(fields),
                 credentials: "include"
             })
             if (res.status === 200) {
@@ -123,6 +143,34 @@ const fetchUser = (userId?: string) => {
     }
 }
 
+const createUser = (fields: {email: string, password: string, fName: string, lName: string}) => {
+    console.log(fields);
+    
+    return async(dispatch: Dispatch<Action>) => {
+        try {
+            dispatch(createUserRequest())
+            const res = await fetch(`${BASE_URL}/create-account`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(fields)
+            })
+            if (res.status >= 400) {
+                const error = await res.json()
+                throw new Error(error.message)
+            } 
+            const data = await res.json()
+            dispatch(createUserSuccess(data))
+        } catch (error) {
+            const error1 = error as {message: string}
+            console.log(error1.message);
+            
+            dispatch(createUserFailure(error))
+        }
+    }
+}
+
 export {
     loginRequest,
     loginSuccess,
@@ -135,5 +183,9 @@ export {
     fetchUserRequest,
     fetchUserSuccess,
     fetchUserFailure,
-    fetchUser
+    fetchUser,
+    createUserRequest,
+    createUserSuccess,
+    createUserFailure,
+    createUser
 }

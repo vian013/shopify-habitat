@@ -8,6 +8,9 @@ export enum UserActions {
     FETCH_USER_REQUEST = "FETCH_USER_REQUEST",
     FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS",
     FETCH_USER_FAILURE = "FETCH_USER_FAILURE",
+    CREATE_USER_REQUEST = "CREATE_USER_REQUEST",
+    CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS",
+    CREATE_USER_FAILURE = "CREATE_USER_FAILURE",
 }
 
 export type User = {
@@ -23,10 +26,13 @@ export type User = {
 export type UserData = {
     loading: boolean,
     user: User,
-    error: string
+    loginError: string,
+    logoutError: string,
+    fetchUserError: string,
+    createAccountError: string
 }
 
 export type Action = {
     type: string,
-    payload?: User | string
+    payload?: User | string | {message: string}
 }

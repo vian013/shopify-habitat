@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form'
+import { connect } from 'react-redux'
+import { Redirect, useHistory } from 'react-router-dom'
+import { ThunkDispatch } from 'redux-thunk'
 import messages from '../../../messages/messages'
+import { createUser } from '../../../redux/user/actions'
+import { Action, User, UserData } from '../../../redux/user/types'
 import { CreateAccountFormValues } from '../../../type/global'
 import AccountForm from '../account-form/AccountForm'
 import "./CreateAccount.css"
 
-function CreateAccount() {
+type Props = {
+    loading: boolean,
+    createAccountError: string,
+    user: User,
+    createUser: Function
+}
+
+function CreateAccount({loading, user, createUser, createAccountError}: Props) {
   const {alreadyAccount, btnText, fNamePlaceholder, lnamePlaceholder, login, loginLink, subtitle, title} = messages.pages.register
   const { emailPlaceholder, passwordPlaceholder} = messages.pages.login
+  const history = useHistory()
     
-  const {register, handleSubmit, formState: {errors}} = useForm<CreateAccountFormValues>({
+  const {register, handleSubmit, getValues, formState: {errors}} = useForm<CreateAccountFormValues>({
     defaultValues: {
         email: "",
         password: "",
@@ -19,14 +32,16 @@ function CreateAccount() {
   })
 
   const onValid: SubmitHandler<CreateAccountFormValues>=(data, e)=>{
-    console.log(data)
+    createUser(data)
   }
 
   const onError: SubmitErrorHandler<CreateAccountFormValues>=(errors, e)=>{
 
   }
 
-  return (
+  return user ? (
+    <Redirect to={"/account"}/>
+  ) : (
     <div className="create-account-wrapper">
         <AccountForm 
             title={title}
@@ -83,6 +98,7 @@ function CreateAccount() {
                     })}
                 />
                 {errors.password && <p className='error-message'>{errors.password.message}</p>}
+                {createAccountError && <p className='error-message'>{createAccountError}</p>}
                 <button className='btn' type="submit">{btnText}</button>
             </form>
         </AccountForm>
@@ -91,4 +107,19 @@ function CreateAccount() {
   )
 }
 
-export default CreateAccount
+const mapStateToProps = (state: {user: UserData}) => {
+    const {loading, user, createAccountError} = state.user
+    return {
+        loading,
+        user,
+        createAccountError
+    }
+}
+
+const mapDispatchToProps = (dispatch: ThunkDispatch<UserData, null, Action>) => {
+    return {
+        createUser: (fields: {email: string, password: string, fName: string, lName: string}) => dispatch(createUser(fields))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAccount) 
