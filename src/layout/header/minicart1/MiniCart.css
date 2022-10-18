@@ -1,0 +1,93 @@
+.minicart-container {
+    position: relative;
+    z-index: 12;
+}
+
+.overlay {
+    background: rgb(91, 87, 87);
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+    z-index: 15;
+}
+
+.overlay.open{
+    display: block;
+}
+
+.minicart-wrapper {
+    width: 570px;
+    background: var(--color-white);
+    position: fixed;
+    top: 0;
+    right: -570px;
+    bottom: 0;
+    z-index: 20;
+    transition: all .25s cubic-bezier(.104,.204,.492,1);
+    padding: 40px;
+}
+
+.minicart-wrapper.open{
+    right: 0;
+}
+
+.sidebar-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color--1);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.sidebar-header .title{
+    font-family: "ITC NB";
+    font-size: 28px;
+    color: var(--text-color);
+}
+
+.sidebar-header .close-btn {
+    border: none;
+    background: var(--color-white);
+    cursor: pointer;
+}
+
+.mini-cart .cart-footer {
+    position: fixed;
+    background: var(--color-white);
+    width: 490px;
+    bottom: 0;
+    border-top: 1px solid var(--border-color--3);
+    padding: 35px 0;
+}
+
+.mini-cart .subtotal-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.mini-cart .footer-buttons-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mini-cart .btn-view-cart, .mini-cart .btn-checkout {
+    width: 50%;
+}
+
+.mini-cart .btn-view-cart {
+    color: var(--text-color);
+    background: var(--color-white);
+    border: 1px solid var(--border-color--2);
+    margin-right: 5px;
+}
+
+.mini-cart .btn-checkout {
+    margin-left: 5px;
+}
