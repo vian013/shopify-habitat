@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { ProductType } from '../../type/product'
 import styles from "./Product.module.css"
 import "./Product.css"
-import ProductContent from '../../components/product-content/ProductContent'
+import ProductContent from '../../components/product-content1/ProductContent'
 import { BASE_URL } from '../../App'
 
 function Product() {

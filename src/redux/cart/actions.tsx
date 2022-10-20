@@ -21,10 +21,10 @@ const fetchCartFailure = (payload: any) => {
     }
 }
 
-const fetchCart = (payload: any) => {
+const fetchCart = (cartId: string) => {
     return {
         type: CartActions.FETCH_CART,
-        payload
+        cartId
     }
 }
 
@@ -48,7 +48,7 @@ const createCartFailure = (payload: any) => {
     }
 }
 
-const createCart = (payload: any) => {
+const createCart = (payload: {productHandle: string, options: {[key: string] : string}, quantity: number}) => {
     return {
         type: CartActions.CREATE_CART,
         payload
@@ -75,35 +75,78 @@ const addToCartFailure = (payload: any) => {
     }
 }
 
-const addToCart = () => {
+export type AddToCartPayload = {productHandle: string, options: {[key: string] : string}, quantity: number, cartId: string}
+
+const addToCart = (payload: AddToCartPayload) => {
     return {
-        type: CartActions.ADD_TO_CART
+        type: CartActions.ADD_TO_CART, 
+        payload
     }
 }
 
-const deleteCartRequest = () => {
+const updateCartRequest = () => {
     return {
         type: CartActions.UPDATE_CART_REQUEST
     }
 }
 
-const deleteCartSuccess = (payload: any) => {
+const updateCartSuccess = (payload: any) => {
     return {
         type: CartActions.UPDATE_CART_SUCCESS,
         payload
     }
 }
 
-const deleteCartFailure = (payload: any) => {
+const updateCartFailure = (payload: any) => {
     return {
         type: CartActions.UPDATE_CART_FAILURE,
         payload
     }
 }
 
-const deleteCart = () => {
+const updateCart = () => {
     return {
         type: CartActions.UPDATE_CART
+    }
+}
+
+const deleteCartRequest = () => {
+    return {
+        type: CartActions.DELETE_CART_REQUEST
+    }
+}
+
+const deleteCartSuccess = (payload: any) => {
+    return {
+        type: CartActions.DELETE_CART_SUCCESS,
+        payload
+    }
+}
+
+const deleteCartFailure = (payload: any) => {
+    return {
+        type: CartActions.DELETE_CART_FAILURE,
+        payload
+    }
+}
+
+const deleteCart = () => {
+    return {
+        type: CartActions.DELETE_CART
+    }
+}
+
+const setCartQuantity = (payload: number) => {
+    return {
+        type: CartActions.SET_CART_QUANTITY,
+        payload
+    }
+}
+
+const setCartSubTotal = (payload: number) => {
+    return {
+        type: CartActions.SET_CART_SUBTOTAL,
+        payload
     }
 }
 
@@ -123,5 +166,7 @@ export {
     deleteCartRequest,
     deleteCartSuccess,
     deleteCartFailure,
-    deleteCart
+    deleteCart,
+    setCartQuantity,
+    setCartSubTotal
 }

@@ -1,3 +1,4 @@
+import { Reducer } from "redux";
 import { Action, UserData, UserActions } from "./types";
 
 const initialState: UserData = {

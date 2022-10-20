@@ -21,18 +21,37 @@ export enum CartActions {
     DELETE_CART_REQUEST = "DELETE_CART_REQUEST",
     DELETE_CART_SUCCESS = "DELETE_CART_SUCCESS",
     DELETE_CART_FAILURE = "DELETE_CART_FAILURE",
+    SET_CART_QUANTITY = "SET_CART_QUANTITY",
+    SET_CART_SUBTOTAL = "SET_CART_SUBTOTAL"
 }
 
 export type CartState = {
     loading: boolean,
     error: string,
-    cart: Cart,
-    outOfStockError: {lineId: string}
+    cart: Cart | null,
+    totalQuantity: number,
+    subTotal: number
+    outOfStockError?: {lineId: string}
 }
 
 export type Cart = {
-    cartId: string,
-    cartItems: ProductType[],
-    isCartOpen: boolean,
-    cartTotalQuantity: number,
+    id: string,
+    items: CartItem[],
+    totalQuantity: number,
+    total: number,
+    subTotal: number,
+    totalTax: number
 }
+
+export type CartItem = {
+    imgUrl: string,
+    title: string, 
+    options: string, 
+    price: number,
+    quantity: number, 
+    variantId: string, 
+    lineId: string,
+    cost: number
+  }
+  
+export type CartItems = CartItem[]

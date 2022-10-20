@@ -1,0 +1,7 @@
+.product-content .title {
+    transition: color .2s ease-in;
+}
+
+.product-content .title:hover {
+    color: var(--text-color--2);
+}
