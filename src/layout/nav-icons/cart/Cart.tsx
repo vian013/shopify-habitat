@@ -6,15 +6,17 @@ import cartIcon from '../../icons/cart-icon'
 import NavIcon from '../nav-icon/NavIcon'
 import QuantityBadge from './quantity-badge/QuantityBadge'
 import "./Cart.css"
+import { useDispatch } from 'react-redux'
+import { openSidebar } from '../../../redux/sidebar/actions'
+import { openCart } from '../../../redux/cart/actions'
 
-function Cart({openCart}: {openCart: ()=>void}) {
+function Cart() {
   const {dispatch} = useContext(AppContext)!
-  const {cartDispatch} = useContext(CartContext)!
+  const _dispatch = useDispatch()
 
   const handleClick = () => {
     dispatch({type: AppActions.SET_BLURRED})
-    dispatch({type: AppActions.OPEN_SIDEBAR})
-    cartDispatch({type: CartActions.OPEN_CART})
+    _dispatch(openCart())
   }
   
   return (

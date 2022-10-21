@@ -2,11 +2,12 @@ import { Reducer } from "redux"
 import { SidebarAction, SidebarActions, SidebarState } from "./types"
 
 const initialState: SidebarState = {
-    isSidebarOpen: false
+    isSidebarOpen: false,
+    content: ""
 }
 
 const sidebarReducer: Reducer<SidebarState, SidebarAction> = (state = initialState, action) => {
-    const {type} = action
+    const {type, payload} = action
     
     switch (type) {
         case SidebarActions.OPEN_SIDEBAR:
@@ -14,10 +15,21 @@ const sidebarReducer: Reducer<SidebarState, SidebarAction> = (state = initialSta
                 ...state,
                 isSidebarOpen: true
             }            
-        case SidebarActions.CLOSE_SIDEBAR:
+        case SidebarActions.HIDE_SIDEBAR:
             return {
                 ...state,
                 isSidebarOpen: false
+            }            
+        case SidebarActions.CLOSE_SIDEBAR:
+            return {
+                ...state,
+                isSidebarOpen: false,
+                content: ""
+            }            
+        case SidebarActions.SET_SIDEBAR_CONTENT:
+            return {
+                ...state,
+                content: payload
             }            
         default:
             return state

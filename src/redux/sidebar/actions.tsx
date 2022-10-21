@@ -6,13 +6,28 @@ const openSidebar = () => {
     }
 }
 
+const hideSidebar = () => {
+    return {
+        type: SidebarActions.HIDE_SIDEBAR
+    }
+}
+
 const closeSidebar = () => {
     return {
         type: SidebarActions.CLOSE_SIDEBAR
     }
 }
 
+const setSidebarContent = (payload: string) => {
+    return {
+        type: SidebarActions.SET_SIDEBAR_CONTENT,
+        payload
+    }
+}
+
 export {
     openSidebar,
-    closeSidebar
+    hideSidebar,
+    closeSidebar,
+    setSidebarContent
 }

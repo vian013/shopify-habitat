@@ -1,6 +1,8 @@
 export enum SidebarActions {
     OPEN_SIDEBAR = "OPEN_SIDEBAR",
+    HIDE_SIDEBAR = "HIDE_SIDEBAR",
     CLOSE_SIDEBAR = "CLOSE_SIDEBAR",
+    SET_SIDEBAR_CONTENT="SET_SIDEBAR_CONTENT"
 } 
 
 export type SidebarAction = {
@@ -9,5 +11,6 @@ export type SidebarAction = {
 }
 
 export type SidebarState = {
-    isSidebarOpen: boolean
+    isSidebarOpen: boolean,
+    content: string
 }

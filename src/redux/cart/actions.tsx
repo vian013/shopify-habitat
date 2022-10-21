@@ -157,6 +157,17 @@ const deleteCart = (payload: DeleteCartPayload) => {
     }
 }
 
+const openCart = () => {
+    return {
+        type: CartActions.OPEN_CART
+    }
+}
+
+const closeCart = () => {
+    return {
+        type: CartActions.CLOSE_CART
+    }
+}
 
 export {
     fetchCartRequest,
@@ -179,4 +190,6 @@ export {
     updateCartSuccess,
     updateCartFailure,
     updateCart,
+    openCart,
+    closeCart
 }

@@ -14,7 +14,7 @@ function MiniCart() {
   const history = useHistory()
   const location = useLocation()
   const dispatch = useDispatch()
-  const {cart} = useSelector<RootState>(state => state.cart) as CartState
+  const {cart, loading} = useSelector<RootState>(state => state.cart) as CartState
 
   useEffect(()=>{
     if(cart) dispatch(fetchCart(cart.id))
@@ -30,6 +30,7 @@ function MiniCart() {
     } 
   }
     
+  if(loading) return <h1>Loading...</h1>
   return !cart || cart.totalQuantity===0 ? 
     (
       <EmptyCart />
