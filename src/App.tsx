@@ -14,8 +14,8 @@ import "./App.css"
 import Footer from "./layout/footer/Footer";
 import "lazysizes"
 import Overlay from "./layout/overlay/Overlay";
-import {Provider} from "react-redux"
-import store from "./redux/store";
+import {Provider, useDispatch} from "react-redux"
+import { fetchCart } from "./redux/cart/actions";
 
 export const BASE_URL = process.env.REACT_APP_BASE_API_URL
 
@@ -73,41 +73,19 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initState)
   const [userState, userDispatch] = useReducer(userReducer, initUser)
   const [cartState, cartDispatch] = useReducer(cartReducer, initCart)
-  const {cartId, cartTotalQuantity} = cartState
+  const _dispatch = useDispatch()
 
-  useEffect(() => {
+  
+  useEffect(()=>{
     const cookie = document.cookie
-    if (cookie.indexOf("cartId=") != -1) {
-      const idNum = cookie.substring(cookie.length-32)
-      const cartId = `gid://shopify/Cart/${idNum}`  
-      cartDispatch({type: CartActions.CREATE_CART, payload: {id: cartId}})
-    }
+    if(cookie.indexOf("cartId") !== -1) {
+      const cartId = cookie.substring(7)
+      _dispatch(fetchCart(cartId))
+    } 
   }, [])
-
-  useEffect(()=> {
-    const fetchCartTotalQuantity = async() => {
-      try {
-        const data = await fetch(`${BASE_URL}/cart-items?cartId=${cartId}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        },
-      })
-      const {totalQuantity}: {totalQuantity: number} = await data.json()
-      if (totalQuantity >= 0) cartDispatch({type: CartActions.UPDATE_TOTAL_QUANTITY, payload: totalQuantity})
-      
-    } catch (error) {
-        console.log(error);
-         
-      }
-    }
-
-    fetchCartTotalQuantity()
-  }, [cartId])
 
   return (
     <Router history={history}>
-      <Provider store={store}>
         <AppProvider value={{state, dispatch}}>
           <UserProvider value={{userState, userDispatch}}>
             <CartProvider value={{cartState, cartDispatch}}>
@@ -120,7 +98,6 @@ function App() {
             </CartProvider>
           </UserProvider>
         </AppProvider>
-      </Provider>
     </Router>
   );
 }

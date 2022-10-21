@@ -56,8 +56,17 @@
     cursor: pointer;
 }
 
+.mini-cart {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 80vh;
+}
+
+.mini-cart .cart-items {
+    overflow-y: scroll;
+}
+
 .mini-cart .cart-footer {
-    position: fixed;
     background: var(--color-white);
     width: 490px;
     bottom: 0;

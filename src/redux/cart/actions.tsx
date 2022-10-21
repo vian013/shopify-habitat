@@ -1,5 +1,26 @@
 import { ActionCreator } from "redux"
-import { CartActions } from "./types"
+import { Cart, CartActions } from "./types"
+
+
+export type CreateCartPayload = {
+    productHandle: string, 
+    options: {[key: string] : string}, 
+    quantity: number
+}
+
+export type AddToCartPayload = CreateCartPayload & {cartId: string}
+
+export type UpdateCartPayload = {
+    cartId: string, 
+    lineId: string, 
+    variantId: string
+    newQuantity: number
+}
+
+export type DeleteCartPayload = {
+    cartId: string
+    lineId: string,
+}
 
 const fetchCartRequest = () => {
     return {
@@ -7,7 +28,7 @@ const fetchCartRequest = () => {
     }
 }
 
-const fetchCartSuccess = (payload: any) => {
+const fetchCartSuccess = (payload: Cart) => {
     return {
         type: CartActions.FETCH_CART_SUCCESS,
         payload
@@ -34,7 +55,7 @@ const createCartRequest = () => {
     }
 }
 
-const createCartSuccess = (payload: any) => {
+const createCartSuccess = (payload: Cart) => {
     return {
         type: CartActions.CREATE_CART_SUCCESS,
         payload
@@ -48,7 +69,7 @@ const createCartFailure = (payload: any) => {
     }
 }
 
-const createCart = (payload: {productHandle: string, options: {[key: string] : string}, quantity: number}) => {
+const createCart = (payload: CreateCartPayload) => {
     return {
         type: CartActions.CREATE_CART,
         payload
@@ -61,7 +82,7 @@ const addToCartRequest = () => {
     }
 }
 
-const addToCartSuccess = (payload: any) => {
+const addToCartSuccess = (payload: Cart) => {
     return {
         type: CartActions.ADD_TO_CART_SUCCESS,
         payload
@@ -74,8 +95,6 @@ const addToCartFailure = (payload: any) => {
         payload
     }
 }
-
-export type AddToCartPayload = {productHandle: string, options: {[key: string] : string}, quantity: number, cartId: string}
 
 const addToCart = (payload: AddToCartPayload) => {
     return {
@@ -90,7 +109,7 @@ const updateCartRequest = () => {
     }
 }
 
-const updateCartSuccess = (payload: any) => {
+const updateCartSuccess = (payload: Cart) => {
     return {
         type: CartActions.UPDATE_CART_SUCCESS,
         payload
@@ -104,9 +123,10 @@ const updateCartFailure = (payload: any) => {
     }
 }
 
-const updateCart = () => {
+const updateCart = (payload: UpdateCartPayload) => {
     return {
-        type: CartActions.UPDATE_CART
+        type: CartActions.UPDATE_CART,
+        payload
     }
 }
 
@@ -116,7 +136,7 @@ const deleteCartRequest = () => {
     }
 }
 
-const deleteCartSuccess = (payload: any) => {
+const deleteCartSuccess = (payload: Cart) => {
     return {
         type: CartActions.DELETE_CART_SUCCESS,
         payload
@@ -130,25 +150,13 @@ const deleteCartFailure = (payload: any) => {
     }
 }
 
-const deleteCart = () => {
+const deleteCart = (payload: DeleteCartPayload) => {
     return {
-        type: CartActions.DELETE_CART
-    }
-}
-
-const setCartQuantity = (payload: number) => {
-    return {
-        type: CartActions.SET_CART_QUANTITY,
+        type: CartActions.DELETE_CART,
         payload
     }
 }
 
-const setCartSubTotal = (payload: number) => {
-    return {
-        type: CartActions.SET_CART_SUBTOTAL,
-        payload
-    }
-}
 
 export {
     fetchCartRequest,
@@ -167,6 +175,8 @@ export {
     deleteCartSuccess,
     deleteCartFailure,
     deleteCart,
-    setCartQuantity,
-    setCartSubTotal
+    updateCartRequest,
+    updateCartSuccess,
+    updateCartFailure,
+    updateCart,
 }

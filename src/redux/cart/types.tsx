@@ -21,16 +21,12 @@ export enum CartActions {
     DELETE_CART_REQUEST = "DELETE_CART_REQUEST",
     DELETE_CART_SUCCESS = "DELETE_CART_SUCCESS",
     DELETE_CART_FAILURE = "DELETE_CART_FAILURE",
-    SET_CART_QUANTITY = "SET_CART_QUANTITY",
-    SET_CART_SUBTOTAL = "SET_CART_SUBTOTAL"
 }
 
 export type CartState = {
     loading: boolean,
     error: string,
     cart: Cart | null,
-    totalQuantity: number,
-    subTotal: number
     outOfStockError?: {lineId: string}
 }
 

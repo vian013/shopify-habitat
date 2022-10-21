@@ -144,11 +144,11 @@
 .lazyload,
 .lazyloading {
 	opacity: 0;
-	transition: opacity 1s ease-in;
+	transition: opacity .5s ease-in;
 }
 .lazyloaded {
 	opacity: 1;
-	transition: opacity 1s ease-in;
+	transition: opacity .5s ease-in;
 }
 
 .page-title {

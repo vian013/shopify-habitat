@@ -40,7 +40,7 @@ function Product() {
         <div className={styles["detail-images"]}>
           {images.map(({ url }, index) => (
             <div className={styles["img-wrapper"]} key={index}>
-              <img className="lazyload" src={url} alt={`${title}-image-${index + 1}`} />
+              <img src={url} alt={`${title}-image-${index + 1}`} />
             </div>
           ))}
         </div>

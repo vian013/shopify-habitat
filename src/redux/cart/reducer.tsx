@@ -5,8 +5,6 @@ const initialState: CartState = {
     loading: false,
     error: "",
     cart: null,
-    totalQuantity: 0,
-    subTotal: 0
 }
 
 type Action = {
@@ -74,15 +72,43 @@ const cartReducer: Reducer<CartState, Action> = (state = initialState, action: A
                 cart: null,
                 error: action.payload
             }
-        case CartActions.SET_CART_QUANTITY:
+        case CartActions.UPDATE_CART_REQUEST:
             return {
                 ...state,
-                totalQuantity: action.payload
+                loading: true
             }
-        case CartActions.SET_CART_SUBTOTAL:
+        case CartActions.UPDATE_CART_SUCCESS:
             return {
                 ...state,
-                subTotal: action.payload
+                loading: false,
+                cart: action.payload,
+                error: ''
+            }
+        case CartActions.UPDATE_CART_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                cart: null,
+                error: action.payload
+            }
+        case CartActions.DELETE_CART_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case CartActions.DELETE_CART_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                cart: action.payload,
+                error: ''
+            }
+        case CartActions.DELETE_CART_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                cart: null,
+                error: action.payload
             }
         default:
             return state
