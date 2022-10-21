@@ -42,7 +42,7 @@ const fetchCartFailure = (payload: any) => {
     }
 }
 
-const fetchCart = (cartId: string) => {
+const fetchCart = (cartId?: string) => {
     return {
         type: CartActions.FETCH_CART,
         cartId
@@ -157,9 +157,10 @@ const deleteCart = (payload: DeleteCartPayload) => {
     }
 }
 
-const openCart = () => {
+const openCart = (cartId?: string) => {
     return {
-        type: CartActions.OPEN_CART
+        type: CartActions.OPEN_CART,
+        cartId
     }
 }
 

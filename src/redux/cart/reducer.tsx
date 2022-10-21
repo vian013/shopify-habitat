@@ -1,17 +1,11 @@
 import { Reducer } from "redux";
-import { CartActions, CartState } from "./types";
+import { Action, CartActions, CartState } from "./types";
 
 const initialState: CartState = {
     loading: false,
     error: "",
     cart: null,
 }
-
-type Action = {
-    type: string,
-    payload: any
-}
-
 
 const cartReducer: Reducer<CartState, Action> = (state = initialState, action: Action) => {
     switch (action.type) {

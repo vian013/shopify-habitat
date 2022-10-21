@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { AppContext } from '../../App'
+import { openQuickView } from '../../redux/quickview/actions'
 import { AppActions } from '../../store/actions/actions'
 import {ProductType} from "../../type/product"
 import "./Product.css"
 
 function Product({product} : {product: ProductType}) {
-  const {dispatch} = useContext(AppContext)!
+  // const {dispatch} = useContext(AppContext)!
+  const dispatch = useDispatch()
   
   const {
       featuredImage,
@@ -21,9 +24,10 @@ function Product({product} : {product: ProductType}) {
   const secondImage = images[1].url
   
   const handleOpenQuickView = () => {
-    dispatch({type: AppActions.OPEN_QUICKVIEW})
-    dispatch({type: AppActions.SET_QUICKVIEW_HANDLE, payload: handle})
-    dispatch({type: AppActions.OPEN_SIDEBAR})
+    // dispatch({type: AppActions.OPEN_QUICKVIEW})
+    // dispatch({type: AppActions.SET_QUICKVIEW_HANDLE, payload: handle})
+    // dispatch({type: AppActions.OPEN_SIDEBAR})
+    dispatch(openQuickView(handle))
   }
     
   return (

@@ -98,7 +98,8 @@ function* watchDeleteCartSaga() {
     yield takeLatest(CartActions.DELETE_CART, deleteCartSaga)
 }
 
-function* openCartSaga() {
+function* openCartSaga(action: {type: string, cartId?: string}) {
+    if (action.cartId) yield put(fetchCart(action.cartId))
     yield put(openSidebar())
     yield put(setSidebarContent("cart")) 
 }

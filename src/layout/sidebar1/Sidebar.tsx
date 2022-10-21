@@ -8,7 +8,7 @@ import { RootState } from '../../redux/store'
 import { AppActions } from '../../store/actions/actions'
 import { CartActions } from '../../store/actions/cartActions'
 import MiniCart from '../header/minicart1/MiniCart'
-import ProductQuickView from '../product-quickview/ProductQuickView'
+import ProductQuickView from '../product-quickview1/ProductQuickView'
 import "./Sidebar.css"
 
 const Sidebar = forwardRef<HTMLDivElement, {}>((props, ref) => {

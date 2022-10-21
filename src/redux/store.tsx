@@ -6,13 +6,15 @@ import sidebarReducer from "./sidebar/reducer"
 import createSagaMiddleware from "redux-saga"
 import cartReducer from "./cart/reducer"
 import rootSaga from "./rootSaga"
+import quickViewReducer from "./quickview/reducer"
 
 const sagaMiddleware = createSagaMiddleware()
 
 const rootReducer = combineReducers({
     user: userReducer,
     sidebar: sidebarReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    quickView: quickViewReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>

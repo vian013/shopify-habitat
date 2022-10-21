@@ -25,16 +25,18 @@ function LineItem({imgUrl ,title, options, price, quantity, variantId, cost, car
     const dispatch = useDispatch()
     
     const handleDecrease = () => {
+        setLoading(true)
         dispatch(updateCart({cartId, lineId, variantId, newQuantity: quantity-1}))
     }
     
     const handleIncrease = () => {
+        setLoading(true)
         dispatch(updateCart({cartId, lineId, variantId, newQuantity: quantity+1}))
     }
     
     const handleDelete = () => {
-        dispatch(deleteCart({cartId, lineId}))
         setLoading(true)
+        dispatch(deleteCart({cartId, lineId}))
     }
     
   return (

@@ -30,7 +30,7 @@ function MiniCart() {
     } 
   }
     
-  if(loading) return <h1>Loading...</h1>
+  if(loading && !cart) return <h1>Loading...</h1>
   return !cart || cart.totalQuantity===0 ? 
     (
       <EmptyCart />

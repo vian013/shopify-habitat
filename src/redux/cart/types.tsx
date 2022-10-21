@@ -25,6 +25,12 @@ export enum CartActions {
     CLOSE_CART = "CLOSE_CART",
 }
 
+
+export type Action = {
+    type: string,
+    payload: any
+}
+
 export type CartState = {
     loading: boolean,
     error: string,
