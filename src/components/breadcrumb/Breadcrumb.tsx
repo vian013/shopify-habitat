@@ -1,13 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Dispatch } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import "./Breadcrumb.css"
 
-function Breadcrumb({tag}: {tag?: string}) {
+type Props = {
+  tag?: string
+  setTag?: Dispatch<string>
+}
+
+function Breadcrumb({tag, setTag}: Props) {
+  const history = useHistory()
+  
+  const handleClick = () => {
+    if(setTag) setTag("all")
+    history.push("/blogs")
+  }
+  
   return (
     <div className='breadcrumb'>
         <Link to={"/"}>Home</Link>
         <span>{"/"}</span>
-        <Link to={"/blogs"}>News</Link>
+        <span onClick={handleClick}>News</span>
         {tag && tag!=="all" && (
             <>
                 <span>{"/"}</span>

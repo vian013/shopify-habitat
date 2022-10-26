@@ -18,20 +18,20 @@ function Blogs() {
   }, [])
 
   useEffect(()=>{
-    if (tag!=="all" && tag!==undefined) history.push(`/blogs/tagged/${tag}`)
+    if (tag!=="all" && tag!==undefined) history.push(`/blogs/news/tagged/${tag}`)
     else history.push("/blogs")
   }, [tag])
 
   return (
     <div id='blogs-page'>
-      <Breadcrumb tag={handle}/>
+      <Breadcrumb tag={handle} setTag={setTag}/>
       <header>
         <h1 className="page-title">{messages.pages.blogs.title}</h1>
         <p className='date'>{date}</p>
       </header>
       <div className="articles-container">
         <div className="select-wrapper">
-          <select defaultValue={handle} onChange={(e) => setTag(e.target.value)}>
+          <select defaultValue={tag} value={tag} onChange={(e) => setTag(e.target.value)}>
             <option value="all">All</option>
             <option value="chairs">Chairs</option>
             <option value="cushion">Cushion</option>

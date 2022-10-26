@@ -26,7 +26,7 @@ function Cart() {
   return (
     <li className='cart-icon'>
         <NavIcon {...cartIcon} handleClick={handleClick}/>
-        <QuantityBadge></QuantityBadge>
+        <QuantityBadge></QuantityBadge> 
     </li>
   )
 }
