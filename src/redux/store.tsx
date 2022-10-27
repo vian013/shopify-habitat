@@ -7,8 +7,16 @@ import createSagaMiddleware from "redux-saga"
 import cartReducer from "./cart/reducer"
 import rootSaga from "./rootSaga"
 import quickViewReducer from "./quickview/reducer"
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
 const sagaMiddleware = createSagaMiddleware()
+
+const persistConfig = {
+    key: 'root',
+    storage,
+    blacklist: ["sidebar", "quickView"]
+}
 
 const rootReducer = combineReducers({
     user: userReducer,
@@ -17,9 +25,13 @@ const rootReducer = combineReducers({
     quickView: quickViewReducer
 })
 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 export type RootState = ReturnType<typeof rootReducer>
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, sagaMiddleware)))
+const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk, sagaMiddleware)))
+
+export const persistor = persistStore(store)
 
 sagaMiddleware.run(rootSaga)
 
