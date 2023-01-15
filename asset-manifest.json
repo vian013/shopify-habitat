@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shopify-habitat/static/css/main.5226f43b.css",
-    "main.js": "/shopify-habitat/static/js/main.4dfcf54e.js",
+    "main.js": "/shopify-habitat/static/js/main.99d82993.js",
     "static/css/291.9cf31d8c.chunk.css": "/shopify-habitat/static/css/291.9cf31d8c.chunk.css",
     "static/js/291.b3ab5b97.chunk.js": "/shopify-habitat/static/js/291.b3ab5b97.chunk.js",
     "static/css/474.440f545e.chunk.css": "/shopify-habitat/static/css/474.440f545e.chunk.css",
@@ -35,7 +35,7 @@
     "static/media/Nimbus-Sans-D-OT-Light_32752.ttf": "/shopify-habitat/static/media/Nimbus-Sans-D-OT-Light_32752.72eb4e0cff09cfd6483f.ttf",
     "index.html": "/shopify-habitat/index.html",
     "main.5226f43b.css.map": "/shopify-habitat/static/css/main.5226f43b.css.map",
-    "main.4dfcf54e.js.map": "/shopify-habitat/static/js/main.4dfcf54e.js.map",
+    "main.99d82993.js.map": "/shopify-habitat/static/js/main.99d82993.js.map",
     "291.9cf31d8c.chunk.css.map": "/shopify-habitat/static/css/291.9cf31d8c.chunk.css.map",
     "291.b3ab5b97.chunk.js.map": "/shopify-habitat/static/js/291.b3ab5b97.chunk.js.map",
     "474.440f545e.chunk.css.map": "/shopify-habitat/static/css/474.440f545e.chunk.css.map",
@@ -67,6 +67,6 @@
   },
   "entrypoints": [
     "static/css/main.5226f43b.css",
-    "static/js/main.4dfcf54e.js"
+    "static/js/main.99d82993.js"
   ]
 }
