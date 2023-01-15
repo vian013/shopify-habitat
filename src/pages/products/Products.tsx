@@ -26,11 +26,7 @@ function Products() {
     const {minPrice, maxPrice, color, size} = filterState
 
     useEffect(() => {
-        filterDispatch({type: FilterActions.SET_COLOR, payload: ""})
-        filterDispatch({type: FilterActions.SET_SIZE, payload: ""})
-        filterDispatch({type: FilterActions.SET_MIN_PRICE, payload: 0})
-        filterDispatch({type: FilterActions.SET_MAX_PRICE, payload: 1000})
-        fetchData({all: true})
+        fetchAllVariants()
     }, [])
 
     const timeRef = useRef<NodeJS.Timeout|null>(null)
@@ -45,7 +41,7 @@ function Products() {
             clearTimeout(timeRef.current)
           }
           timeRef.current = setTimeout(() => {
-            if (typeof minPrice === "number" && typeof maxPrice === "number" && (minPrice < maxPrice)) fetchData({all: false})
+            if (typeof minPrice === "number" && typeof maxPrice === "number" && (minPrice < maxPrice)) fetchData()
           }, 1000);
 
     }, [minPrice, maxPrice])
@@ -56,11 +52,11 @@ function Products() {
             return
         }
 
-        if (typeof minPrice === "number" && typeof maxPrice === "number" && (minPrice < maxPrice)) fetchData({all: false})
+        if (typeof minPrice === "number" && typeof maxPrice === "number" && (minPrice < maxPrice)) fetchData()
     }, [color, size])
 
-    const fetchData = async ({all}: {all: boolean}) => {
-        let url: string = `${BASE_URL}/product-variants?minPrice=${minPrice}&maxPrice=${maxPrice}${all===true?`&all=true`:""}${color&&`&color=${color}`}${size&&`&size=${size}`}`
+    const fetchData = async () => {
+        let url: string = `${BASE_URL}/product-variants?minPrice=${minPrice}&maxPrice=${maxPrice}${color&&`&color=${color}`}${size&&`&size=${size}`}`
 
         const res = await fetch(url)
         const data: {products: any, colors: Options, sizes: Options} = await res.json()
@@ -69,7 +65,17 @@ function Products() {
         if (products && products.length > 0) setProducts(products)
         if (Object.keys(colors).length > 0) setColors(colors)
         if (Object.keys(sizes).length > 0) setSizes(sizes)
-      }
+    }
+
+    const fetchAllVariants = async() => {
+        const res = await fetch(`${BASE_URL}/product-variants/all`)
+        const data = await res.json()
+        const {products, colors, sizes} = data
+
+        if (products && products.length > 0) setProducts(products)
+        if (Object.keys(colors).length > 0) setColors(colors)
+        if (Object.keys(sizes).length > 0) setSizes(sizes)
+    }
     
   return products.length === 0 ? <h1>"Loading..."</h1> : (
     <div className='products-page'>

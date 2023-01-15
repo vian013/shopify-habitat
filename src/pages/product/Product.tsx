@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { ProductType } from '../../type/product'
 import styles from "./Product.module.css"
 import "./Product.css"
-import ProductContent from '../../components/product-content/ProductContent'
+import ProductContent from '../../components/product-content1/ProductContent'
 import { BASE_URL } from '../../App'
 
 function Product() {
@@ -40,7 +40,7 @@ function Product() {
         <div className={styles["detail-images"]}>
           {images.map(({ url }, index) => (
             <div className={styles["img-wrapper"]} key={index}>
-              <img className="lazyload" src={url} alt={`${title}-image-${index + 1}`} />
+              <img src={url} alt={`${title}-image-${index + 1}`} />
             </div>
           ))}
         </div>

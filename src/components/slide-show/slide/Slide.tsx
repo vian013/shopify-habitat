@@ -6,12 +6,14 @@ function Slide({imgSrc, imgAlt, subTitle, title, btnLink}: {imgSrc: string, imgA
   return (
     <div className='slide'>
         <div className="slide-wrapper">
+          <div className="img-wrapper">
             <img className='background-img' src={imgSrc} alt={imgAlt}/>
-            <div className="content-wrapper">
-                <h3 className='sub-title'>{subTitle}</h3>
-                <h1 className='title'>{title}</h1>
-                <a href={btnLink} className='slide-btn'>{messages.btn.shopBtn}</a>
-            </div>
+          </div>
+          <div className="content-wrapper">
+              <h3 className='sub-title'>{subTitle}</h3>
+              <h1 className='title'>{title}</h1>
+              <a href={btnLink} className='slide-btn'>{messages.btn.shopBtn}</a>
+          </div>
         </div>
     </div>
   )

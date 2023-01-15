@@ -15,7 +15,7 @@ function BackgroundImageText({imgUrl, imgAlt, title, subtitle}: Props) {
             <img src={imgUrl} alt={imgAlt} />
         </div>
         <div className="content-wrapper">
-            <h1 className="title">{title}</h1>
+            <h1 className="page-title">{title}</h1>
             <p className='subtitle'>{subtitle}</p>
         </div>
     </div>

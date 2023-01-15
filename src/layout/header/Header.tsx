@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useEffect, useRef, useState } from 'react'
 import Nav from '../nav/Nav'
 import SearchPanel from '../search-panel/SearchPanel'
-import Sidebar from '../sidebar/Sidebar'
+import Sidebar from '../sidebar1/Sidebar'
 import AnnouncementBar from './announcement-bar/AnnouncementBar'
 import { announcementTitle } from './announcement-bar/announment'
 import "./Header.css"
@@ -93,7 +93,7 @@ function Header() {
     <header id='header'>
       <ShopProvider value={{isShopOpen, openShopPanel, closeShopPanel}}>
         <AnnouncementBar title={announcementTitle}/>
-        <Nav toggleSearch={toggleSearch} openCart={openCart} />
+        <Nav toggleSearch={toggleSearch}/>
         <SearchPanel ref={panelRef1} closeSearch={closeSearch}/>
         <ShopPanel ref={shopRef}/>
         <Sidebar />

@@ -1,0 +1,39 @@
+.sidebar-container {
+    position: relative;
+    z-index: 12;
+}
+
+.overlay {
+    background: rgb(91, 87, 87);
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+    z-index: 15;
+}
+
+.overlay.open{
+    display: block;
+}
+
+.sidebar-wrapper {
+    width: 570px;
+    background: var(--color-white);
+    position: fixed;
+    top: 0;
+    right: -570px;
+    bottom: 0;
+    z-index: 20;
+    transition: all .25s cubic-bezier(.104,.204,.492,1);
+    padding: 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.sidebar-wrapper.open{
+    right: 0;
+}

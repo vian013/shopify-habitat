@@ -122,6 +122,13 @@ export default {
                 },
             ]
         },
+        account: {
+            title: "My account",
+            orderHistory: "Order history",
+            noOrder: "You haven't placed any orders yet.",
+            accountDetails: "Account details",
+            logout: "Log out"
+        },
         login: {
             title: "Login",
             subtitle: "If you have an account with us, please log in.",

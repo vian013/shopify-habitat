@@ -13,8 +13,8 @@ function FAQ() {
             <p className='subtitle'>{subtitle}</p>
 
             <div className="questions-wrapper">
-                {questions.map((question) => (
-                    <Question {...question}/>
+                {questions.map((question, index) => (
+                    <Question {...question} key={index}/>
                 ))}
             </div>
 

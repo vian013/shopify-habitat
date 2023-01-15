@@ -2,7 +2,7 @@ import React, { forwardRef, useContext, useEffect, useState } from 'react'
 import { AppContext, CartContext } from '../../App'
 import { AppActions } from '../../store/actions/actions'
 import { CartActions } from '../../store/actions/cartActions'
-import MiniCart from '../header/minicart/MiniCart'
+import MiniCart from '../header/minicart1/MiniCart'
 import ProductQuickView from '../product-quickview/ProductQuickView'
 import "./Sidebar.css"
 
