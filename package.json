@@ -1,6 +1,6 @@
 {
   "name": "shopify",
-  "homepage": "https://vian013.github.io/shopify-habitat",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
